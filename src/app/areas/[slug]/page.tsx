@@ -1,11 +1,13 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import { MapPin, Phone, Star, ArrowRight, ShieldCheck, UserCheck, Home, Building2, CheckCircle, Wrench } from 'lucide-react'
 import { neighborhoods, getNeighborhoodBySlug } from '@/data/neighborhoods'
 import { companies } from '@/data/companies'
 import { services } from '@/data/services'
 import FAQSection from '@/components/shared/FAQSection'
+import { stockImages } from '@/data/stock-images'
 
 interface Props {
   params: Promise<{ slug: string }>
@@ -92,8 +94,17 @@ export default async function AreaPage({ params }: Props) {
   return (
     <>
       {/* Hero Section */}
-      <section className="bg-primary text-white py-12 md:py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative text-white py-12 md:py-20 overflow-hidden">
+        <Image
+          src={stockImages.areaNeighborhood.src}
+          alt={stockImages.areaNeighborhood.alt}
+          fill
+          className="object-cover"
+          priority
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#1E3A5F]/90 to-[#1E3A5F]/70" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <div className="flex items-center gap-2 mb-4">
               <Link href="/areas" className="text-white/70 hover:text-white text-sm">
@@ -332,14 +343,12 @@ export default async function AreaPage({ params }: Props) {
             >
               Browse Companies
             </Link>
-            <a
-              href="https://instantroofestimate.ai"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/estimate"
               className="px-8 py-4 bg-secondary text-white font-bold rounded-lg hover:bg-red-600 transition"
             >
               Get Instant Estimate
-            </a>
+            </Link>
           </div>
         </div>
       </section>

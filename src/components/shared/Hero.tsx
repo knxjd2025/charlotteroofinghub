@@ -1,10 +1,21 @@
 import { Search, Building2, Home as HomeIcon, DollarSign, ArrowRight, ShieldCheck, UserCheck } from 'lucide-react'
+import Image from 'next/image'
 import Link from 'next/link'
+import { stockImages } from '@/data/stock-images'
 
 export default function Hero() {
   return (
-    <section className="hero-gradient text-white py-16 md:py-24 lg:py-32">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative text-white py-16 md:py-24 lg:py-32 overflow-hidden">
+      <Image
+        src={stockImages.heroBackground.src}
+        alt={stockImages.heroBackground.alt}
+        fill
+        className="object-cover"
+        priority
+        sizes="100vw"
+      />
+      <div className="absolute inset-0 bg-gradient-to-br from-[#1E3A5F]/90 to-[#1E3A5F]/70" />
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-4xl mx-auto">
           {/* Badge */}
           <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
@@ -105,15 +116,13 @@ export default function Hero() {
 
           {/* Instant Estimate CTA */}
           <div className="mt-10">
-            <a
-              href="https://instantroofestimate.ai"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/estimate"
               className="inline-flex items-center gap-2 px-8 py-4 bg-secondary text-white font-bold rounded-full hover:bg-red-600 transition text-lg cta-pulse"
             >
               Get an Instant Roof Estimate
               <ArrowRight className="w-5 h-5" />
-            </a>
+            </Link>
             <p className="text-sm text-white/70 mt-3">Free estimate in under 60 seconds</p>
           </div>
         </div>

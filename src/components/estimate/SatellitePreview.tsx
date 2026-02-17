@@ -1,0 +1,110 @@
+'use client';
+
+import { useState } from 'react';
+import Image from 'next/image';
+import { CheckCircle, XCircle, RefreshCw, MapPin } from 'lucide-react';
+
+interface SatellitePreviewProps {
+  lat: number;
+  lng: number;
+  address: string;
+  onConfirm: () => void;
+  onReject: () => void;
+}
+
+export function SatellitePreview({
+  lat,
+  lng,
+  address,
+  onConfirm,
+  onReject,
+}: SatellitePreviewProps) {
+  const [imageError, setImageError] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+
+  const imageUrl = `/api/static-map?lat=${lat}&lng=${lng}`;
+
+  if (imageError) {
+    return (
+      <div className="bg-white rounded-2xl shadow-lg p-6 md:p-8">
+        <div className="text-center">
+          <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <MapPin className="w-8 h-8 text-gray-400" />
+          </div>
+          <h3 className="text-lg font-semibold text-gray-900 mb-2">
+            Satellite Preview Unavailable
+          </h3>
+          <p className="text-gray-600 text-sm mb-4">
+            We couldn&apos;t load the satellite image, but don&apos;t worry - we can still calculate your estimate.
+          </p>
+          <p className="text-gray-500 text-xs mb-6">
+            Address: {address}
+          </p>
+          <button
+            onClick={onConfirm}
+            className="w-full bg-primary hover:bg-primary-light text-white font-semibold py-3 px-6 rounded-xl transition-colors"
+          >
+            Continue with This Address
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+      <div className="p-4 md:p-6 border-b border-gray-100">
+        <h3 className="text-lg font-semibold text-gray-900 mb-1">
+          Is this your property?
+        </h3>
+        <p className="text-sm text-gray-600">
+          Please confirm this is the correct location before we calculate your estimate.
+        </p>
+      </div>
+
+      <div className="relative aspect-[3/2] bg-gray-100">
+        {isLoading && (
+          <div className="absolute inset-0 flex items-center justify-center">
+            <RefreshCw className="w-8 h-8 text-gray-400 animate-spin" />
+          </div>
+        )}
+        <Image
+          src={imageUrl}
+          alt={`Satellite view of ${address}`}
+          fill
+          className={`object-cover transition-opacity ${isLoading ? 'opacity-0' : 'opacity-100'}`}
+          onLoad={() => setIsLoading(false)}
+          onError={() => {
+            setImageError(true);
+            setIsLoading(false);
+          }}
+          unoptimized
+        />
+
+        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+          <div className="flex items-center gap-2 text-white">
+            <MapPin className="w-4 h-4 flex-shrink-0" />
+            <span className="text-sm font-medium truncate">{address}</span>
+          </div>
+        </div>
+      </div>
+
+      <div className="p-4 md:p-6 space-y-3">
+        <button
+          onClick={onConfirm}
+          className="w-full flex items-center justify-center gap-2 bg-success hover:bg-emerald-600 text-white font-semibold py-3 px-6 rounded-xl transition-colors"
+        >
+          <CheckCircle className="w-5 h-5" />
+          Yes, This is My Property
+        </button>
+        <button
+          onClick={onReject}
+          className="w-full flex items-center justify-center gap-2 bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold py-3 px-6 rounded-xl transition-colors"
+        >
+          <XCircle className="w-5 h-5" />
+          No, Try a Different Address
+        </button>
+      </div>
+    </div>
+  );
+}

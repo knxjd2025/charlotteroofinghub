@@ -454,7 +454,6 @@ export default function RootLayout({
 
         {/* DNS Prefetch for External Resources */}
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
-        <link rel="dns-prefetch" href="https://instantroofestimate.ai" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}

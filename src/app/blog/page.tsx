@@ -1,7 +1,9 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import { FileText, ArrowRight, Calendar, Clock } from 'lucide-react'
 import InstantEstimateCTA from '@/components/layout/InstantEstimateCTA'
+import { stockImages } from '@/data/stock-images'
 
 export const metadata: Metadata = {
   title: 'Roofing Blog | Tips & Guides for Charlotte Homeowners',
@@ -144,8 +146,14 @@ export default function BlogPage() {
               {/* Featured Post */}
               {featuredPost && (
                 <article className="bg-white rounded-xl overflow-hidden shadow-sm">
-                  <div className="aspect-video bg-gradient-to-br from-primary to-primary-light flex items-center justify-center">
-                    <FileText className="w-16 h-16 text-white/50" />
+                  <div className="relative aspect-video">
+                    <Image
+                      src={stockImages.blogFeatured.src}
+                      alt={stockImages.blogFeatured.alt}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 1024px) 100vw, 800px"
+                    />
                   </div>
                   <div className="p-6">
                     <div className="flex items-center gap-4 mb-3">

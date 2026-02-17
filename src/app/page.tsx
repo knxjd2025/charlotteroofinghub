@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { Building2, ArrowRight, Home as HomeIcon, Warehouse, DollarSign, FileText, Star, ShieldCheck, UserCheck, MapPin, Wrench, AlertTriangle, CloudLightning } from 'lucide-react'
 import Hero from '@/components/shared/Hero'
 import CompanyCard from '@/components/companies/CompanyCard'
@@ -7,6 +8,7 @@ import InstantEstimateCTA from '@/components/layout/InstantEstimateCTA'
 import { companies, getRegularCompanies } from '@/data/companies'
 import { getFeaturedServices } from '@/data/services'
 import { getFeaturedNeighborhoods } from '@/data/neighborhoods'
+import { stockImages } from '@/data/stock-images'
 
 // Homepage FAQs - Voice Search Optimized with Verification Messaging
 const homepageFAQs = [
@@ -116,6 +118,16 @@ export default function HomePage() {
             <p className="text-gray-600 max-w-2xl mx-auto">
               From emergency repairs to complete replacements, our verified contractors handle every roofing need.
             </p>
+          </div>
+
+          <div className="relative w-full h-48 md:h-64 rounded-xl overflow-hidden mb-10">
+            <Image
+              src={stockImages.homeServices.src}
+              alt={stockImages.homeServices.alt}
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 1280px"
+            />
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -319,14 +331,12 @@ export default function HomePage() {
           <p className="text-white/90 mb-8 max-w-2xl mx-auto">
             Get an instant, accurate roof estimate for your Charlotte home — free and in under 60 seconds.
           </p>
-          <a
-            href="https://instantroofestimate.ai"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/estimate"
             className="inline-block px-8 py-4 bg-secondary text-white font-bold rounded-lg hover:bg-red-600 transition text-lg"
           >
             Get Instant Roof Estimate
-          </a>
+          </Link>
         </div>
       </section>
     </>

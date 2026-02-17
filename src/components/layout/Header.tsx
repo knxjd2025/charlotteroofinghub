@@ -13,6 +13,7 @@ const navigation = [
     name: 'Resources',
     icon: FileText,
     children: [
+      { name: 'Roofing Guide (Free Book)', href: '/roofing-guide' },
       { name: 'Residential Roofing', href: '/residential' },
       { name: 'Commercial Roofing', href: '/commercial' },
       { name: 'Materials & Pricing', href: '/materials' },
@@ -31,15 +32,13 @@ export default function Header() {
     <header className="sticky top-0 z-50 bg-white shadow-md">
       {/* Top CTA Bar - InstantRoofEstimate */}
       <div className="bg-secondary text-white py-2 px-4 text-center">
-        <a
-          href="https://instantroofestimate.ai"
-          target="_blank"
-          rel="noopener noreferrer"
+        <Link
+          href="/estimate"
           className="text-sm md:text-base font-semibold hover:underline inline-flex items-center gap-2"
         >
           Get an Instant Roof Estimate Now - Free & Fast!
           <span className="hidden sm:inline">→</span>
-        </a>
+        </Link>
       </div>
 
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -96,14 +95,12 @@ export default function Header() {
 
           {/* Desktop CTA */}
           <div className="hidden lg:flex lg:items-center lg:gap-3">
-            <a
-              href="https://instantroofestimate.ai"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/estimate"
               className="px-4 py-2 text-sm font-medium text-white bg-secondary rounded-lg hover:bg-red-600 transition cta-pulse"
             >
               Free Estimate
-            </a>
+            </Link>
           </div>
 
           {/* Mobile menu button */}
@@ -155,14 +152,13 @@ export default function Header() {
               ))}
             </div>
             <div className="mt-4 pt-4 border-t space-y-2">
-              <a
-                href="https://instantroofestimate.ai"
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                href="/estimate"
                 className="block w-full text-center px-4 py-3 text-sm font-medium text-white bg-secondary rounded-lg"
+                onClick={() => setMobileMenuOpen(false)}
               >
                 Get Free Estimate
-              </a>
+              </Link>
             </div>
           </div>
         )}

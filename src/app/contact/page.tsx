@@ -1,7 +1,10 @@
 'use client'
 
 import { useState } from 'react'
+import Link from 'next/link'
+import Image from 'next/image'
 import { Mail, Phone, MapPin, Send, CheckCircle } from 'lucide-react'
+import { stockImages } from '@/data/stock-images'
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false)
@@ -14,8 +17,17 @@ export default function ContactPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="bg-primary text-white py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative text-white py-12 overflow-hidden">
+        <Image
+          src={stockImages.contactCharlotte.src}
+          alt={stockImages.contactCharlotte.alt}
+          fill
+          className="object-cover"
+          priority
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#1E3A5F]/90 to-[#1E3A5F]/75" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <h1 className="text-3xl md:text-4xl font-bold mb-4">Contact Us</h1>
             <p className="text-lg text-white/90">
@@ -76,14 +88,12 @@ export default function ContactPage() {
                 <p className="text-sm text-white/90 mb-4">
                   Get an instant, AI-powered estimate for your roof in under 60 seconds.
                 </p>
-                <a
-                  href="https://instantroofestimate.ai"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  href="/estimate"
                   className="inline-block w-full text-center py-3 bg-white text-secondary font-bold rounded-lg hover:bg-gray-100 transition"
                 >
                   Get Instant Estimate
-                </a>
+                </Link>
               </div>
             </div>
 

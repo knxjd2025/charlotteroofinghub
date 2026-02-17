@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import Link from 'next/link'
 import { X, Calculator } from 'lucide-react'
 
 interface InstantEstimateCTAProps {
@@ -36,14 +37,12 @@ export default function InstantEstimateCTA({ variant = 'inline' }: InstantEstima
         <p className="text-sm text-white/90 mb-4">
           Get an instant, AI-powered estimate for your Charlotte roof. No phone calls, no waiting.
         </p>
-        <a
-          href="https://instantroofestimate.ai"
-          target="_blank"
-          rel="noopener noreferrer"
+        <Link
+          href="/estimate"
           className="block w-full text-center py-3 bg-white text-secondary font-bold rounded-lg hover:bg-gray-100 transition"
         >
           Get Instant Estimate
-        </a>
+        </Link>
         <p className="text-xs text-white/70 mt-3 text-center">
           Trusted by 1,000+ Charlotte homeowners
         </p>
@@ -65,14 +64,12 @@ export default function InstantEstimateCTA({ variant = 'inline' }: InstantEstima
               <p className="text-white/90 text-sm">Get an instant quote in under 60 seconds</p>
             </div>
           </div>
-          <a
-            href="https://instantroofestimate.ai"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/estimate"
             className="px-6 py-3 bg-secondary text-white font-bold rounded-lg hover:bg-red-600 transition whitespace-nowrap cta-pulse"
           >
             Get Free Estimate
-          </a>
+          </Link>
         </div>
       </div>
     )
@@ -82,15 +79,13 @@ export default function InstantEstimateCTA({ variant = 'inline' }: InstantEstima
   if (variant === 'banner') {
     return (
       <div className="fixed bottom-0 left-0 right-0 bg-secondary text-white py-3 px-4 shadow-lg z-40 lg:hidden">
-        <a
-          href="https://instantroofestimate.ai"
-          target="_blank"
-          rel="noopener noreferrer"
+        <Link
+          href="/estimate"
           className="flex items-center justify-center gap-2 font-semibold"
         >
           <Calculator className="w-5 h-5" />
           Get Instant Roof Estimate - Free!
-        </a>
+        </Link>
       </div>
     )
   }
@@ -120,14 +115,12 @@ export default function InstantEstimateCTA({ variant = 'inline' }: InstantEstima
             <p className="text-gray-600 mb-6">
               Before you go, find out how much a new roof costs for your Charlotte home. It only takes 60 seconds!
             </p>
-            <a
-              href="https://instantroofestimate.ai"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block w-full py-4 bg-secondary text-white font-bold rounded-lg hover:bg-red-600 transition text-lg"
+            <Link
+              href="/estimate"
+              className="block w-full py-4 bg-secondary text-white font-bold rounded-lg hover:bg-red-600 transition text-lg text-center"
             >
               Get My Free Estimate
-            </a>
+            </Link>
             <button
               onClick={() => {
                 setShowPopup(false)

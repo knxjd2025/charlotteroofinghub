@@ -1,11 +1,13 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import { Phone, Star, ArrowRight, ShieldCheck, CheckCircle, Clock, DollarSign, AlertTriangle, MapPin } from 'lucide-react'
 import { services, getServiceBySlug } from '@/data/services'
 import { companies } from '@/data/companies'
 import { getFeaturedNeighborhoods } from '@/data/neighborhoods'
 import FAQSection from '@/components/shared/FAQSection'
+import { stockImages } from '@/data/stock-images'
 
 interface Props {
   params: Promise<{ slug: string }>
@@ -56,8 +58,17 @@ export default async function ServicePage({ params }: Props) {
   return (
     <>
       {/* Hero Section */}
-      <section className={`${service.category === 'emergency' ? 'bg-red-700' : 'bg-primary'} text-white py-12 md:py-20`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative text-white py-12 md:py-20 overflow-hidden">
+        <Image
+          src={stockImages.serviceStormDamage.src}
+          alt={stockImages.serviceStormDamage.alt}
+          fill
+          className="object-cover"
+          priority
+          sizes="100vw"
+        />
+        <div className={`absolute inset-0 ${service.category === 'emergency' ? 'bg-gradient-to-r from-red-900/90 to-red-800/70' : 'bg-gradient-to-r from-[#1E3A5F]/90 to-[#1E3A5F]/70'}`} />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <div className="flex items-center gap-2 mb-4">
               <Link href="/services" className="text-white/70 hover:text-white text-sm">
@@ -315,14 +326,12 @@ export default async function ServicePage({ params }: Props) {
             >
               Find a Contractor
             </Link>
-            <a
-              href="https://instantroofestimate.ai"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/estimate"
               className="px-8 py-4 bg-secondary text-white font-bold rounded-lg hover:bg-red-600 transition"
             >
               Get Instant Estimate
-            </a>
+            </Link>
           </div>
         </div>
       </section>

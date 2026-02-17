@@ -22,6 +22,7 @@ const footerLinks = {
     { name: 'Matthews', href: '/areas/matthews' },
   ],
   resources: [
+    { name: 'Roofing Guide (Free Book)', href: '/roofing-guide' },
     { name: 'Residential Roofing', href: '/residential' },
     { name: 'Commercial Roofing', href: '/commercial' },
     { name: 'Materials & Pricing', href: '/materials' },
@@ -49,14 +50,12 @@ export default function Footer() {
           <p className="text-white/90 mb-6">
             Use our AI-powered tool to get an instant, accurate roof estimate for your Charlotte home.
           </p>
-          <a
-            href="https://instantroofestimate.ai"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/estimate"
             className="inline-block px-8 py-4 bg-white text-secondary font-bold rounded-lg hover:bg-gray-100 transition text-lg"
           >
             Get Your Free Instant Estimate
-          </a>
+          </Link>
         </div>
       </div>
 

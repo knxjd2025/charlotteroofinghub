@@ -1,8 +1,10 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import { Building2, Search, Filter, MapPin } from 'lucide-react'
 import CompanyCard from '@/components/companies/CompanyCard'
 import InstantEstimateCTA from '@/components/layout/InstantEstimateCTA'
 import { companies, getAllCompanies } from '@/data/companies'
+import { stockImages } from '@/data/stock-images'
 
 export const metadata: Metadata = {
   title: 'Top Roofing Companies in Charlotte NC | 4.8+ Star Rated',
@@ -68,8 +70,17 @@ export default function CompaniesPage() {
       <CompanyListSchema />
 
       {/* Hero Section */}
-      <section className="bg-primary text-white py-12 md:py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative text-white py-12 md:py-16 overflow-hidden">
+        <Image
+          src={stockImages.companiesHero.src}
+          alt={stockImages.companiesHero.alt}
+          fill
+          className="object-cover"
+          priority
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#1E3A5F]/95 to-[#1E3A5F]/75" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <div className="flex items-center gap-2 mb-4">
               <Building2 className="w-6 h-6" />

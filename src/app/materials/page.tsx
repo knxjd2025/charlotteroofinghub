@@ -1,8 +1,10 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import { DollarSign, ArrowRight, CheckCircle, AlertCircle, Clock, Shield, ThermometerSun } from 'lucide-react'
 import FAQSection from '@/components/shared/FAQSection'
 import InstantEstimateCTA from '@/components/layout/InstantEstimateCTA'
+import { stockImages } from '@/data/stock-images'
 
 export const metadata: Metadata = {
   title: 'Roofing Materials & Prices in Charlotte NC | Cost Guide 2025',
@@ -129,8 +131,17 @@ export default function MaterialsPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="bg-primary text-white py-12 md:py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative text-white py-12 md:py-20 overflow-hidden">
+        <Image
+          src={stockImages.materialsShingles.src}
+          alt={stockImages.materialsShingles.alt}
+          fill
+          className="object-cover"
+          priority
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#1E3A5F]/90 to-[#1E3A5F]/70" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <div className="flex items-center gap-2 mb-4">
               <DollarSign className="w-6 h-6" />
@@ -143,15 +154,13 @@ export default function MaterialsPage() {
               Compare roofing materials, costs, lifespans, and find the best option for your Charlotte property.
               Updated pricing for 2025.
             </p>
-            <a
-              href="https://instantroofestimate.ai"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/estimate"
               className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-secondary text-white font-semibold rounded-lg hover:bg-red-600 transition"
             >
               Get Your Instant Estimate
               <ArrowRight className="w-5 h-5" />
-            </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -249,6 +258,21 @@ export default function MaterialsPage() {
       <section className="py-12 bg-white">
         <div className="max-w-4xl mx-auto px-4">
           <InstantEstimateCTA variant="inline" />
+        </div>
+      </section>
+
+      {/* Roof Materials Image */}
+      <section className="bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12">
+          <div className="relative w-full h-40 md:h-56 rounded-xl overflow-hidden">
+            <Image
+              src={stockImages.materialsTiles.src}
+              alt={stockImages.materialsTiles.alt}
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 1280px"
+            />
+          </div>
         </div>
       </section>
 
@@ -380,14 +404,12 @@ export default function MaterialsPage() {
             Use our instant estimator or connect with Charlotte&apos;s top-rated roofers for detailed quotes.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="https://instantroofestimate.ai"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/estimate"
               className="px-8 py-4 bg-secondary text-white font-bold rounded-lg hover:bg-red-600 transition"
             >
               Get Instant Estimate
-            </a>
+            </Link>
             <Link
               href="/companies"
               className="px-8 py-4 bg-white text-primary font-bold rounded-lg hover:bg-gray-100 transition"

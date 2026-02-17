@@ -1,8 +1,10 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import { Building2, CheckCircle, ArrowRight, Shield, Warehouse, Clock, DollarSign } from 'lucide-react'
 import FAQSection from '@/components/shared/FAQSection'
 import InstantEstimateCTA from '@/components/layout/InstantEstimateCTA'
+import { stockImages } from '@/data/stock-images'
 
 export const metadata: Metadata = {
   title: 'Commercial Roofing in Charlotte NC | Flat Roof & TPO Experts',
@@ -54,8 +56,17 @@ export default function CommercialPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="bg-primary text-white py-12 md:py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative text-white py-12 md:py-20 overflow-hidden">
+        <Image
+          src={stockImages.commercialHero.src}
+          alt={stockImages.commercialHero.alt}
+          fill
+          className="object-cover"
+          priority
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#1E3A5F]/90 to-[#1E3A5F]/70" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <div className="flex items-center gap-2 mb-4">
               <Warehouse className="w-6 h-6" />
@@ -68,15 +79,13 @@ export default function CommercialPage() {
               Expert commercial roofing services for Charlotte businesses. TPO, EPDM, flat roof repair,
               and preventive maintenance from licensed commercial contractors.
             </p>
-            <a
-              href="https://instantroofestimate.ai"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/estimate"
               className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-secondary text-white font-semibold rounded-lg hover:bg-red-600 transition"
             >
               Get Instant Roof Estimate
               <ArrowRight className="w-5 h-5" />
-            </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -105,6 +114,21 @@ export default function CommercialPage() {
               <h3 className="font-bold mb-2">Competitive Pricing</h3>
               <p className="text-sm text-gray-600">Get quotes from multiple contractors</p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Charlotte Commercial Image */}
+      <section className="bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12">
+          <div className="relative w-full h-48 md:h-72 rounded-xl overflow-hidden">
+            <Image
+              src={stockImages.commercialBuilding.src}
+              alt={stockImages.commercialBuilding.alt}
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 1280px"
+            />
           </div>
         </div>
       </section>
@@ -257,15 +281,13 @@ export default function CommercialPage() {
           <p className="text-white/90 mb-8">
             Connect with Charlotte&apos;s experienced commercial roofing contractors.
           </p>
-          <a
-            href="https://instantroofestimate.ai"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/estimate"
             className="inline-flex items-center gap-2 px-8 py-4 bg-white text-primary font-bold rounded-lg hover:bg-gray-100 transition"
           >
             Get Instant Roof Estimate
             <ArrowRight className="w-5 h-5" />
-          </a>
+          </Link>
         </div>
       </section>
     </>

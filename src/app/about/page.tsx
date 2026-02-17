@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import { Building2, Star, Target, Shield, ArrowRight, FileText, UserCheck, ShieldCheck, CheckCircle, Users } from 'lucide-react'
+import { stockImages } from '@/data/stock-images'
 
 export const metadata: Metadata = {
   title: 'About Charlotte Roofing Hub | Roofing Education by Local Roofers',
@@ -25,8 +27,17 @@ export default function AboutPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="bg-primary text-white py-12 md:py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative text-white py-12 md:py-20 overflow-hidden">
+        <Image
+          src={stockImages.aboutCharlotte.src}
+          alt={stockImages.aboutCharlotte.alt}
+          fill
+          className="object-cover"
+          priority
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#1E3A5F]/90 to-[#1E3A5F]/70" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
             <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
               <Building2 className="w-4 h-4 text-accent" />
@@ -260,15 +271,13 @@ export default function AboutPage() {
           <p className="text-gray-600 max-w-2xl mx-auto mb-8">
             Get an instant, accurate roof estimate for your Charlotte home — free and in under 60 seconds.
           </p>
-          <a
-            href="https://instantroofestimate.ai"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/estimate"
             className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-secondary text-white font-semibold rounded-lg hover:bg-red-600 transition text-lg"
           >
             Get Instant Roof Estimate
             <ArrowRight className="w-5 h-5" />
-          </a>
+          </Link>
         </div>
       </section>
 
@@ -300,14 +309,12 @@ export default function AboutPage() {
                 Get an instant roof estimate or browse our educational resources to learn
                 about roofing materials, costs, and what to expect.
               </p>
-              <a
-                href="https://instantroofestimate.ai"
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                href="/estimate"
                 className="inline-block px-4 py-2 bg-secondary text-white font-medium rounded-lg hover:bg-red-600 transition text-sm"
               >
                 Get Free Estimate
-              </a>
+              </Link>
             </div>
           </div>
         </div>

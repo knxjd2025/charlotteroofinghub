@@ -304,3 +304,65 @@ html {
   border-radius: 0.5rem;
   background: rgba(30, 58, 95, 0.03);
 }
+
+/* ==========================================
+   ROOFING GUIDE BOOK — Prose Styles
+   ========================================== */
+
+.prose-simple {
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: #374151;
+}
+
+.prose-simple p {
+  margin-bottom: 1.15rem;
+}
+
+.prose-simple h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #111827;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.prose-simple h4 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #111827;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.prose-simple ul,
+.prose-simple ol {
+  margin-bottom: 1.15rem;
+  padding-left: 1.5rem;
+}
+
+.prose-simple ul {
+  list-style-type: disc;
+}
+
+.prose-simple ol {
+  list-style-type: decimal;
+}
+
+.prose-simple li {
+  margin-bottom: 0.5rem;
+}
+
+.prose-simple strong {
+  color: #111827;
+}
+
+.prose-simple a {
+  color: var(--primary);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.prose-simple a:hover {
+  text-decoration: underline;
+}

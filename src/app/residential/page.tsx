@@ -1,8 +1,10 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import { Home, CheckCircle, ArrowRight, Shield, Clock, DollarSign, Award } from 'lucide-react'
 import FAQSection from '@/components/shared/FAQSection'
 import InstantEstimateCTA from '@/components/layout/InstantEstimateCTA'
+import { stockImages } from '@/data/stock-images'
 
 export const metadata: Metadata = {
   title: 'Residential Roofing in Charlotte NC | Home Roof Services',
@@ -54,8 +56,17 @@ export default function ResidentialPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="bg-primary text-white py-12 md:py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative text-white py-12 md:py-20 overflow-hidden">
+        <Image
+          src={stockImages.residentialHero.src}
+          alt={stockImages.residentialHero.alt}
+          fill
+          className="object-cover"
+          priority
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#1E3A5F]/90 to-[#1E3A5F]/70" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <div className="flex items-center gap-2 mb-4">
               <Home className="w-6 h-6" />
@@ -68,15 +79,13 @@ export default function ResidentialPage() {
               Your complete guide to home roofing services in Charlotte. From repairs to full replacements,
               learn what to expect and find trusted contractors with 4.8+ star ratings.
             </p>
-            <a
-              href="https://instantroofestimate.ai"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/estimate"
               className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-secondary text-white font-semibold rounded-lg hover:bg-red-600 transition"
             >
               Get Instant Roof Estimate
               <ArrowRight className="w-5 h-5" />
-            </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -105,6 +114,21 @@ export default function ResidentialPage() {
               <h3 className="font-bold mb-2">Free Estimates</h3>
               <p className="text-sm text-gray-600">No-obligation quotes from top roofers</p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Neighborhood Image */}
+      <section className="bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12">
+          <div className="relative w-full h-48 md:h-72 rounded-xl overflow-hidden">
+            <Image
+              src={stockImages.residentialNeighborhood.src}
+              alt={stockImages.residentialNeighborhood.alt}
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 1280px"
+            />
           </div>
         </div>
       </section>
@@ -228,15 +252,13 @@ export default function ResidentialPage() {
           <p className="text-white/90 mb-8">
             Connect with Charlotte&apos;s top-rated residential roofing contractors today.
           </p>
-          <a
-            href="https://instantroofestimate.ai"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/estimate"
             className="inline-flex items-center gap-2 px-8 py-4 bg-white text-primary font-bold rounded-lg hover:bg-gray-100 transition"
           >
             Get Instant Roof Estimate
             <ArrowRight className="w-5 h-5" />
-          </a>
+          </Link>
         </div>
       </section>
     </>

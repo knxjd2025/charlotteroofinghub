@@ -1,11 +1,13 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import { Phone, Globe, MapPin, Mail, Star, CheckCircle, ArrowLeft, ExternalLink, Building2, Clock, Shield, ArrowRight } from 'lucide-react'
 import StarRating from '@/components/shared/StarRating'
 import InstantEstimateCTA from '@/components/layout/InstantEstimateCTA'
 import CompanyCard from '@/components/companies/CompanyCard'
 import { companies, getCompanyBySlug, getAllCompanies } from '@/data/companies'
+import { stockImages } from '@/data/stock-images'
 
 interface PageProps {
   params: Promise<{ slug: string }>
@@ -187,19 +189,32 @@ export default async function CompanyDetailPage({ params }: PageProps) {
               </p>
 
               {/* Get Estimate CTA */}
-              <a
-                href="https://instantroofestimate.ai"
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                href="/estimate"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-secondary text-white font-semibold rounded-lg hover:bg-red-600 transition"
               >
                 Get Instant Roof Estimate
                 <ArrowRight className="w-5 h-5" />
-              </a>
+              </Link>
             </div>
           </div>
         </div>
       </section>
+
+      {/* Roofer Image */}
+      <div className="bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
+          <div className="relative w-full h-40 md:h-56 rounded-xl overflow-hidden">
+            <Image
+              src={stockImages.companyDetailRoofer.src}
+              alt={stockImages.companyDetailRoofer.alt}
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 1280px"
+            />
+          </div>
+        </div>
+      </div>
 
       {/* Services & Details */}
       <section className="py-12 bg-gray-50">
