@@ -133,14 +133,14 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <Link href="/services/roof-replacement" className="group p-6 bg-white rounded-xl hover:shadow-lg transition">
               <HomeIcon className="w-10 h-10 text-primary mb-4" />
-              <h3 className="font-bold text-lg mb-2 group-hover:text-primary">Roof Replacement</h3>
+              <h3 className="font-bold text-lg mb-2 text-gray-900 group-hover:text-primary">Roof Replacement</h3>
               <p className="text-gray-600 text-sm mb-2">Complete roof replacement services</p>
               <span className="text-sm text-gray-500">$8,000 - $25,000</span>
             </Link>
 
             <Link href="/services/roof-repair" className="group p-6 bg-white rounded-xl hover:shadow-lg transition">
               <Wrench className="w-10 h-10 text-primary mb-4" />
-              <h3 className="font-bold text-lg mb-2 group-hover:text-primary">Roof Repair</h3>
+              <h3 className="font-bold text-lg mb-2 text-gray-900 group-hover:text-primary">Roof Repair</h3>
               <p className="text-gray-600 text-sm mb-2">Fix leaks and storm damage</p>
               <span className="text-sm text-gray-500">$300 - $2,500</span>
             </Link>
@@ -154,7 +154,7 @@ export default function HomePage() {
 
             <Link href="/services/storm-damage-repair" className="group p-6 bg-white rounded-xl hover:shadow-lg transition">
               <CloudLightning className="w-10 h-10 text-primary mb-4" />
-              <h3 className="font-bold text-lg mb-2 group-hover:text-primary">Storm Damage</h3>
+              <h3 className="font-bold text-lg mb-2 text-gray-900 group-hover:text-primary">Storm Damage</h3>
               <p className="text-gray-600 text-sm mb-2">Hail, wind & storm repair</p>
               <span className="text-sm text-gray-500">Insurance Claims Help</span>
             </Link>
@@ -192,7 +192,7 @@ export default function HomePage() {
                 className="group p-4 bg-gray-50 rounded-xl hover:bg-primary hover:text-white transition text-center"
               >
                 <MapPin className="w-6 h-6 text-primary group-hover:text-white mx-auto mb-2" />
-                <h3 className="font-semibold text-sm group-hover:text-white">{area.name}</h3>
+                <h3 className="font-semibold text-sm text-gray-900 group-hover:text-white">{area.name}</h3>
                 <p className="text-xs text-gray-500 group-hover:text-white/70 mt-1">ZIP: {area.zipCodes[0]}</p>
               </Link>
             ))}
@@ -225,7 +225,7 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <Link href="/residential" className="group p-6 bg-white rounded-xl hover:bg-primary hover:text-white transition">
               <HomeIcon className="w-10 h-10 text-primary group-hover:text-white mb-4" />
-              <h3 className="font-bold text-lg mb-2 group-hover:text-white">Residential Roofing</h3>
+              <h3 className="font-bold text-lg mb-2 text-gray-900 group-hover:text-white">Residential Roofing</h3>
               <p className="text-gray-600 group-hover:text-white/80 text-sm">
                 Guide to home roofing services, materials, and what to expect
               </p>
@@ -233,7 +233,7 @@ export default function HomePage() {
 
             <Link href="/commercial" className="group p-6 bg-white rounded-xl hover:bg-primary hover:text-white transition">
               <Warehouse className="w-10 h-10 text-primary group-hover:text-white mb-4" />
-              <h3 className="font-bold text-lg mb-2 group-hover:text-white">Commercial Roofing</h3>
+              <h3 className="font-bold text-lg mb-2 text-gray-900 group-hover:text-white">Commercial Roofing</h3>
               <p className="text-gray-600 group-hover:text-white/80 text-sm">
                 TPO, EPDM, and flat roofing solutions for businesses
               </p>
@@ -241,7 +241,7 @@ export default function HomePage() {
 
             <Link href="/materials" className="group p-6 bg-white rounded-xl hover:bg-primary hover:text-white transition">
               <DollarSign className="w-10 h-10 text-primary group-hover:text-white mb-4" />
-              <h3 className="font-bold text-lg mb-2 group-hover:text-white">Materials & Pricing</h3>
+              <h3 className="font-bold text-lg mb-2 text-gray-900 group-hover:text-white">Materials & Pricing</h3>
               <p className="text-gray-600 group-hover:text-white/80 text-sm">
                 Compare roofing materials and average costs in Charlotte
               </p>
@@ -249,7 +249,7 @@ export default function HomePage() {
 
             <Link href="/blog" className="group p-6 bg-white rounded-xl hover:bg-primary hover:text-white transition">
               <FileText className="w-10 h-10 text-primary group-hover:text-white mb-4" />
-              <h3 className="font-bold text-lg mb-2 group-hover:text-white">Roofing Blog</h3>
+              <h3 className="font-bold text-lg mb-2 text-gray-900 group-hover:text-white">Roofing Blog</h3>
               <p className="text-gray-600 group-hover:text-white/80 text-sm">
                 Tips, guides, and news about roofing in Charlotte
               </p>
@@ -275,7 +275,7 @@ export default function HomePage() {
               <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <UserCheck className="w-8 h-8 text-green-600" />
               </div>
-              <h3 className="font-bold text-lg mb-2">Face-to-Face Verified</h3>
+              <h3 className="font-bold text-lg mb-2 text-gray-900">Face-to-Face Verified</h3>
               <p className="text-gray-600 text-sm">
                 We personally meet every roofing company owner. No exceptions. We want to know who we&apos;re recommending to our neighbors.
               </p>
@@ -285,7 +285,7 @@ export default function HomePage() {
               <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <ShieldCheck className="w-8 h-8 text-blue-600" />
               </div>
-              <h3 className="font-bold text-lg mb-2">Background Checked</h3>
+              <h3 className="font-bold text-lg mb-2 text-gray-900">Background Checked</h3>
               <p className="text-gray-600 text-sm">
                 Every company undergoes thorough background checks. We verify licensing, insurance, and business history before listing.
               </p>
@@ -295,7 +295,7 @@ export default function HomePage() {
               <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Star className="w-8 h-8 text-yellow-600" />
               </div>
-              <h3 className="font-bold text-lg mb-2">4.8+ Stars Required</h3>
+              <h3 className="font-bold text-lg mb-2 text-gray-900">4.8+ Stars Required</h3>
               <p className="text-gray-600 text-sm">
                 Only companies with verified 4.8+ star Google ratings make our list. We check reviews for authenticity.
               </p>
@@ -305,7 +305,7 @@ export default function HomePage() {
               <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Building2 className="w-8 h-8 text-primary" />
               </div>
-              <h3 className="font-bold text-lg mb-2">Founded by a Local Roofer</h3>
+              <h3 className="font-bold text-lg mb-2 text-gray-900">Founded by a Local Roofer</h3>
               <p className="text-gray-600 text-sm">
                 Founded by Best Roofing Now and supported by five local contributor companies committed to homeowner education. All companies meet the same listing standards.
               </p>

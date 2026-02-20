@@ -257,7 +257,7 @@ export default async function ServicePage({ params }: Props) {
                 className="group p-4 bg-white rounded-lg hover:bg-primary hover:text-white transition text-center"
               >
                 <MapPin className="w-5 h-5 text-primary group-hover:text-white mx-auto mb-2" />
-                <h3 className="font-semibold text-sm group-hover:text-white">{area.name}</h3>
+                <h3 className="font-semibold text-sm text-gray-900 group-hover:text-white">{area.name}</h3>
               </Link>
             ))}
           </div>

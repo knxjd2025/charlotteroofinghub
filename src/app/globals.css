@@ -30,8 +30,9 @@ body {
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
 }
 
-/* Mobile-first smooth scrolling */
+/* Force light color scheme — prevents browser dark mode overrides */
 html {
+  color-scheme: light;
   scroll-behavior: smooth;
 }
 
@@ -264,12 +265,22 @@ html {
   }
 }
 
-/* Dark mode support (for future) */
+/* Force light mode — site does not support dark mode yet */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #1a1a2e;
-    --foreground: #ffffff;
+    --background: #ffffff;
+    --foreground: #1a1a2e;
   }
+}
+
+/* Ensure all form inputs always have dark readable text on white backgrounds */
+input, select, textarea {
+  color: #1a1a2e;
+  background-color: #ffffff;
+}
+
+input::placeholder, textarea::placeholder {
+  color: #9ca3af;
 }
 
 /* Print styles for better conversion tracking */

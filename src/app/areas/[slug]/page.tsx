@@ -191,24 +191,24 @@ export default async function AreaPage({ params }: Props) {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
-              <h3 className="font-bold text-lg mb-4">Common Roofing Materials</h3>
+              <h3 className="font-bold text-lg mb-4 text-gray-900">Common Roofing Materials</h3>
               <ul className="space-y-3">
                 {area.commonRoofTypes.map((type) => (
                   <li key={type} className="flex items-center gap-3">
                     <CheckCircle className="w-5 h-5 text-green-500" />
-                    <span>{type}</span>
+                    <span className="text-gray-800">{type}</span>
                   </li>
                 ))}
               </ul>
             </div>
 
             <div>
-              <h3 className="font-bold text-lg mb-4">Local Roofing Considerations</h3>
+              <h3 className="font-bold text-lg mb-4 text-gray-900">Local Roofing Considerations</h3>
               <ul className="space-y-3">
                 {area.challenges.map((challenge) => (
                   <li key={challenge} className="flex items-center gap-3">
                     <MapPin className="w-5 h-5 text-primary" />
-                    <span>{challenge}</span>
+                    <span className="text-gray-800">{challenge}</span>
                   </li>
                 ))}
               </ul>
@@ -232,7 +232,7 @@ export default async function AreaPage({ params }: Props) {
                 className="group p-4 bg-gray-50 rounded-lg hover:bg-primary hover:text-white transition"
               >
                 <Wrench className="w-6 h-6 text-primary group-hover:text-white mb-2" />
-                <h3 className="font-semibold text-sm group-hover:text-white">{service.name}</h3>
+                <h3 className="font-semibold text-sm text-gray-900 group-hover:text-white">{service.name}</h3>
                 <p className="text-xs text-gray-500 group-hover:text-white/70 mt-1">{service.priceRange}</p>
               </Link>
             ))}

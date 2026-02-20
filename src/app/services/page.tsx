@@ -293,7 +293,7 @@ export default function ServicesPage() {
               <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <ShieldCheck className="w-8 h-8 text-green-600" />
               </div>
-              <h3 className="font-bold text-lg mb-2">Background Checked</h3>
+              <h3 className="font-bold text-lg mb-2 text-gray-900">Background Checked</h3>
               <p className="text-gray-600 text-sm">
                 Every contractor passes our thorough background screening process.
               </p>
@@ -303,7 +303,7 @@ export default function ServicesPage() {
               <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Star className="w-8 h-8 text-yellow-600" />
               </div>
-              <h3 className="font-bold text-lg mb-2">4.8+ Star Ratings</h3>
+              <h3 className="font-bold text-lg mb-2 text-gray-900">4.8+ Star Ratings</h3>
               <p className="text-gray-600 text-sm">
                 Only contractors with verified excellent reviews make our list.
               </p>
@@ -313,7 +313,7 @@ export default function ServicesPage() {
               <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <DollarSign className="w-8 h-8 text-blue-600" />
               </div>
-              <h3 className="font-bold text-lg mb-2">Fair Pricing</h3>
+              <h3 className="font-bold text-lg mb-2 text-gray-900">Fair Pricing</h3>
               <p className="text-gray-600 text-sm">
                 Our contractors provide honest, competitive pricing with no surprises.
               </p>
