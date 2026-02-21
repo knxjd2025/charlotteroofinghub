@@ -36,9 +36,10 @@ export async function POST(request: NextRequest) {
 
     const apiKey = process.env.GOOGLE_API_KEY;
     if (!apiKey) {
+      console.error('GOOGLE_API_KEY not set — add it to .env.local (see .env.example)');
       return NextResponse.json(
-        { error: 'Google API key not configured' },
-        { status: 500 }
+        { error: 'Roof analysis service is not configured. Please contact support.' },
+        { status: 503 }
       );
     }
 
