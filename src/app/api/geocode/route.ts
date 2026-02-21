@@ -4,7 +4,8 @@ import { checkRateLimit, getClientIP, RATE_LIMITS } from '@/lib/rate-limit';
 async function geocodeAddress(address: string) {
   const apiKey = process.env.GOOGLE_API_KEY;
   if (!apiKey) {
-    return { error: 'Google API key not configured', status: 500 };
+    console.error('GOOGLE_API_KEY not set — add it to .env.local (see .env.example)');
+    return { error: 'Geocoding service is not configured. Please contact support.', status: 503 };
   }
 
   const geocodeUrl = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(address)}&key=${apiKey}`;
