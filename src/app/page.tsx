@@ -1,13 +1,12 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { Building2, ArrowRight, Home as HomeIcon, Warehouse, DollarSign, FileText, Star, ShieldCheck, UserCheck, MapPin, Wrench, AlertTriangle, CloudLightning } from 'lucide-react'
+import { Building2, ArrowRight, Home as HomeIcon, Warehouse, DollarSign, FileText, Star, ShieldCheck, UserCheck, MapPin, Wrench, AlertTriangle, CloudLightning, BookOpen, HelpCircle, ClipboardList, Heart } from 'lucide-react'
 import Hero from '@/components/shared/Hero'
 import CompanyCard from '@/components/companies/CompanyCard'
 import FAQSection from '@/components/shared/FAQSection'
-import InstantEstimateCTA from '@/components/layout/InstantEstimateCTA'
 import { companies, getRegularCompanies } from '@/data/companies'
-import { getFeaturedServices } from '@/data/services'
 import { getFeaturedNeighborhoods } from '@/data/neighborhoods'
+import { blogPosts } from '@/data/blog-posts'
 import { stockImages } from '@/data/stock-images'
 
 // Homepage FAQs - Voice Search Optimized with Verification Messaging
@@ -26,7 +25,7 @@ const homepageFAQs = [
   },
   {
     question: "How much does a new roof cost in Charlotte NC?",
-    answer: "The average cost for a new roof in Charlotte ranges from $8,000 to $25,000 for residential homes, depending on size, materials, and complexity. Asphalt shingles cost $3.50-$7.00 per square foot, while metal roofing ranges from $7-$14 per square foot. Get an instant estimate at InstantRoofEstimate.ai for a more accurate price."
+    answer: "The average cost for a new roof in Charlotte ranges from $8,000 to $25,000 for residential homes, depending on size, materials, and complexity. Asphalt shingles cost $3.50-$7.00 per square foot, while metal roofing ranges from $7-$14 per square foot. Visit our materials and pricing page for detailed cost comparisons."
   },
   {
     question: "Why should I trust Charlotte Roofing Hub over other directories?",
@@ -38,18 +37,18 @@ const homepageFAQs = [
   }
 ]
 
-// Stats for the hub
+// Stats — education-focused
 const stats = [
-  { label: 'Top-Rated Companies', value: '25+', icon: Building2 },
-  { label: 'Average Rating', value: '4.9', icon: Star },
-  { label: 'Cities Served', value: '15+', icon: HomeIcon },
-  { label: 'Years Combined Exp.', value: '200+', icon: FileText },
+  { label: 'Free Guides & Tools', value: '10+', icon: BookOpen },
+  { label: 'Verified Companies', value: '25+', icon: Building2 },
+  { label: 'Cities Covered', value: '15+', icon: MapPin },
+  { label: 'Years Combined Exp.', value: '200+', icon: Star },
 ]
 
 export default function HomePage() {
   const topCompanies = getRegularCompanies().slice(0, 6)
-  const featuredServices = getFeaturedServices().slice(0, 4)
   const featuredAreas = getFeaturedNeighborhoods().slice(0, 6)
+  const featuredBlogPosts = blogPosts.filter(p => p.featured).slice(0, 3)
 
   return (
     <>
@@ -71,12 +70,185 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Top Roofing Companies Section */}
+      {/* Educational Resources — Position 2 (was position 7) */}
       <section className="py-12 md:py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
-              Personally Verified Roofing Companies
+              Free Roofing Resources & Tools
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Everything you need to make informed roofing decisions — guides, quizzes, cost data, and community resources, all free.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <Link href="/roofing-guide" className="group p-6 bg-white rounded-xl hover:shadow-lg transition border">
+              <BookOpen className="w-10 h-10 text-primary mb-4" />
+              <h3 className="font-bold text-lg mb-2 text-gray-900 group-hover:text-primary">Free Roofing Guide</h3>
+              <p className="text-gray-600 text-sm">
+                Our comprehensive 18-chapter guide covers everything from materials to contractor selection. Download it free.
+              </p>
+            </Link>
+
+            <Link href="/repair-or-replace" className="group p-6 bg-white rounded-xl hover:shadow-lg transition border">
+              <HelpCircle className="w-10 h-10 text-primary mb-4" />
+              <h3 className="font-bold text-lg mb-2 text-gray-900 group-hover:text-primary">Repair or Replace Quiz</h3>
+              <p className="text-gray-600 text-sm">
+                Answer 6 questions about your roof and get a personalized recommendation with estimated costs. Takes 60 seconds.
+              </p>
+            </Link>
+
+            <Link href="/hoa-roof-approval" className="group p-6 bg-white rounded-xl hover:shadow-lg transition border">
+              <ClipboardList className="w-10 h-10 text-primary mb-4" />
+              <h3 className="font-bold text-lg mb-2 text-gray-900 group-hover:text-primary">HOA Approval Guide</h3>
+              <p className="text-gray-600 text-sm">
+                Navigate the HOA approval process with our step-by-step guide and free request letter template.
+              </p>
+            </Link>
+
+            <Link href="/materials" className="group p-6 bg-white rounded-xl hover:shadow-lg transition border">
+              <DollarSign className="w-10 h-10 text-primary mb-4" />
+              <h3 className="font-bold text-lg mb-2 text-gray-900 group-hover:text-primary">Materials & Pricing</h3>
+              <p className="text-gray-600 text-sm">
+                Compare roofing materials side-by-side with Charlotte-specific pricing data and lifespan estimates.
+              </p>
+            </Link>
+
+            <Link href="/community-resources" className="group p-6 bg-white rounded-xl hover:shadow-lg transition border">
+              <Heart className="w-10 h-10 text-primary mb-4" />
+              <h3 className="font-bold text-lg mb-2 text-gray-900 group-hover:text-primary">Community Resources</h3>
+              <p className="text-gray-600 text-sm">
+                Financial assistance programs, emergency contacts, and contractor verification tools for Charlotte homeowners.
+              </p>
+            </Link>
+
+            <Link href="/blog" className="group p-6 bg-white rounded-xl hover:shadow-lg transition border">
+              <FileText className="w-10 h-10 text-primary mb-4" />
+              <h3 className="font-bold text-lg mb-2 text-gray-900 group-hover:text-primary">Roofing Blog</h3>
+              <p className="text-gray-600 text-sm">
+                Expert articles on Charlotte roofing costs, storm damage, contractor selection, and seasonal maintenance.
+              </p>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Blog Posts — Position 3 (new) */}
+      <section className="py-12 md:py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+              Latest Roofing Articles
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Expert-reviewed articles written by local Charlotte roofers
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {featuredBlogPosts.map((post) => (
+              <Link
+                key={post.slug}
+                href={`/blog/${post.slug}`}
+                className="group bg-gray-50 rounded-xl overflow-hidden hover:shadow-lg transition"
+              >
+                <div className="relative h-48">
+                  <Image
+                    src={post.image}
+                    alt={post.title}
+                    fill
+                    className="object-cover group-hover:scale-105 transition duration-300"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
+                </div>
+                <div className="p-5">
+                  <span className="text-xs font-medium text-primary uppercase tracking-wide">{post.category}</span>
+                  <h3 className="font-bold text-gray-900 mt-1 mb-2 group-hover:text-primary transition">{post.title}</h3>
+                  <p className="text-gray-600 text-sm line-clamp-2">{post.excerpt}</p>
+                  <div className="mt-3 flex items-center justify-between text-xs text-gray-500">
+                    <span>{post.readTime}</span>
+                    <span>{post.date}</span>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+
+          <div className="text-center mt-10">
+            <Link
+              href="/blog"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-white font-semibold rounded-lg hover:bg-primary-light transition"
+            >
+              View All Articles
+              <ArrowRight className="w-5 h-5" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Trust Charlotte Roofing Hub — Position 4 (was position 8) */}
+      <section className="py-12 md:py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+              Why Trust Charlotte Roofing Hub?
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Created by Charlotte roofing companies to help homeowners make informed decisions about their roofs.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="text-center p-6 bg-white rounded-xl">
+              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <UserCheck className="w-8 h-8 text-green-600" />
+              </div>
+              <h3 className="font-bold text-lg mb-2 text-gray-900">Face-to-Face Verified</h3>
+              <p className="text-gray-600 text-sm">
+                We personally meet every roofing company owner. No exceptions. We want to know who we&apos;re recommending to our neighbors.
+              </p>
+            </div>
+
+            <div className="text-center p-6 bg-white rounded-xl">
+              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <ShieldCheck className="w-8 h-8 text-blue-600" />
+              </div>
+              <h3 className="font-bold text-lg mb-2 text-gray-900">Background Checked</h3>
+              <p className="text-gray-600 text-sm">
+                Every company undergoes thorough background checks. We verify licensing, insurance, and business history before listing.
+              </p>
+            </div>
+
+            <div className="text-center p-6 bg-white rounded-xl">
+              <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Star className="w-8 h-8 text-yellow-600" />
+              </div>
+              <h3 className="font-bold text-lg mb-2 text-gray-900">4.8+ Stars Required</h3>
+              <p className="text-gray-600 text-sm">
+                Only companies with verified 4.8+ star Google ratings make our list. We check reviews for authenticity.
+              </p>
+            </div>
+
+            <div className="text-center p-6 bg-white rounded-xl">
+              <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Building2 className="w-8 h-8 text-primary" />
+              </div>
+              <h3 className="font-bold text-lg mb-2 text-gray-900">Founded by a Local Roofer</h3>
+              <p className="text-gray-600 text-sm">
+                Founded by Best Roofing Now and supported by five local contributor companies committed to homeowner education.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Verified Companies — Position 5 (was position 3) */}
+      <section className="py-12 md:py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+              Find a Verified Roofer in Charlotte
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
               Every company below has been personally verified through owner meetings and background checks. All have 4.8+ star ratings.
@@ -84,8 +256,8 @@ export default function HomePage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {topCompanies.map((company, index) => (
-              <CompanyCard key={company.id} company={company} rank={index + 1} />
+            {topCompanies.map((company) => (
+              <CompanyCard key={company.id} company={company} />
             ))}
           </div>
 
@@ -101,62 +273,41 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Instant Estimate CTA */}
-      <section className="py-12 bg-white">
-        <div className="max-w-4xl mx-auto px-4">
-          <InstantEstimateCTA variant="inline" />
-        </div>
-      </section>
-
-      {/* Popular Services Section */}
+      {/* Roofing Services — Position 6 (was position 4), no prices */}
       <section className="py-12 md:py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
-              Roofing Services in Charlotte NC
+              Learn About Roofing Services
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              From emergency repairs to complete replacements, our verified contractors handle every roofing need.
+              Understand the different types of roofing services available in Charlotte
             </p>
-          </div>
-
-          <div className="relative w-full h-48 md:h-64 rounded-xl overflow-hidden mb-10">
-            <Image
-              src={stockImages.homeServices.src}
-              alt={stockImages.homeServices.alt}
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 100vw, 1280px"
-            />
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <Link href="/services/roof-replacement" className="group p-6 bg-white rounded-xl hover:shadow-lg transition">
               <HomeIcon className="w-10 h-10 text-primary mb-4" />
               <h3 className="font-bold text-lg mb-2 text-gray-900 group-hover:text-primary">Roof Replacement</h3>
-              <p className="text-gray-600 text-sm mb-2">Complete roof replacement services</p>
-              <span className="text-sm text-gray-500">$8,000 - $25,000</span>
+              <p className="text-gray-600 text-sm">Complete tear-off and installation with new materials</p>
             </Link>
 
             <Link href="/services/roof-repair" className="group p-6 bg-white rounded-xl hover:shadow-lg transition">
               <Wrench className="w-10 h-10 text-primary mb-4" />
               <h3 className="font-bold text-lg mb-2 text-gray-900 group-hover:text-primary">Roof Repair</h3>
-              <p className="text-gray-600 text-sm mb-2">Fix leaks and storm damage</p>
-              <span className="text-sm text-gray-500">$300 - $2,500</span>
+              <p className="text-gray-600 text-sm">Fix leaks, missing shingles, and localized damage</p>
             </Link>
 
-            <Link href="/services/emergency-roof-repair" className="group p-6 bg-red-50 rounded-xl hover:shadow-lg transition border-2 border-red-200">
-              <AlertTriangle className="w-10 h-10 text-red-600 mb-4" />
-              <h3 className="font-bold text-lg mb-2 text-red-700 group-hover:text-red-800">Emergency Repair</h3>
-              <p className="text-gray-600 text-sm mb-2">24/7 emergency response</p>
-              <span className="text-sm text-red-600 font-semibold">Available Now</span>
+            <Link href="/services/emergency-roof-repair" className="group p-6 bg-white rounded-xl hover:shadow-lg transition">
+              <AlertTriangle className="w-10 h-10 text-primary mb-4" />
+              <h3 className="font-bold text-lg mb-2 text-gray-900 group-hover:text-primary">Emergency Repair</h3>
+              <p className="text-gray-600 text-sm">24/7 emergency response for active leaks and storm damage</p>
             </Link>
 
             <Link href="/services/storm-damage-repair" className="group p-6 bg-white rounded-xl hover:shadow-lg transition">
               <CloudLightning className="w-10 h-10 text-primary mb-4" />
               <h3 className="font-bold text-lg mb-2 text-gray-900 group-hover:text-primary">Storm Damage</h3>
-              <p className="text-gray-600 text-sm mb-2">Hail, wind & storm repair</p>
-              <span className="text-sm text-gray-500">Insurance Claims Help</span>
+              <p className="text-gray-600 text-sm">Hail, wind, and storm repair with insurance guidance</p>
             </Link>
           </div>
 
@@ -177,10 +328,10 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
-              Charlotte Neighborhoods We Serve
+              Charlotte Neighborhoods We Cover
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Our verified contractors serve 40+ neighborhoods in the Charlotte metro area.
+              Roofing information and verified contractors for 40+ neighborhoods in the Charlotte metro area.
             </p>
           </div>
 
@@ -210,110 +361,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Resources Overview */}
-      <section className="py-12 md:py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10">
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
-              Roofing Resources & Guides
-            </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Your complete resource for residential and commercial roofing information
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <Link href="/residential" className="group p-6 bg-white rounded-xl hover:bg-primary hover:text-white transition">
-              <HomeIcon className="w-10 h-10 text-primary group-hover:text-white mb-4" />
-              <h3 className="font-bold text-lg mb-2 text-gray-900 group-hover:text-white">Residential Roofing</h3>
-              <p className="text-gray-600 group-hover:text-white/80 text-sm">
-                Guide to home roofing services, materials, and what to expect
-              </p>
-            </Link>
-
-            <Link href="/commercial" className="group p-6 bg-white rounded-xl hover:bg-primary hover:text-white transition">
-              <Warehouse className="w-10 h-10 text-primary group-hover:text-white mb-4" />
-              <h3 className="font-bold text-lg mb-2 text-gray-900 group-hover:text-white">Commercial Roofing</h3>
-              <p className="text-gray-600 group-hover:text-white/80 text-sm">
-                TPO, EPDM, and flat roofing solutions for businesses
-              </p>
-            </Link>
-
-            <Link href="/materials" className="group p-6 bg-white rounded-xl hover:bg-primary hover:text-white transition">
-              <DollarSign className="w-10 h-10 text-primary group-hover:text-white mb-4" />
-              <h3 className="font-bold text-lg mb-2 text-gray-900 group-hover:text-white">Materials & Pricing</h3>
-              <p className="text-gray-600 group-hover:text-white/80 text-sm">
-                Compare roofing materials and average costs in Charlotte
-              </p>
-            </Link>
-
-            <Link href="/blog" className="group p-6 bg-white rounded-xl hover:bg-primary hover:text-white transition">
-              <FileText className="w-10 h-10 text-primary group-hover:text-white mb-4" />
-              <h3 className="font-bold text-lg mb-2 text-gray-900 group-hover:text-white">Roofing Blog</h3>
-              <p className="text-gray-600 group-hover:text-white/80 text-sm">
-                Tips, guides, and news about roofing in Charlotte
-              </p>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Why Choose Charlotte Roofing Hub - Verification Focus */}
-      <section className="py-12 md:py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10">
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
-              Why Trust Charlotte Roofing Hub?
-            </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Created by Charlotte roofing companies to help homeowners make informed decisions about their roofs.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="text-center p-6 bg-gray-50 rounded-xl">
-              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <UserCheck className="w-8 h-8 text-green-600" />
-              </div>
-              <h3 className="font-bold text-lg mb-2 text-gray-900">Face-to-Face Verified</h3>
-              <p className="text-gray-600 text-sm">
-                We personally meet every roofing company owner. No exceptions. We want to know who we&apos;re recommending to our neighbors.
-              </p>
-            </div>
-
-            <div className="text-center p-6 bg-gray-50 rounded-xl">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <ShieldCheck className="w-8 h-8 text-blue-600" />
-              </div>
-              <h3 className="font-bold text-lg mb-2 text-gray-900">Background Checked</h3>
-              <p className="text-gray-600 text-sm">
-                Every company undergoes thorough background checks. We verify licensing, insurance, and business history before listing.
-              </p>
-            </div>
-
-            <div className="text-center p-6 bg-gray-50 rounded-xl">
-              <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Star className="w-8 h-8 text-yellow-600" />
-              </div>
-              <h3 className="font-bold text-lg mb-2 text-gray-900">4.8+ Stars Required</h3>
-              <p className="text-gray-600 text-sm">
-                Only companies with verified 4.8+ star Google ratings make our list. We check reviews for authenticity.
-              </p>
-            </div>
-
-            <div className="text-center p-6 bg-gray-50 rounded-xl">
-              <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Building2 className="w-8 h-8 text-primary" />
-              </div>
-              <h3 className="font-bold text-lg mb-2 text-gray-900">Founded by a Local Roofer</h3>
-              <p className="text-gray-600 text-sm">
-                Founded by Best Roofing Now and supported by five local contributor companies committed to homeowner education. All companies meet the same listing standards.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* FAQ Section */}
       <section className="bg-gray-50">
         <FAQSection
@@ -322,21 +369,29 @@ export default function HomePage() {
         />
       </section>
 
-      {/* Final CTA */}
+      {/* Soft CTA — Two options, no pulsing */}
       <section className="py-16 hero-gradient text-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-2xl md:text-3xl font-bold mb-4">
-            Need a Roof Estimate?
+            Ready to Take the Next Step?
           </h2>
           <p className="text-white/90 mb-8 max-w-2xl mx-auto">
-            Get an instant, accurate roof estimate for your Charlotte home — free and in under 60 seconds.
+            Whether you need a trusted contractor or want to understand your options, we&apos;re here to help.
           </p>
-          <Link
-            href="/estimate"
-            className="inline-block px-8 py-4 bg-secondary text-white font-bold rounded-lg hover:bg-red-600 transition text-lg"
-          >
-            Get Instant Roof Estimate
-          </Link>
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <Link
+              href="/companies"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-primary font-bold rounded-lg hover:bg-gray-100 transition text-lg"
+            >
+              Browse Verified Companies
+            </Link>
+            <Link
+              href="/estimate"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 text-white font-bold rounded-lg hover:bg-white/20 transition text-lg border border-white/30"
+            >
+              Get a Free Estimate
+            </Link>
+          </div>
         </div>
       </section>
     </>

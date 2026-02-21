@@ -2,6 +2,7 @@ import { MetadataRoute } from 'next'
 import { companies } from '@/data/companies'
 import { neighborhoods } from '@/data/neighborhoods'
 import { services } from '@/data/services'
+import { getAllBlogSlugs } from '@/data/blog-posts'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://charlotteroofinghub.com'
@@ -51,9 +52,39 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
+      url: `${baseUrl}/roofing-guide`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/repair-or-replace`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/hoa-roof-approval`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
       url: `${baseUrl}/blog`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/community-resources`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/estimate`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
       priority: 0.7,
     },
     {
@@ -67,6 +98,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/editorial-guidelines`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.5,
     },
   ]
 
@@ -94,5 +131,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: service.category === 'emergency' ? 0.9 : 0.85,
   }))
 
-  return [...staticPages, ...companyPages, ...areaPages, ...servicePages]
+  // Blog post pages
+  const blogPages: MetadataRoute.Sitemap = getAllBlogSlugs().map((slug) => ({
+    url: `${baseUrl}/blog/${slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+  }))
+
+  return [...staticPages, ...companyPages, ...areaPages, ...servicePages, ...blogPages]
 }

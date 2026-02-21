@@ -1,4 +1,4 @@
-import { Search, Building2, Home as HomeIcon, DollarSign, ArrowRight, ShieldCheck, UserCheck } from 'lucide-react'
+import { Search, BookOpen, HelpCircle, DollarSign, ArrowRight, ShieldCheck, UserCheck, Building2 } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { stockImages } from '@/data/stock-images'
@@ -20,33 +20,33 @@ export default function Hero() {
           {/* Badge */}
           <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
             <ShieldCheck className="w-4 h-4 text-green-400" />
-            <span className="text-sm font-medium">Community Roofing Education | Built by Charlotte Roofers</span>
+            <span className="text-sm font-medium">Free Roofing Education | Built by Charlotte Roofers</span>
           </div>
 
-          {/* Main Headline - Voice Search Optimized */}
+          {/* Main Headline */}
           <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-6 leading-tight">
-            Charlotte&apos;s Only <span className="text-accent">Locally-Verified</span> Roofing Directory
+            Your Complete Guide to <span className="text-accent">Roofing in Charlotte</span>
           </h1>
 
-          {/* Subheadline - Trust Messaging */}
+          {/* Subheadline */}
           <p className="hero-description text-lg md:text-xl text-white/90 mb-6 max-w-2xl mx-auto" data-speakable="true">
-            A free roofing education resource created by local Charlotte roofers
-            to help homeowners make informed decisions about their roofs.
+            Free guides, cost comparisons, and expert advice — created by local Charlotte roofers
+            to help homeowners make informed decisions.
           </p>
 
           {/* Trust Badges */}
           <div className="flex flex-wrap justify-center gap-4 mb-8">
             <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
               <UserCheck className="w-4 h-4 text-green-400" />
-              <span className="text-sm">Face-to-Face Verified</span>
+              <span className="text-sm">Expert-Reviewed Content</span>
             </div>
             <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
               <ShieldCheck className="w-4 h-4 text-green-400" />
-              <span className="text-sm">Background Checked</span>
+              <span className="text-sm">Charlotte-Specific Data</span>
             </div>
             <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
               <Building2 className="w-4 h-4 text-green-400" />
-              <span className="text-sm">Founded by a Local Roofer</span>
+              <span className="text-sm">Founded by Local Roofers</span>
             </div>
           </div>
 
@@ -57,44 +57,44 @@ export default function Hero() {
               <input
                 type="text"
                 name="search"
-                placeholder="Search roofing companies, services..."
+                placeholder="Search roofing topics, companies, services..."
                 className="w-full pl-12 pr-4 py-4 rounded-full text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-4 focus:ring-white/30 text-base"
               />
               <button
                 type="submit"
-                className="absolute right-2 top-1/2 -translate-y-1/2 px-6 py-2 bg-secondary text-white font-semibold rounded-full hover:bg-red-600 transition"
+                className="absolute right-2 top-1/2 -translate-y-1/2 px-6 py-2 bg-primary text-white font-semibold rounded-full hover:bg-primary-light transition"
               >
                 Search
               </button>
             </form>
           </div>
 
-          {/* Quick Action Cards */}
+          {/* Quick Action Cards — Educational */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto">
             <Link
-              href="/companies"
+              href="/roofing-guide"
               className="group flex items-center gap-3 bg-white/10 backdrop-blur-sm rounded-xl p-4 hover:bg-white/20 transition"
             >
               <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center">
-                <Building2 className="w-5 h-5" />
+                <BookOpen className="w-5 h-5" />
               </div>
               <div className="text-left">
-                <span className="block font-semibold">Find Companies</span>
-                <span className="text-sm text-white/70">25+ Top Roofers</span>
+                <span className="block font-semibold">Roofing Guide</span>
+                <span className="text-sm text-white/70">Free 18-Chapter Book</span>
               </div>
               <ArrowRight className="w-4 h-4 ml-auto opacity-0 group-hover:opacity-100 transition" />
             </Link>
 
             <Link
-              href="/residential"
+              href="/repair-or-replace"
               className="group flex items-center gap-3 bg-white/10 backdrop-blur-sm rounded-xl p-4 hover:bg-white/20 transition"
             >
               <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center">
-                <HomeIcon className="w-5 h-5" />
+                <HelpCircle className="w-5 h-5" />
               </div>
               <div className="text-left">
-                <span className="block font-semibold">Residential</span>
-                <span className="text-sm text-white/70">Home Roofing</span>
+                <span className="block font-semibold">Repair or Replace?</span>
+                <span className="text-sm text-white/70">Take the Free Quiz</span>
               </div>
               <ArrowRight className="w-4 h-4 ml-auto opacity-0 group-hover:opacity-100 transition" />
             </Link>
@@ -108,23 +108,19 @@ export default function Hero() {
               </div>
               <div className="text-left">
                 <span className="block font-semibold">Materials & Pricing</span>
-                <span className="text-sm text-white/70">Cost Guide</span>
+                <span className="text-sm text-white/70">Charlotte Cost Guide</span>
               </div>
               <ArrowRight className="w-4 h-4 ml-auto opacity-0 group-hover:opacity-100 transition" />
             </Link>
           </div>
 
-          {/* Instant Estimate CTA */}
-          <div className="mt-10">
-            <Link
-              href="/estimate"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-secondary text-white font-bold rounded-full hover:bg-red-600 transition text-lg cta-pulse"
-            >
-              Get an Instant Roof Estimate
-              <ArrowRight className="w-5 h-5" />
+          {/* Soft estimate link */}
+          <p className="mt-8 text-sm text-white/60">
+            Need an estimate?{' '}
+            <Link href="/estimate" className="text-white/80 underline hover:text-white transition">
+              Get a free instant estimate
             </Link>
-            <p className="text-sm text-white/70 mt-3">Free estimate in under 60 seconds</p>
-          </div>
+          </p>
         </div>
       </div>
     </section>
