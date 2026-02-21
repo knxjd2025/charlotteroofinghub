@@ -5,28 +5,28 @@
 export const stockImages = {
   // HOMEPAGE
   heroBackground: {
-    src: 'https://images.unsplash.com/photo-1578507065211-1c4e99a5fd24?w=1600&q=80',
-    alt: 'Charlotte North Carolina skyline at sunset with Uptown buildings',
-    credit: 'Unsplash',
+    src: 'https://images.unsplash.com/photo-1746592320086-db0efc87c8e8?w=1600&q=80',
+    alt: 'Charlotte North Carolina skyline at sunset with illuminated Uptown buildings',
+    credit: 'OANA BUZATU / Unsplash',
   },
   homeServices: {
-    src: 'https://images.unsplash.com/photo-1591588582259-e675bd2e6088?w=800&q=80',
-    alt: 'Roofing contractor working on residential roof during installation',
-    credit: 'Unsplash',
+    src: 'https://images.unsplash.com/photo-1633759593085-1eaeb724fc88?w=800&q=80',
+    alt: 'Roofer with hammer tearing off old shingles on residential roof',
+    credit: 'Zohair Mirza / Unsplash',
   },
 
   // ABOUT PAGE
   aboutCharlotte: {
-    src: 'https://images.unsplash.com/photo-1610641818989-c2051b5e2cfd?w=1200&q=80',
-    alt: 'Charlotte North Carolina city skyline bathed in warm sunset light',
-    credit: 'Unsplash',
+    src: 'https://images.unsplash.com/photo-1588434487801-68b5f570f17c?w=1200&q=80',
+    alt: 'Charlotte NC Uptown skyline under gray cloudy sky during daytime',
+    credit: 'Clay Banks / Unsplash',
   },
 
   // COMPANIES LISTING PAGE
   companiesHero: {
-    src: 'https://images.unsplash.com/photo-1569974507005-6dc61f97fb5c?w=1200&q=80',
-    alt: 'Charlotte NC Uptown skyline viewed from the west side with tree-lined foreground',
-    credit: 'Unsplash',
+    src: 'https://images.unsplash.com/photo-1582555645330-9fa5f195e1ca?w=1200&q=80',
+    alt: 'Charlotte NC city skyline at sunset with warm light on buildings',
+    credit: 'Wes Hicks / Unsplash',
   },
 
   // COMPANY DETAIL PAGE
@@ -38,9 +38,9 @@ export const stockImages = {
 
   // RESIDENTIAL PAGE
   residentialHero: {
-    src: 'https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=1200&q=80',
-    alt: 'Row of modern suburban homes featuring contemporary roof designs and landscaping',
-    credit: 'Troy Mortier / Unsplash',
+    src: 'https://images.pexels.com/photos/6319128/pexels-photo-6319128.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    alt: 'Typical neighborhood with suburban residential houses and well-maintained roofs',
+    credit: 'Pexels',
   },
   residentialNeighborhood: {
     src: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=1200&q=80',
@@ -50,9 +50,9 @@ export const stockImages = {
 
   // COMMERCIAL PAGE
   commercialHero: {
-    src: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1200&q=80',
-    alt: 'Modern commercial building exterior with flat roof and glass facade',
-    credit: 'Unsplash',
+    src: 'https://images.pexels.com/photos/325223/pexels-photo-325223.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    alt: 'Modern commercial office building exterior with flat roof profile',
+    credit: 'Pexels',
   },
   commercialBuilding: {
     src: 'https://images.pexels.com/photos/16714964/pexels-photo-16714964.jpeg?w=1200',
@@ -67,8 +67,8 @@ export const stockImages = {
     credit: 'Unsplash',
   },
   materialsTiles: {
-    src: 'https://images.unsplash.com/photo-1614977645540-7abd88ba8e56?w=1200&q=80',
-    alt: 'Close-up view of traditional roof tiles on a building',
+    src: 'https://images.unsplash.com/photo-1614418583513-8e96d9160333?w=1200&q=80',
+    alt: 'Close-up of brown roof tiles showing texture and pattern',
     credit: 'Unsplash',
   },
 
@@ -102,9 +102,9 @@ export const stockImages = {
 
   // DYNAMIC AREA PAGES
   areaNeighborhood: {
-    src: 'https://images.unsplash.com/photo-1500479694472-551d1fb6258d?w=1200&q=80',
-    alt: 'Aerial drone photo of residential neighborhood showing rooftops from above',
-    credit: 'CHUTTERSNAP / Unsplash',
+    src: 'https://images.unsplash.com/photo-1744744417265-c777029afac3?w=1200&q=80',
+    alt: 'Aerial view of suburban neighborhood showing houses with various roof types',
+    credit: 'Andreas Miller / Unsplash',
   },
 
   // DYNAMIC SERVICE PAGES
@@ -116,9 +116,9 @@ export const stockImages = {
 
   // SOLAR / SPECIALTY
   solarRoof: {
-    src: 'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=1200&q=80',
-    alt: 'Solar panels installed on roof showing renewable energy integration',
-    credit: 'Unsplash',
+    src: 'https://images.unsplash.com/flagged/photo-1566838616838-c3a720672aad?w=1200&q=80',
+    alt: 'Solar panels installed on residential rooftop with blue sky background',
+    credit: 'Vivint Solar / Unsplash',
   },
   solarInstall: {
     src: 'https://images.pexels.com/photos/9875419/pexels-photo-9875419.jpeg?w=1200',
@@ -128,9 +128,9 @@ export const stockImages = {
 
   // ROOF REPAIR / INSPECTION
   roofRepair: {
-    src: 'https://images.unsplash.com/photo-1607400201889-565b1ee75f8e?w=1200&q=80',
-    alt: 'House undergoing major roof repair or replacement showing construction work',
-    credit: 'Unsplash',
+    src: 'https://images.unsplash.com/photo-1672627170267-fca17bb54156?w=1200&q=80',
+    alt: 'House under construction with roof ripped off during active roof replacement',
+    credit: 'Ernie Journeys / Unsplash',
   },
   roofInspection: {
     src: 'https://images.pexels.com/photos/8293746/pexels-photo-8293746.jpeg?w=1200',
@@ -140,9 +140,9 @@ export const stockImages = {
 
   // AERIAL ROOFS
   aerialRooftops: {
-    src: 'https://images.unsplash.com/photo-1521747116042-5a810fda9664?w=1200&q=80',
-    alt: 'Aerial drone view of multiple building rooftops showing various roof materials and styles',
-    credit: 'Ivan Bandura / Unsplash',
+    src: 'https://images.unsplash.com/photo-1690256357674-e4960aa7ecf6?w=1200&q=80',
+    alt: 'Aerial view of neighborhood showing multiple houses and rooftops from above',
+    credit: 'Amber Kipp / Unsplash',
   },
 
   // ROOFING GUIDE BOOK PAGE
@@ -162,9 +162,9 @@ export const stockImages = {
     credit: 'Tom Thain / Unsplash',
   },
   guideMaterials: {
-    src: 'https://images.unsplash.com/photo-1635048424329-a9bfb146d7aa?w=1200&q=80',
-    alt: 'Roofing contractor installing new architectural shingles on a residential roof',
-    credit: 'Unsplash',
+    src: 'https://images.unsplash.com/photo-1643225523483-e2c434191bba?w=1200&q=80',
+    alt: 'Construction worker carrying shingles on roof during installation',
+    credit: 'Zohair Mirza / Unsplash',
   },
   guideStormDamage: {
     src: 'https://images.unsplash.com/photo-1527482797697-8795b05a13fe?w=1200&q=80',
@@ -172,9 +172,9 @@ export const stockImages = {
     credit: 'NOAA / Unsplash',
   },
   guideContractor: {
-    src: 'https://images.pexels.com/photos/8961251/pexels-photo-8961251.jpeg?w=1200',
-    alt: 'Professional roofing contractor reviewing plans with homeowner at job site',
-    credit: 'Pexels',
+    src: 'https://images.pexels.com/photos/6285121/pexels-photo-6285121.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    alt: 'Men reviewing architectural plans together at construction site',
+    credit: 'Gustavo Fring / Pexels',
   },
   guideInsurance: {
     src: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1200&q=80',
@@ -199,14 +199,14 @@ export const stockImages = {
 
   // GUIDE BOOK — Charlotte Local Images
   guideCharlotteSkyline: {
-    src: 'https://images.unsplash.com/photo-1533395427226-788cee25cc7b?w=1200&q=80',
-    alt: 'Charlotte NC skyline at dusk with illuminated Uptown buildings',
-    credit: 'Unsplash',
+    src: 'https://images.unsplash.com/photo-1746591948886-6812d011acdc?w=1200&q=80',
+    alt: 'Charlotte North Carolina skyline at twilight with illuminated Uptown buildings',
+    credit: 'OANA BUZATU / Unsplash',
   },
   guideCharlotteAerial: {
-    src: 'https://images.unsplash.com/photo-1515263487990-61b07816b324?w=1200&q=80',
-    alt: 'Aerial view of suburban neighborhoods with tree-lined streets and rooftops',
-    credit: 'Unsplash',
+    src: 'https://images.unsplash.com/photo-1765106893273-980e5bf89a7c?w=1200&q=80',
+    alt: 'Aerial view of suburban neighborhood with winding streets and houses',
+    credit: 'Ahnaf Tahsin / Unsplash',
   },
   guideSuburbanHomes: {
     src: 'https://images.unsplash.com/photo-1592595896551-12b371d546d5?w=1200&q=80',
@@ -224,28 +224,28 @@ export const stockImages = {
     credit: 'Unsplash',
   },
   guideHailDamage: {
-    src: 'https://images.unsplash.com/photo-1509803874385-db7c23652552?w=1200&q=80',
-    alt: 'Hailstones on ground after severe storm showing size comparison for roof damage assessment',
-    credit: 'Unsplash',
+    src: 'https://images.pexels.com/photos/8237250/pexels-photo-8237250.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    alt: 'Hailstones on ground after heavy rain showing actual hail damage threat',
+    credit: 'Julia Filirovska / Pexels',
   },
   guideRooferWorking: {
-    src: 'https://images.pexels.com/photos/585419/pexels-photo-585419.jpeg?w=1200',
-    alt: 'Professional construction worker on residential building site with safety equipment',
-    credit: 'Pexels',
+    src: 'https://images.unsplash.com/photo-1726589004565-bedfba94d3a2?w=1200&q=80',
+    alt: 'Roofer working on roof with tools during roofing project',
+    credit: 'Christer Lässman / Unsplash',
   },
   guideGutterCleaning: {
-    src: 'https://images.pexels.com/photos/5691622/pexels-photo-5691622.jpeg?w=1200',
-    alt: 'Home maintenance professional performing exterior cleaning and upkeep',
-    credit: 'Pexels',
+    src: 'https://images.unsplash.com/photo-1654531015087-8cc3d04d1b2d?w=1200&q=80',
+    alt: 'Gutter and downpipe attached to side of building showing exterior rooftop detail',
+    credit: 'Taylor Hammersla / Unsplash',
   },
   guideAtticVent: {
-    src: 'https://images.unsplash.com/photo-1604079628040-94301bb21b91?w=1200&q=80',
-    alt: 'Attic interior showing roof rafters, insulation, and ventilation system',
-    credit: 'Unsplash',
+    src: 'https://images.unsplash.com/photo-1753363562638-398f75158ea9?w=1200&q=80',
+    alt: 'Inside of attic showing insulation between wood beams and rafters',
+    credit: 'Brett Jordan / Unsplash',
   },
   guideCommercialFlat: {
-    src: 'https://images.unsplash.com/photo-1486718448742-163732cd1544?w=1200&q=80',
-    alt: 'Commercial building with flat roof showing HVAC systems and modern design',
+    src: 'https://images.unsplash.com/photo-1527738697320-513f6648bc26?w=1200&q=80',
+    alt: 'Commercial flat rooftop with HVAC and air conditioning equipment',
     credit: 'Unsplash',
   },
   guideNewConstruction: {
@@ -264,9 +264,9 @@ export const stockImages = {
     credit: 'Unsplash',
   },
   guideSlateRoof: {
-    src: 'https://images.unsplash.com/photo-1513584684374-8bab748fbf90?w=1200&q=80',
-    alt: 'Elegant historic home with natural slate roof tiles and classic architecture',
-    credit: 'Unsplash',
+    src: 'https://images.unsplash.com/photo-1644187067614-7e4ddab0dfbb?w=1200&q=80',
+    alt: 'Stone house with black slate roof and windows showing classic slate roofing',
+    credit: 'Albert Hyseni / Unsplash',
   },
 
   // BLOG POST THUMBNAILS
@@ -296,8 +296,8 @@ export const stockImages = {
     credit: 'Pexels',
   },
   blogMaintenance: {
-    src: 'https://images.pexels.com/photos/5691630/pexels-photo-5691630.jpeg?w=800',
-    alt: 'Home maintenance professional performing roof upkeep for maintenance article',
-    credit: 'Pexels',
+    src: 'https://images.unsplash.com/photo-1635445818409-64a0ff92eb39?w=800&q=80',
+    alt: 'Man on ladder performing exterior building maintenance work',
+    credit: 'Dillon Wanner / Unsplash',
   },
 } as const
