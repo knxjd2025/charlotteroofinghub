@@ -1,16 +1,48 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { X, Calculator } from 'lucide-react'
+import { AddressInput } from '@/components/estimate/AddressInput'
 
 interface InstantEstimateCTAProps {
   variant?: 'banner' | 'sidebar' | 'popup' | 'inline'
 }
 
 export default function InstantEstimateCTA({ variant = 'inline' }: InstantEstimateCTAProps) {
+  const router = useRouter()
   const [showPopup, setShowPopup] = useState(false)
-  const [dismissed, setDismissed] = useState(false)
+  const [dismissed, setDismissed] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return sessionStorage.getItem('exitPopupDismissed') === 'true'
+    }
+    return false
+  })
+
+  const dismissPopup = () => {
+    setShowPopup(false)
+    setDismissed(true)
+    sessionStorage.setItem('exitPopupDismissed', 'true')
+  }
+
+  const handlePopupAddressSelect = (
+    address: string,
+    lat: number,
+    lng: number,
+    placeDetails: { city: string; state: string; postalCode: string }
+  ) => {
+    sessionStorage.setItem('addressData', JSON.stringify({
+      address,
+      lat,
+      lng,
+      city: placeDetails.city,
+      state: placeDetails.state,
+      postalCode: placeDetails.postalCode,
+    }))
+    dismissPopup()
+    router.push(`/estimate/calculating?address=${encodeURIComponent(address)}&lat=${lat}&lng=${lng}`)
+  }
 
   // Exit intent popup
   useEffect(() => {
@@ -90,47 +122,38 @@ export default function InstantEstimateCTA({ variant = 'inline' }: InstantEstima
     )
   }
 
-  // Popup CTA (exit intent)
+  // Popup CTA (exit intent) with inline address input
   if (variant === 'popup' && showPopup && !dismissed) {
     return (
       <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-        <div className="bg-white rounded-2xl max-w-md w-full p-6 relative animate-in fade-in zoom-in">
+        <div className="bg-white rounded-2xl max-w-lg w-full p-6 relative animate-in fade-in zoom-in">
           <button
-            onClick={() => {
-              setShowPopup(false)
-              setDismissed(true)
-            }}
-            className="absolute top-4 right-4 p-1 text-gray-400 hover:text-gray-600"
+            onClick={dismissPopup}
+            className="absolute top-4 right-4 p-1 text-gray-400 hover:text-gray-600 z-10"
           >
             <X className="w-5 h-5" />
           </button>
 
-          <div className="text-center">
-            <div className="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Calculator className="w-8 h-8 text-secondary" />
+          <div className="text-center mb-5">
+            <div className="w-14 h-14 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-3">
+              <Calculator className="w-7 h-7 text-secondary" />
             </div>
             <h3 className="text-2xl font-bold text-gray-900 mb-2">
               Wait! Get a Free Roof Estimate
             </h3>
-            <p className="text-gray-600 mb-6">
-              Before you go, find out how much a new roof costs for your Charlotte home. It only takes 60 seconds!
+            <p className="text-gray-600">
+              Enter your address below to get an instant estimate in under 60 seconds.
             </p>
-            <Link
-              href="/estimate"
-              className="block w-full py-4 bg-secondary text-white font-bold rounded-lg hover:bg-red-600 transition text-lg text-center"
-            >
-              Get My Free Estimate
-            </Link>
-            <button
-              onClick={() => {
-                setShowPopup(false)
-                setDismissed(true)
-              }}
-              className="mt-4 text-sm text-gray-500 hover:text-gray-700"
-            >
-              No thanks, I&apos;ll pass
-            </button>
           </div>
+
+          <AddressInput onAddressSelect={handlePopupAddressSelect} />
+
+          <button
+            onClick={dismissPopup}
+            className="mt-4 text-sm text-gray-500 hover:text-gray-700 mx-auto block"
+          >
+            No thanks, I&apos;ll pass
+          </button>
         </div>
       </div>
     )

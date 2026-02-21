@@ -32,6 +32,7 @@ export function AddressInput({ onAddressSelect, isLoading = false }: AddressInpu
   const [isGeocodingAddress, setIsGeocodingAddress] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(-1);
   const [selectedPlaceDetails, setSelectedPlaceDetails] = useState<PlaceDetails | null>(null);
+  const [error, setError] = useState<string | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const debounceRef = useRef<NodeJS.Timeout | null>(null);
@@ -43,13 +44,20 @@ export function AddressInput({ onAddressSelect, isLoading = false }: AddressInpu
     }
 
     setIsSearching(true);
+    setError(null);
     try {
       const res = await fetch(`/api/places-autocomplete?input=${encodeURIComponent(input)}`);
       const data = await res.json();
-      setPredictions(data.predictions || []);
-      setShowDropdown(true);
-    } catch (error) {
-      console.error('Autocomplete error:', error);
+      if (data.error) {
+        setError('Address suggestions unavailable. Type your full address and click Get Estimate.');
+        setPredictions([]);
+      } else {
+        setPredictions(data.predictions || []);
+        setShowDropdown(true);
+      }
+    } catch {
+      console.error('Autocomplete error');
+      setError('Address suggestions unavailable. Type your full address and click Get Estimate.');
       setPredictions([]);
     } finally {
       setIsSearching(false);
@@ -61,6 +69,7 @@ export function AddressInput({ onAddressSelect, isLoading = false }: AddressInpu
     setAddress(value);
     setSelectedIndex(-1);
     setSelectedPlaceDetails(null);
+    setError(null);
 
     if (debounceRef.current) {
       clearTimeout(debounceRef.current);
@@ -74,6 +83,7 @@ export function AddressInput({ onAddressSelect, isLoading = false }: AddressInpu
     setAddress(prediction.description);
     setShowDropdown(false);
     setPredictions([]);
+    setError(null);
 
     try {
       const res = await fetch(`/api/places-details?place_id=${encodeURIComponent(prediction.place_id)}`);
@@ -82,9 +92,11 @@ export function AddressInput({ onAddressSelect, isLoading = false }: AddressInpu
       if (details.lat && details.lng) {
         setSelectedPlaceDetails(details);
         onAddressSelect(details.formatted_address, details.lat, details.lng, details);
+      } else {
+        setError('Could not get location details. Please try clicking Get Estimate.');
       }
-    } catch (error) {
-      console.error('Place details error:', error);
+    } catch {
+      setError('Could not get location details. Please try clicking Get Estimate.');
     }
   };
 
@@ -102,6 +114,7 @@ export function AddressInput({ onAddressSelect, isLoading = false }: AddressInpu
     }
 
     setIsGeocodingAddress(true);
+    setError(null);
     try {
       const res = await fetch(`/api/geocode?address=${encodeURIComponent(address)}`);
       const data = await res.json();
@@ -118,17 +131,26 @@ export function AddressInput({ onAddressSelect, isLoading = false }: AddressInpu
         setSelectedPlaceDetails(details);
         onAddressSelect(details.formatted_address, details.lat, details.lng, details);
       } else {
-        alert('Could not find that address. Please select an address from the dropdown suggestions.');
+        setError('Could not find that address. Please enter a valid Charlotte area address.');
       }
-    } catch (error) {
-      console.error('Geocoding error:', error);
-      alert('Could not find that address. Please select an address from the dropdown suggestions.');
+    } catch {
+      setError('Could not find that address. Please check the address and try again.');
     } finally {
       setIsGeocodingAddress(false);
     }
   };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      if (showDropdown && predictions.length > 0 && selectedIndex >= 0 && predictions[selectedIndex]) {
+        handleSelect(predictions[selectedIndex]);
+      } else if (address.trim()) {
+        handleButtonClick();
+      }
+      return;
+    }
+
     if (!showDropdown || predictions.length === 0) return;
 
     switch (e.key) {
@@ -139,12 +161,6 @@ export function AddressInput({ onAddressSelect, isLoading = false }: AddressInpu
       case 'ArrowUp':
         e.preventDefault();
         setSelectedIndex((prev) => (prev > 0 ? prev - 1 : -1));
-        break;
-      case 'Enter':
-        e.preventDefault();
-        if (selectedIndex >= 0 && predictions[selectedIndex]) {
-          handleSelect(predictions[selectedIndex]);
-        }
         break;
       case 'Escape':
         setShowDropdown(false);
@@ -185,7 +201,7 @@ export function AddressInput({ onAddressSelect, isLoading = false }: AddressInpu
             placeholder="Enter your Charlotte home address..."
             disabled={isLoading}
             autoComplete="off"
-            className="w-full pl-12 pr-4 md:pr-40 py-4 text-lg border-2 border-gray-200 rounded-xl
+            className="w-full pl-12 pr-4 md:pr-40 py-4 text-lg text-gray-900 border-2 border-gray-200 rounded-xl
                        focus:border-primary focus:ring-4 focus:ring-primary/10
                        disabled:bg-gray-50 disabled:cursor-not-allowed
                        transition-all duration-200 outline-none"
@@ -269,9 +285,13 @@ export function AddressInput({ onAddressSelect, isLoading = false }: AddressInpu
         </div>
       )}
 
-      <p className="text-sm text-gray-500 mt-2 text-center">
-        Start typing your address and select from the dropdown
-      </p>
+      {error ? (
+        <p className="text-sm text-red-500 mt-2 text-center">{error}</p>
+      ) : (
+        <p className="text-sm text-gray-500 mt-2 text-center">
+          Start typing your address and select from the dropdown
+        </p>
+      )}
     </div>
   );
 }
