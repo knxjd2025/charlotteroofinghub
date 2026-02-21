@@ -196,4 +196,76 @@ export const stockImages = {
     alt: 'Homeowner holding house keys with a well-roofed home in the background',
     credit: 'Unsplash',
   },
+
+  // GUIDE BOOK — Charlotte Local Images
+  guideCharlotteSkyline: {
+    src: 'https://images.unsplash.com/photo-1605087880595-8cc4db684797?w=1200&q=80',
+    alt: 'Charlotte NC skyline at dusk with illuminated Uptown buildings reflecting on water',
+    credit: 'Unsplash',
+  },
+  guideCharlotteAerial: {
+    src: 'https://images.unsplash.com/photo-1695068044543-de8ab7a3d3fc?w=1200&q=80',
+    alt: 'Aerial view of Charlotte suburban neighborhoods with tree-lined streets and rooftops',
+    credit: 'Unsplash',
+  },
+  guideSuburbanHomes: {
+    src: 'https://images.unsplash.com/photo-1592595896551-12b371d546d5?w=1200&q=80',
+    alt: 'Row of suburban homes with well-maintained asphalt shingle roofs and manicured lawns',
+    credit: 'Unsplash',
+  },
+  guideMetalRoof: {
+    src: 'https://images.unsplash.com/photo-1558036117-15d82a90b9b1?w=1200&q=80',
+    alt: 'Modern home with standing seam metal roof showcasing clean lines and durability',
+    credit: 'Unsplash',
+  },
+  guideShingleCloseup: {
+    src: 'https://images.unsplash.com/photo-1632759145351-1d592919f522?w=1200&q=80',
+    alt: 'Close-up of architectural shingles showing textured dimensional pattern',
+    credit: 'Unsplash',
+  },
+  guideHailDamage: {
+    src: 'https://images.unsplash.com/photo-1509803874385-db7c23652552?w=1200&q=80',
+    alt: 'Hailstones on ground after severe storm showing size comparison for roof damage assessment',
+    credit: 'Unsplash',
+  },
+  guideRooferWorking: {
+    src: 'https://images.pexels.com/photos/8961280/pexels-photo-8961280.jpeg?w=1200',
+    alt: 'Professional roofer installing shingles on residential roof with safety harness',
+    credit: 'Pexels',
+  },
+  guideGutterCleaning: {
+    src: 'https://images.unsplash.com/photo-1585128903994-9788298932a4?w=1200&q=80',
+    alt: 'Homeowner cleaning gutters on residential home as part of roof maintenance routine',
+    credit: 'Unsplash',
+  },
+  guideAtticVent: {
+    src: 'https://images.unsplash.com/photo-1604079628040-94301bb21b91?w=1200&q=80',
+    alt: 'Attic interior showing roof rafters, insulation, and ventilation system',
+    credit: 'Unsplash',
+  },
+  guideCommercialFlat: {
+    src: 'https://images.unsplash.com/photo-1486718448742-163732cd1544?w=1200&q=80',
+    alt: 'Commercial building with flat roof showing HVAC systems and modern design',
+    credit: 'Unsplash',
+  },
+  guideNewConstruction: {
+    src: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200&q=80',
+    alt: 'New home under construction showing exposed roof framing and trusses',
+    credit: 'Unsplash',
+  },
+  guideBeforeAfter: {
+    src: 'https://images.unsplash.com/photo-1523217582562-09d0def993a6?w=1200&q=80',
+    alt: 'Beautiful newly roofed home with fresh architectural shingles and clean exterior',
+    credit: 'Unsplash',
+  },
+  guideLightningStorm: {
+    src: 'https://images.unsplash.com/photo-1429552077091-836152271555?w=1200&q=80',
+    alt: 'Dramatic lightning bolt striking over residential neighborhood during severe thunderstorm',
+    credit: 'Unsplash',
+  },
+  guideSlateRoof: {
+    src: 'https://images.unsplash.com/photo-1513584684374-8bab748fbf90?w=1200&q=80',
+    alt: 'Elegant historic home with natural slate roof tiles and classic architecture',
+    credit: 'Unsplash',
+  },
 } as const
