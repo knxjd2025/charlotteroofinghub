@@ -17,6 +17,9 @@ const navigation = [
       { name: 'Residential Roofing', href: '/residential' },
       { name: 'Commercial Roofing', href: '/commercial' },
       { name: 'Materials & Pricing', href: '/materials' },
+      { name: 'Repair or Replace Quiz', href: '/repair-or-replace' },
+      { name: 'HOA Roof Approval', href: '/hoa-roof-approval' },
+      { name: 'Community Resources', href: '/community-resources' },
       { name: 'Blog', href: '/blog' },
     ]
   },

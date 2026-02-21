@@ -114,6 +114,9 @@ export default function AboutPage() {
                   No company receives promotional treatment. All listed companies — the founder, contributors,
                   and every other company — earn their spot through our verification process and reputation.
                 </p>
+                <Link href="/editorial-guidelines" className="inline-flex items-center gap-1 text-sm text-primary hover:underline mt-3">
+                  Read our Editorial Guidelines <ArrowRight className="w-3 h-3" />
+                </Link>
               </div>
             </div>
           </div>
@@ -145,6 +148,7 @@ export default function AboutPage() {
                 </div>
               </div>
               <p className="text-sm text-gray-600">Veteran-owned residential and commercial roofing serving Charlotte and surrounding areas</p>
+              <p className="text-xs text-gray-400 mt-2">NC Licensed General Contractor &bull; Verified via NC Licensing Board (nclbgc.org)</p>
             </div>
           </div>
 

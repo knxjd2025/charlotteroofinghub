@@ -174,8 +174,49 @@ export default function CommercialPage() {
         </div>
       </section>
 
-      {/* Commercial Roofing Systems */}
+      {/* AEO Content Section */}
       <section className="py-12 md:py-16 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mb-10">
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">
+              How Much Does Commercial Roof Replacement Cost in Charlotte?
+            </h2>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              <strong>Commercial roof replacement in Charlotte costs $5 to $12 per square foot for materials and installation, depending on the roofing system. For a typical 10,000 sq ft flat roof, expect to pay $50,000 to $120,000. TPO averages $5-$8/sq ft, EPDM runs $4-$7/sq ft, and PVC costs $6-$10/sq ft including labor and materials.</strong>
+            </p>
+            <p className="text-gray-600 leading-relaxed">
+              Additional factors affecting cost include insulation requirements (especially for energy code compliance), number of roof penetrations (HVAC units, vents, drains), and whether the existing system needs full removal or can be overlaid.
+            </p>
+          </div>
+
+          <div className="mb-10">
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">
+              What Is the Best Commercial Roofing System for Charlotte&apos;s Climate?
+            </h2>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              <strong>TPO (Thermoplastic Polyolefin) is the most popular commercial roofing choice in Charlotte because it reflects solar heat, reducing cooling costs by 15-30% during Charlotte&apos;s hot summers. Its heat-welded seams create a watertight bond that handles Charlotte&apos;s heavy thunderstorm rains, and it lasts 20-30 years with proper maintenance.</strong>
+            </p>
+            <p className="text-gray-600 leading-relaxed">
+              PVC is recommended for restaurants and food processing facilities due to its chemical resistance. EPDM remains a cost-effective option for budget-conscious projects. Your choice should factor in building use, energy goals, and budget.
+            </p>
+          </div>
+
+          <div>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">
+              Do Charlotte Commercial Roofs Need Regular Maintenance?
+            </h2>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              <strong>Yes — commercial roofs in Charlotte require bi-annual inspections and preventive maintenance to maximize lifespan and prevent costly emergency repairs. A maintenance program typically costs $200-$500 per year and can extend your roof&apos;s life by 5-10 years, saving tens of thousands in premature replacement costs.</strong>
+            </p>
+            <p className="text-gray-600 leading-relaxed">
+              Key maintenance items include drain clearing (critical during Charlotte&apos;s heavy rain events), seam inspection, flashing checks around HVAC penetrations, and membrane condition assessment. Most Charlotte commercial roofers offer annual maintenance contracts.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Commercial Roofing Systems */}
+      <section className="py-12 md:py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">

@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { FileText, ArrowRight, Calendar, Clock } from 'lucide-react'
 import InstantEstimateCTA from '@/components/layout/InstantEstimateCTA'
 import { stockImages } from '@/data/stock-images'
+import { blogPosts } from '@/data/blog-posts'
 
 export const metadata: Metadata = {
   title: 'Roofing Blog | Tips & Guides for Charlotte Homeowners',
@@ -16,76 +17,6 @@ export const metadata: Metadata = {
     'roofing news nc'
   ],
 }
-
-// Sample blog posts (would come from database/CMS in production)
-const blogPosts = [
-  {
-    id: '1',
-    title: 'How Much Does a New Roof Cost in Charlotte in 2025?',
-    slug: 'roof-cost-charlotte-2025',
-    excerpt: 'A comprehensive guide to roof replacement costs in Charlotte, NC. Learn about material costs, labor rates, and factors that affect your final price.',
-    category: 'Pricing',
-    readTime: '8 min read',
-    date: 'January 5, 2025',
-    featured: true,
-    image: 'blogRoofCost' as const
-  },
-  {
-    id: '2',
-    title: '5 Signs You Need a New Roof (Charlotte Edition)',
-    slug: 'signs-you-need-new-roof-charlotte',
-    excerpt: 'Learn the warning signs that indicate your Charlotte home needs a new roof. From curling shingles to water stains, know when it\'s time to call a roofer.',
-    category: 'Maintenance',
-    readTime: '5 min read',
-    date: 'January 2, 2025',
-    featured: false,
-    image: 'blogRoofSigns' as const
-  },
-  {
-    id: '3',
-    title: 'Metal Roofing vs Shingles: Which is Better for Charlotte Homes?',
-    slug: 'metal-vs-shingles-charlotte',
-    excerpt: 'Compare metal roofing and asphalt shingles for Charlotte\'s climate. We break down costs, lifespan, energy efficiency, and storm resistance.',
-    category: 'Materials',
-    readTime: '7 min read',
-    date: 'December 28, 2024',
-    featured: false,
-    image: 'blogMetalVsShingles' as const
-  },
-  {
-    id: '4',
-    title: 'How to Choose a Roofing Contractor in Charlotte',
-    slug: 'choose-roofing-contractor-charlotte',
-    excerpt: 'Tips for finding a trustworthy roofing contractor in Charlotte. What to look for, questions to ask, and red flags to avoid.',
-    category: 'Hiring',
-    readTime: '6 min read',
-    date: 'December 20, 2024',
-    featured: false,
-    image: 'blogChooseContractor' as const
-  },
-  {
-    id: '5',
-    title: 'Storm Damage Roofing: Your Guide to Insurance Claims in NC',
-    slug: 'storm-damage-insurance-claims-nc',
-    excerpt: 'Navigate the insurance claims process after storm damage to your roof. Learn what\'s covered, how to document damage, and when to file.',
-    category: 'Insurance',
-    readTime: '9 min read',
-    date: 'December 15, 2024',
-    featured: false,
-    image: 'blogStormInsurance' as const
-  },
-  {
-    id: '6',
-    title: 'Roof Maintenance Checklist for Charlotte Homeowners',
-    slug: 'roof-maintenance-checklist',
-    excerpt: 'Keep your roof in top condition with this seasonal maintenance checklist designed for Charlotte\'s climate and weather patterns.',
-    category: 'Maintenance',
-    readTime: '4 min read',
-    date: 'December 10, 2024',
-    featured: false,
-    image: 'blogMaintenance' as const
-  }
-]
 
 const categories = [
   'All Posts',

@@ -174,8 +174,49 @@ export default function ResidentialPage() {
         </div>
       </section>
 
-      {/* Roofing Materials */}
+      {/* AEO Content Section */}
       <section className="py-12 md:py-16 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mb-10">
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">
+              How Much Does a Residential Roof Replacement Cost in Charlotte?
+            </h2>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              <strong>A residential roof replacement in Charlotte costs between $8,500 and $17,500 for a typical 2,000 square foot home using architectural shingles. Metal roofing costs $17,500 to $35,000 for the same home. These prices include tear-off, materials, labor, permits, and cleanup — reflecting 2025 Charlotte-area market rates.</strong>
+            </p>
+            <p className="text-gray-600 leading-relaxed">
+              Costs vary based on roof pitch, number of layers to remove, decking condition, and the contractor you choose. Charlotte&apos;s competitive market means getting 3-5 quotes is both easy and recommended. Scheduling during winter months (November-February) can save 10-20% on labor costs.
+            </p>
+          </div>
+
+          <div className="mb-10">
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">
+              What Is the Best Roofing Material for Charlotte&apos;s Climate?
+            </h2>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              <strong>Architectural shingles are the best all-around choice for most Charlotte homes, offering 25-35 year lifespan, 130 mph wind resistance, and excellent value at $4.50-$7.00 per square foot installed. For long-term value, metal roofing reduces cooling costs by 10-25% and lasts 40-70 years — ideal for Charlotte&apos;s hot, humid summers.</strong>
+            </p>
+            <p className="text-gray-600 leading-relaxed">
+              Charlotte&apos;s climate demands roofing materials that can handle intense UV exposure, heavy thunderstorms, occasional hail, and high humidity. Both architectural shingles and metal roofing meet these demands, with the right choice depending on your budget, timeline, and aesthetic preferences.
+            </p>
+          </div>
+
+          <div>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">
+              How Long Does a Roof Replacement Take in Charlotte?
+            </h2>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              <strong>Most residential roof replacements in Charlotte are completed in 1-3 days for a standard single-family home. Complex roofs with steep pitches, multiple levels, or specialty materials may take 4-7 days. Weather delays during Charlotte&apos;s spring storm season can extend the timeline by a few additional days.</strong>
+            </p>
+            <p className="text-gray-600 leading-relaxed">
+              Your roofing contractor should provide a start date and estimated completion timeline in writing before work begins. Most Charlotte roofers can begin within 1-2 weeks of signing a contract, though demand peaks after severe spring and summer storms.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Roofing Materials */}
+      <section className="py-12 md:py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
