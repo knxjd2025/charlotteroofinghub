@@ -44,18 +44,48 @@ export default function InstantEstimateCTA({ variant = 'inline' }: InstantEstima
     router.push(`/estimate/calculating?address=${encodeURIComponent(address)}&lat=${lat}&lng=${lng}`)
   }
 
-  // Exit intent popup
+  // Exit intent popup — desktop (mouseleave) + mobile (scroll-up after delay)
   useEffect(() => {
-    if (variant !== 'popup') return
+    if (variant !== 'popup' || dismissed) return
 
+    // Minimum time on page before popup can trigger (15 seconds)
+    let canTrigger = false
+    const delayTimer = setTimeout(() => { canTrigger = true }, 15000)
+
+    // Desktop: mouse leaves viewport near top
     const handleMouseLeave = (e: MouseEvent) => {
-      if (e.clientY < 10 && !dismissed) {
+      if (e.clientY < 10 && canTrigger && !dismissed) {
         setShowPopup(true)
       }
     }
 
+    // Mobile: rapid scroll-up after spending time on page
+    let lastScrollY = window.scrollY
+    let scrollUpDistance = 0
+    const handleScroll = () => {
+      const currentY = window.scrollY
+      if (currentY < lastScrollY) {
+        scrollUpDistance += lastScrollY - currentY
+      } else {
+        scrollUpDistance = 0
+      }
+      lastScrollY = currentY
+
+      // Trigger if user scrolls up 300px+ rapidly (intent to leave)
+      if (scrollUpDistance > 300 && canTrigger && !dismissed && currentY < 100) {
+        setShowPopup(true)
+        scrollUpDistance = 0
+      }
+    }
+
     document.addEventListener('mouseleave', handleMouseLeave)
-    return () => document.removeEventListener('mouseleave', handleMouseLeave)
+    window.addEventListener('scroll', handleScroll, { passive: true })
+
+    return () => {
+      clearTimeout(delayTimer)
+      document.removeEventListener('mouseleave', handleMouseLeave)
+      window.removeEventListener('scroll', handleScroll)
+    }
   }, [variant, dismissed])
 
   // Sidebar sticky CTA
@@ -122,10 +152,23 @@ export default function InstantEstimateCTA({ variant = 'inline' }: InstantEstima
     )
   }
 
+  // Close popup on Escape key
+  useEffect(() => {
+    if (!showPopup) return
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') dismissPopup()
+    }
+    document.addEventListener('keydown', handleEscape)
+    return () => document.removeEventListener('keydown', handleEscape)
+  }, [showPopup]) // eslint-disable-line react-hooks/exhaustive-deps
+
   // Popup CTA (exit intent) with inline address input
   if (variant === 'popup' && showPopup && !dismissed) {
     return (
-      <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+      <div
+        className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4"
+        onClick={(e) => { if (e.target === e.currentTarget) dismissPopup() }}
+      >
         <div className="bg-white rounded-2xl max-w-lg w-full p-6 relative animate-in fade-in zoom-in">
           <button
             onClick={dismissPopup}
