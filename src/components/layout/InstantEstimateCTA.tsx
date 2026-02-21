@@ -44,29 +44,21 @@ export default function InstantEstimateCTA({ variant = 'inline' }: InstantEstima
     router.push(`/estimate/calculating?address=${encodeURIComponent(address)}&lat=${lat}&lng=${lng}`)
   }
 
-  // Exit intent popup — desktop (mouseout) + mobile (scroll-up) + tab switch
+  // Exit intent popup — triggers immediately on first exit attempt, once per visitor
   useEffect(() => {
     if (variant !== 'popup' || dismissed) return
 
     let triggered = false
     const triggerPopup = () => {
-      if (!triggered && canTriggerRef.current && !dismissed) {
+      if (!triggered && !dismissed) {
         triggered = true
         setShowPopup(true)
       }
     }
 
-    // Minimum time on page before popup can trigger (5 seconds)
-    const canTriggerRef = { current: false }
-    const delayTimer = setTimeout(() => { canTriggerRef.current = true }, 5000)
-
     // Desktop: mouse leaves viewport toward top (address bar / tabs)
     const handleMouseOut = (e: MouseEvent) => {
-      // Only trigger when mouse leaves toward the top of the viewport
-      if (
-        e.clientY <= 0 ||
-        (e.relatedTarget === null && e.clientY < 50)
-      ) {
+      if (e.clientY <= 0 || (e.relatedTarget === null && e.clientY < 50)) {
         triggerPopup()
       }
     }
@@ -76,14 +68,7 @@ export default function InstantEstimateCTA({ variant = 'inline' }: InstantEstima
       triggerPopup()
     }
 
-    // Tab switch / window blur — user is navigating away
-    const handleVisibilityChange = () => {
-      if (document.visibilityState === 'hidden') {
-        triggerPopup()
-      }
-    }
-
-    // Mobile: rapid scroll-up after spending time on page
+    // Mobile: rapid scroll-up near top of page
     let lastScrollY = window.scrollY
     let scrollUpDistance = 0
     const handleScroll = () => {
@@ -103,14 +88,11 @@ export default function InstantEstimateCTA({ variant = 'inline' }: InstantEstima
 
     document.addEventListener('mouseout', handleMouseOut)
     document.documentElement.addEventListener('mouseleave', handleMouseLeave)
-    document.addEventListener('visibilitychange', handleVisibilityChange)
     window.addEventListener('scroll', handleScroll, { passive: true })
 
     return () => {
-      clearTimeout(delayTimer)
       document.removeEventListener('mouseout', handleMouseOut)
       document.documentElement.removeEventListener('mouseleave', handleMouseLeave)
-      document.removeEventListener('visibilitychange', handleVisibilityChange)
       window.removeEventListener('scroll', handleScroll)
     }
   }, [variant, dismissed])
