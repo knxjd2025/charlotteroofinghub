@@ -88,3 +88,48 @@ export const RATE_LIMITS = {
   geocode: { maxRequests: 20, windowMs: 60000 },
   staticMap: { maxRequests: 20, windowMs: 60000 },
 };
+
+/**
+ * Calculate time until rate limit resets in seconds.
+ */
+export function getRetryAfterSeconds(result: RateLimitResult): number {
+  if (result.success) return 0;
+  return Math.max(0, Math.ceil((result.resetTime - Date.now()) / 1000));
+}
+
+/**
+ * Build standard rate limit response headers.
+ */
+export function getRateLimitHeaders(
+  result: RateLimitResult,
+  config: RateLimitConfig
+): Record<string, string> {
+  const headers: Record<string, string> = {
+    'X-RateLimit-Limit': String(config.maxRequests),
+    'X-RateLimit-Remaining': String(result.remaining),
+    'X-RateLimit-Reset': String(Math.ceil(result.resetTime / 1000)),
+  };
+
+  if (!result.success) {
+    headers['Retry-After'] = String(getRetryAfterSeconds(result));
+  }
+
+  return headers;
+}
+
+/**
+ * Check if a rate limit result indicates the client should be warned
+ * (more than 80% of limit consumed).
+ */
+export function isApproachingLimit(result: RateLimitResult, config: RateLimitConfig): boolean {
+  if (!result.success) return true;
+  const usedPercent = ((config.maxRequests - result.remaining) / config.maxRequests) * 100;
+  return usedPercent >= 80;
+}
+
+/**
+ * Reset rate limit for a specific identifier (useful for testing).
+ */
+export function resetRateLimit(identifier: string): void {
+  rateLimitStore.delete(identifier);
+}
