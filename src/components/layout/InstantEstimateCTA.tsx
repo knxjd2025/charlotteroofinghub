@@ -44,18 +44,42 @@ export default function InstantEstimateCTA({ variant = 'inline' }: InstantEstima
     router.push(`/estimate/calculating?address=${encodeURIComponent(address)}&lat=${lat}&lng=${lng}`)
   }
 
-  // Exit intent popup — desktop (mouseleave) + mobile (scroll-up after delay)
+  // Exit intent popup — desktop (mouseout) + mobile (scroll-up) + tab switch
   useEffect(() => {
     if (variant !== 'popup' || dismissed) return
 
-    // Minimum time on page before popup can trigger (15 seconds)
-    let canTrigger = false
-    const delayTimer = setTimeout(() => { canTrigger = true }, 15000)
-
-    // Desktop: mouse leaves viewport near top
-    const handleMouseLeave = (e: MouseEvent) => {
-      if (e.clientY < 10 && canTrigger && !dismissed) {
+    let triggered = false
+    const triggerPopup = () => {
+      if (!triggered && canTriggerRef.current && !dismissed) {
+        triggered = true
         setShowPopup(true)
+      }
+    }
+
+    // Minimum time on page before popup can trigger (5 seconds)
+    const canTriggerRef = { current: false }
+    const delayTimer = setTimeout(() => { canTriggerRef.current = true }, 5000)
+
+    // Desktop: mouse leaves viewport toward top (address bar / tabs)
+    const handleMouseOut = (e: MouseEvent) => {
+      // Only trigger when mouse leaves toward the top of the viewport
+      if (
+        e.clientY <= 0 ||
+        (e.relatedTarget === null && e.clientY < 50)
+      ) {
+        triggerPopup()
+      }
+    }
+
+    // Desktop fallback: mouse leaves the document entirely
+    const handleMouseLeave = () => {
+      triggerPopup()
+    }
+
+    // Tab switch / window blur — user is navigating away
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === 'hidden') {
+        triggerPopup()
       }
     }
 
@@ -71,19 +95,22 @@ export default function InstantEstimateCTA({ variant = 'inline' }: InstantEstima
       }
       lastScrollY = currentY
 
-      // Trigger if user scrolls up 300px+ rapidly (intent to leave)
-      if (scrollUpDistance > 300 && canTrigger && !dismissed && currentY < 100) {
-        setShowPopup(true)
+      if (scrollUpDistance > 200 && currentY < 100) {
+        triggerPopup()
         scrollUpDistance = 0
       }
     }
 
-    document.addEventListener('mouseleave', handleMouseLeave)
+    document.addEventListener('mouseout', handleMouseOut)
+    document.documentElement.addEventListener('mouseleave', handleMouseLeave)
+    document.addEventListener('visibilitychange', handleVisibilityChange)
     window.addEventListener('scroll', handleScroll, { passive: true })
 
     return () => {
       clearTimeout(delayTimer)
-      document.removeEventListener('mouseleave', handleMouseLeave)
+      document.removeEventListener('mouseout', handleMouseOut)
+      document.documentElement.removeEventListener('mouseleave', handleMouseLeave)
+      document.removeEventListener('visibilitychange', handleVisibilityChange)
       window.removeEventListener('scroll', handleScroll)
     }
   }, [variant, dismissed])

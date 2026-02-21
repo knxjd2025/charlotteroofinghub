@@ -56,8 +56,11 @@ describe('buildGHLPayload', () => {
 
     // Estimate custom fields
     expect(payload.customField.roof_square_feet).toBe(1830)
+    expect(payload.customField.ground_square_feet).toBe(1500)
     expect(payload.customField.roof_squares).toBe(18.3)
     expect(payload.customField.roof_pitch).toBe('4/12')
+    expect(payload.customField.roof_pitch_degrees).toBe(20)
+    expect(payload.customField.imagery_date).toBe('6/15/2024')
     expect(payload.customField.shingles_low).toBe(7320)
     expect(payload.customField.shingles_high).toBe(16013)
     expect(payload.customField.metal_low).toBe(18300)
@@ -65,6 +68,7 @@ describe('buildGHLPayload', () => {
     expect(payload.customField.coatings_high).toBe(8693)
     expect(payload.customField.tcpa_consent).toBe('Yes')
     expect(payload.customField.consent_timestamp).toBe('2024-06-15T12:00:00Z')
+    expect(payload.customField.lead_score).toBeGreaterThan(0)
   })
 
   it('handles missing optional lead fields gracefully', () => {
@@ -84,5 +88,9 @@ describe('buildGHLPayload', () => {
     expect(payload.state).toBe('')
     expect(payload.postalCode).toBe('')
     expect(payload.customField.tcpa_consent).toBe('No')
+    expect(payload.customField.ground_square_feet).toBe(1500)
+    expect(payload.customField.roof_pitch_degrees).toBe(20)
+    expect(payload.customField.imagery_date).toBe('6/15/2024')
+    expect(payload.customField.lead_score).toBeGreaterThan(0)
   })
 })

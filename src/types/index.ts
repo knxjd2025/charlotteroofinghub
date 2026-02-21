@@ -187,8 +187,11 @@ export interface GHLWebhookPayload {
   tags: string[]
   customField: {
     roof_square_feet: number
+    ground_square_feet: number
     roof_squares: number
     roof_pitch: string
+    roof_pitch_degrees: number
+    imagery_date: string
     shingles_low: number
     shingles_mid: number
     shingles_high: number
@@ -203,6 +206,7 @@ export interface GHLWebhookPayload {
     coatings_high: number
     tcpa_consent: string
     consent_timestamp: string
+    lead_score: number
   }
 }
 
