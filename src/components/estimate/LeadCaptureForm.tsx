@@ -1,7 +1,8 @@
 'use client';
 
 import { useState, FormEvent } from 'react';
-import { User, Phone, Mail, MapPin, Loader2, ArrowRight } from 'lucide-react';
+import { User, Phone, Mail, MapPin, Loader2, ArrowRight, AlertCircle } from 'lucide-react';
+import { isValidEmail, isValidPhone } from '@/lib/validation';
 
 export interface LeadFormData {
   firstName: string;
@@ -32,6 +33,7 @@ export function LeadCaptureForm({
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
   const [tcpaConsent, setTcpaConsent] = useState(false);
+  const [validationErrors, setValidationErrors] = useState<Record<string, string>>({});
 
   const isFormValid = firstName && lastName && phone && email && tcpaConsent;
 
@@ -50,6 +52,19 @@ export function LeadCaptureForm({
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     if (!isFormValid || disabled) return;
+
+    const errors: Record<string, string> = {};
+    if (!isValidEmail(email)) {
+      errors.email = 'Please enter a valid email address';
+    }
+    if (!isValidPhone(phone)) {
+      errors.phone = 'Please enter a valid 10-digit phone number';
+    }
+    if (Object.keys(errors).length > 0) {
+      setValidationErrors(errors);
+      return;
+    }
+    setValidationErrors({});
 
     onSubmit({
       firstName,
@@ -93,36 +108,60 @@ export function LeadCaptureForm({
         </div>
       </div>
 
-      <div className="relative">
-        <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-          <Phone className="h-5 w-5 text-gray-400" />
+      <div>
+        <div className="relative">
+          <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+            <Phone className="h-5 w-5 text-gray-400" />
+          </div>
+          <input
+            type="tel"
+            value={phone}
+            onChange={(e) => {
+              handlePhoneChange(e);
+              if (validationErrors.phone) setValidationErrors(prev => { const { phone: _, ...rest } = prev; return rest; });
+            }}
+            placeholder="Phone Number"
+            required
+            className={`w-full pl-10 pr-4 py-3 border rounded-lg
+                       focus:border-primary focus:ring-2 focus:ring-primary/10
+                       transition-all duration-200 outline-none
+                       ${validationErrors.phone ? 'border-red-300' : 'border-gray-200'}`}
+          />
         </div>
-        <input
-          type="tel"
-          value={phone}
-          onChange={handlePhoneChange}
-          placeholder="Phone Number"
-          required
-          className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-lg
-                     focus:border-primary focus:ring-2 focus:ring-primary/10
-                     transition-all duration-200 outline-none"
-        />
+        {validationErrors.phone && (
+          <p className="text-sm text-red-500 mt-1 flex items-center gap-1">
+            <AlertCircle className="h-3 w-3" />
+            {validationErrors.phone}
+          </p>
+        )}
       </div>
 
-      <div className="relative">
-        <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-          <Mail className="h-5 w-5 text-gray-400" />
+      <div>
+        <div className="relative">
+          <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+            <Mail className="h-5 w-5 text-gray-400" />
+          </div>
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => {
+              setEmail(e.target.value);
+              if (validationErrors.email) setValidationErrors(prev => { const { email: _, ...rest } = prev; return rest; });
+            }}
+            placeholder="Email Address"
+            required
+            className={`w-full pl-10 pr-4 py-3 border rounded-lg
+                       focus:border-primary focus:ring-2 focus:ring-primary/10
+                       transition-all duration-200 outline-none
+                       ${validationErrors.email ? 'border-red-300' : 'border-gray-200'}`}
+          />
         </div>
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="Email Address"
-          required
-          className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-lg
-                     focus:border-primary focus:ring-2 focus:ring-primary/10
-                     transition-all duration-200 outline-none"
-        />
+        {validationErrors.email && (
+          <p className="text-sm text-red-500 mt-1 flex items-center gap-1">
+            <AlertCircle className="h-3 w-3" />
+            {validationErrors.email}
+          </p>
+        )}
       </div>
 
       <div className="relative">

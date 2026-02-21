@@ -2,24 +2,10 @@ import { NextRequest, NextResponse } from 'next/server';
 import { buildGHLPayload, submitToGHL } from '@/lib/ghl-webhook';
 import { LeadData, RoofEstimate } from '@/types';
 import { checkRateLimit, getClientIP, RATE_LIMITS } from '@/lib/rate-limit';
+import { sanitizeString, isValidEmail, isValidPhone } from '@/lib/validation';
 
 interface SubmitLeadRequest extends LeadData {
   roofData: RoofEstimate;
-}
-
-function sanitizeString(str: string, maxLength: number = 100): string {
-  if (typeof str !== 'string') return '';
-  return str.trim().slice(0, maxLength).replace(/[<>]/g, '');
-}
-
-function isValidEmail(email: string): boolean {
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return emailRegex.test(email) && email.length <= 254;
-}
-
-function isValidPhone(phone: string): boolean {
-  const cleaned = phone.replace(/\D/g, '');
-  return cleaned.length === 10 || cleaned.length === 11;
 }
 
 export async function POST(request: NextRequest) {
