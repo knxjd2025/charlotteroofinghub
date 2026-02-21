@@ -183,8 +183,9 @@ export default function ResidentialPage() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
             <div className="border rounded-xl p-6">
+              <div className="inline-block px-3 py-1 bg-green-100 text-green-700 text-xs font-semibold rounded-full mb-3">Most Popular</div>
               <h3 className="text-xl font-bold text-gray-900 mb-2">Asphalt Shingles</h3>
               <p className="text-primary font-semibold mb-2">$3.50 - $7.00/sq ft</p>
               <p className="text-gray-600 text-sm mb-4">
@@ -196,10 +197,11 @@ export default function ResidentialPage() {
             </div>
 
             <div className="border rounded-xl p-6">
+              <div className="inline-block px-3 py-1 bg-amber-100 text-amber-700 text-xs font-semibold rounded-full mb-3">Best Long-Term Value</div>
               <h3 className="text-xl font-bold text-gray-900 mb-2">Metal Roofing</h3>
               <p className="text-primary font-semibold mb-2">$7.00 - $14.00/sq ft</p>
               <p className="text-gray-600 text-sm mb-4">
-                Excellent for Charlotte's heat. Reflects sunlight, reduces cooling costs, and handles storms well.
+                Excellent for Charlotte&apos;s heat. Reflects sunlight, reduces cooling costs, and handles storms well.
               </p>
               <div className="text-sm text-gray-500">
                 <span className="font-medium">Lifespan:</span> 40-70 years
@@ -207,6 +209,7 @@ export default function ResidentialPage() {
             </div>
 
             <div className="border rounded-xl p-6">
+              <div className="inline-block px-3 py-1 bg-blue-100 text-blue-700 text-xs font-semibold rounded-full mb-3">Best Value</div>
               <h3 className="text-xl font-bold text-gray-900 mb-2">Architectural Shingles</h3>
               <p className="text-primary font-semibold mb-2">$4.50 - $7.00/sq ft</p>
               <p className="text-gray-600 text-sm mb-4">
@@ -218,7 +221,32 @@ export default function ResidentialPage() {
             </div>
           </div>
 
-          <div className="text-center mt-8">
+          {/* Visual Cost for Typical Charlotte Home */}
+          <div className="bg-gray-50 rounded-xl p-6 max-w-2xl mx-auto mb-8">
+            <h3 className="text-lg font-bold text-gray-900 mb-1 text-center">Average Cost for a 2,000 sq ft Charlotte Home</h3>
+            <p className="text-sm text-gray-500 text-center mb-4">(~2,400 sq ft roof area)</p>
+            <div className="space-y-3">
+              {[
+                { name: 'Asphalt Shingles', cost: '$8,400 - $16,800', pct: 56, color: 'bg-blue-500' },
+                { name: 'Architectural', cost: '$10,800 - $16,800', pct: 56, color: 'bg-blue-600' },
+                { name: 'Metal Roofing', cost: '$16,800 - $33,600', pct: 100, color: 'bg-amber-500' },
+              ].map((item) => (
+                <div key={item.name} className="flex items-center gap-3">
+                  <div className="w-24 text-sm font-medium text-gray-700 text-right shrink-0">{item.name}</div>
+                  <div className="flex-1 bg-gray-200 rounded-full h-7 relative overflow-hidden">
+                    <div
+                      className={`${item.color} h-full rounded-full flex items-center justify-end pr-2`}
+                      style={{ width: `${item.pct}%` }}
+                    >
+                      <span className="text-xs font-bold text-white">{item.cost}</span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="text-center">
             <Link
               href="/materials"
               className="inline-flex items-center gap-2 text-primary font-semibold hover:underline"

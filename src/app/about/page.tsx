@@ -54,6 +54,30 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Stats Bar */}
+      <section className="py-8 bg-white border-b">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div className="text-center">
+              <div className="text-3xl font-bold text-primary">30+</div>
+              <div className="text-sm text-gray-600">Verified Companies</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-primary">4.9</div>
+              <div className="text-sm text-gray-600">Avg. Star Rating</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-primary">40+</div>
+              <div className="text-sm text-gray-600">Areas Served</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-primary">100%</div>
+              <div className="text-sm text-gray-600">Free for Homeowners</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Mission Section */}
       <section className="py-12 md:py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

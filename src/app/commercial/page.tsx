@@ -236,24 +236,93 @@ export default function CommercialPage() {
         </div>
       </section>
 
-      {/* Industries Served */}
+      {/* Side-by-Side Comparison Table */}
       <section className="py-12 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">
+            Commercial Roofing Systems at a Glance
+          </h2>
+          <div className="overflow-x-auto">
+            <table className="w-full bg-white rounded-xl shadow-sm text-sm">
+              <thead>
+                <tr className="bg-primary text-white">
+                  <th className="px-4 py-3 text-left rounded-tl-xl">Feature</th>
+                  <th className="px-4 py-3 text-center">TPO</th>
+                  <th className="px-4 py-3 text-center">EPDM</th>
+                  <th className="px-4 py-3 text-center">PVC</th>
+                  <th className="px-4 py-3 text-center rounded-tr-xl">Mod. Bit.</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-100">
+                <tr>
+                  <td className="px-4 py-3 font-medium text-gray-900">Cost/sq ft</td>
+                  <td className="px-4 py-3 text-center text-gray-700">$5-$8</td>
+                  <td className="px-4 py-3 text-center text-gray-700">$4-$7</td>
+                  <td className="px-4 py-3 text-center text-gray-700">$6-$10</td>
+                  <td className="px-4 py-3 text-center text-gray-700">$5-$9</td>
+                </tr>
+                <tr className="bg-gray-50">
+                  <td className="px-4 py-3 font-medium text-gray-900">Lifespan</td>
+                  <td className="px-4 py-3 text-center text-gray-700">20-30 yrs</td>
+                  <td className="px-4 py-3 text-center text-gray-700">25-30 yrs</td>
+                  <td className="px-4 py-3 text-center text-gray-700">20-30 yrs</td>
+                  <td className="px-4 py-3 text-center text-gray-700">15-20 yrs</td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-3 font-medium text-gray-900">Energy Efficiency</td>
+                  <td className="px-4 py-3 text-center text-green-600 font-semibold">Excellent</td>
+                  <td className="px-4 py-3 text-center text-amber-600 font-semibold">Fair</td>
+                  <td className="px-4 py-3 text-center text-green-600 font-semibold">Excellent</td>
+                  <td className="px-4 py-3 text-center text-amber-600 font-semibold">Good</td>
+                </tr>
+                <tr className="bg-gray-50">
+                  <td className="px-4 py-3 font-medium text-gray-900">Chemical Resistance</td>
+                  <td className="px-4 py-3 text-center text-amber-600 font-semibold">Good</td>
+                  <td className="px-4 py-3 text-center text-amber-600 font-semibold">Fair</td>
+                  <td className="px-4 py-3 text-center text-green-600 font-semibold">Excellent</td>
+                  <td className="px-4 py-3 text-center text-amber-600 font-semibold">Fair</td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-3 font-medium text-gray-900">Best For</td>
+                  <td className="px-4 py-3 text-center text-gray-600 text-xs">Most buildings</td>
+                  <td className="px-4 py-3 text-center text-gray-600 text-xs">Budget projects</td>
+                  <td className="px-4 py-3 text-center text-gray-600 text-xs">Restaurants</td>
+                  <td className="px-4 py-3 text-center text-gray-600 text-xs">Foot traffic</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      {/* Industries Served */}
+      <section className="py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">
             Industries We Serve
           </h2>
-          <div className="flex flex-wrap justify-center gap-3">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
             {[
-              'Office Buildings', 'Retail Centers', 'Warehouses', 'Manufacturing',
-              'Restaurants', 'Medical Facilities', 'Schools', 'Churches',
-              'Multi-Family', 'Hotels', 'Industrial', 'Government'
+              { name: 'Office Buildings', icon: '🏢' },
+              { name: 'Retail Centers', icon: '🛍️' },
+              { name: 'Warehouses', icon: '📦' },
+              { name: 'Manufacturing', icon: '🏭' },
+              { name: 'Restaurants', icon: '🍽️' },
+              { name: 'Medical Facilities', icon: '🏥' },
+              { name: 'Schools', icon: '🏫' },
+              { name: 'Churches', icon: '⛪' },
+              { name: 'Multi-Family', icon: '🏘️' },
+              { name: 'Hotels', icon: '🏨' },
+              { name: 'Industrial', icon: '⚙️' },
+              { name: 'Government', icon: '🏛️' },
             ].map((industry) => (
-              <span
-                key={industry}
-                className="px-4 py-2 bg-white rounded-full text-gray-700 shadow-sm"
+              <div
+                key={industry.name}
+                className="flex items-center gap-3 px-4 py-3 bg-gray-50 rounded-lg"
               >
-                {industry}
-              </span>
+                <span className="text-xl">{industry.icon}</span>
+                <span className="text-sm font-medium text-gray-700">{industry.name}</span>
+              </div>
             ))}
           </div>
         </div>

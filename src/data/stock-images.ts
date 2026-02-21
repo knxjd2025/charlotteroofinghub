@@ -5,28 +5,28 @@
 export const stockImages = {
   // HOMEPAGE
   heroBackground: {
-    src: 'https://images.unsplash.com/photo-1582407947092-45795aba0bb8?w=1600&q=80',
+    src: 'https://images.unsplash.com/photo-1578507065211-1c4e99a5fd24?w=1600&q=80',
     alt: 'Charlotte North Carolina skyline at sunset with Uptown buildings',
-    credit: 'Wes Hicks / Unsplash',
+    credit: 'Unsplash',
   },
   homeServices: {
-    src: 'https://images.unsplash.com/photo-1643133525068-05e1e92a9f09?w=800&q=80',
-    alt: 'Roofing contractor carrying shingles on residential roof during installation',
-    credit: 'Zohair Mirza / Unsplash',
+    src: 'https://images.unsplash.com/photo-1591588582259-e675bd2e6088?w=800&q=80',
+    alt: 'Roofing contractor working on residential roof during installation',
+    credit: 'Unsplash',
   },
 
   // ABOUT PAGE
   aboutCharlotte: {
-    src: 'https://images.unsplash.com/photo-1722273025483-07adc3acf2f3?w=1200&q=80',
+    src: 'https://images.unsplash.com/photo-1610641818989-c2051b5e2cfd?w=1200&q=80',
     alt: 'Charlotte North Carolina city skyline bathed in warm sunset light',
-    credit: 'OANA BUZATU / Unsplash',
+    credit: 'Unsplash',
   },
 
   // COMPANIES LISTING PAGE
   companiesHero: {
-    src: 'https://images.unsplash.com/photo-1660615623702-9c4e0a1b0c47?w=1200&q=80',
+    src: 'https://images.unsplash.com/photo-1569974507005-6dc61f97fb5c?w=1200&q=80',
     alt: 'Charlotte NC Uptown skyline viewed from the west side with tree-lined foreground',
-    credit: 'Daniel Weiss / Unsplash',
+    credit: 'Unsplash',
   },
 
   // COMPANY DETAIL PAGE
@@ -43,16 +43,16 @@ export const stockImages = {
     credit: 'Troy Mortier / Unsplash',
   },
   residentialNeighborhood: {
-    src: 'https://images.unsplash.com/photo-1707843657766-25db7a685f33?w=1200&q=80',
-    alt: 'Suburban houses with shingled roofs in a residential neighborhood under blue sky',
-    credit: 'Tanya Barrow / Unsplash',
+    src: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=1200&q=80',
+    alt: 'Suburban house with shingled roof and landscaped front yard under blue sky',
+    credit: 'Unsplash',
   },
 
   // COMMERCIAL PAGE
   commercialHero: {
-    src: 'https://images.unsplash.com/photo-1666117804498-2ea003c16ea4?w=1200&q=80',
-    alt: 'Aerial view of commercial building flat rooftop showing HVAC units and roof membrane',
-    credit: 'David Kristianto / Unsplash',
+    src: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1200&q=80',
+    alt: 'Modern commercial building exterior with flat roof and glass facade',
+    credit: 'Unsplash',
   },
   commercialBuilding: {
     src: 'https://images.pexels.com/photos/16714964/pexels-photo-16714964.jpeg?w=1200',
@@ -62,21 +62,21 @@ export const stockImages = {
 
   // MATERIALS PAGE
   materialsShingles: {
-    src: 'https://images.unsplash.com/photo-1729166838647-93edf58b9a78?w=1200&q=80',
-    alt: 'Close-up of weathered red clay roof tiles showing detailed texture and pattern',
-    credit: 'Merio09 / Unsplash',
+    src: 'https://images.unsplash.com/photo-1598228723793-52759bba239c?w=1200&q=80',
+    alt: 'Close-up of residential roof showing detailed shingle texture and pattern',
+    credit: 'Unsplash',
   },
   materialsTiles: {
-    src: 'https://images.unsplash.com/photo-1709458791719-f8ff5e1b2820?w=1200&q=80',
-    alt: 'Close-up view of traditional curved clay roof tiles on a building',
-    credit: 'Chris Barbalis / Unsplash',
+    src: 'https://images.unsplash.com/photo-1614977645540-7abd88ba8e56?w=1200&q=80',
+    alt: 'Close-up view of traditional roof tiles on a building',
+    credit: 'Unsplash',
   },
 
   // BLOG PAGE
   blogFeatured: {
-    src: 'https://images.unsplash.com/photo-1685984302498-12bfb6d4be93?w=1200&q=80',
-    alt: 'Large white farmhouse with green metal roof and stone column front porch',
-    credit: 'Roger Starnes Sr / Unsplash',
+    src: 'https://images.unsplash.com/photo-1510627489930-0c1b0bfb6785?w=1200&q=80',
+    alt: 'Beautiful home with well-maintained roof and stone column front porch',
+    credit: 'Unsplash',
   },
 
   // SERVICES PAGE
@@ -88,9 +88,9 @@ export const stockImages = {
 
   // AREAS PAGE
   areasHero: {
-    src: 'https://images.unsplash.com/photo-1695068044543-de8ab0a3d3fc?w=1200&q=80',
+    src: 'https://images.unsplash.com/photo-1560184897-ae75f418493e?w=1200&q=80',
     alt: 'Aerial view of suburban neighborhood showing residential homes with various roof types',
-    credit: 'Sigmund / Unsplash',
+    credit: 'Unsplash',
   },
 
   // CONTACT PAGE
@@ -109,16 +109,16 @@ export const stockImages = {
 
   // DYNAMIC SERVICE PAGES
   serviceStormDamage: {
-    src: 'https://images.unsplash.com/photo-1664460685627-1e0346a35805?w=1200&q=80',
-    alt: 'Storm damage aftermath showing fallen trees and building destruction from severe weather',
-    credit: 'Clay Banks / Unsplash',
+    src: 'https://images.unsplash.com/photo-1461511669078-d46bf351cd6e?w=1200&q=80',
+    alt: 'Dark storm clouds gathering over landscape showing severe weather conditions',
+    credit: 'Unsplash',
   },
 
   // SOLAR / SPECIALTY
   solarRoof: {
-    src: 'https://images.unsplash.com/photo-1592263869425-3e3c13e27193?w=1200&q=80',
-    alt: 'Residential homes with solar panels installed on roof showing renewable energy integration',
-    credit: 'Vivint Solar / Unsplash',
+    src: 'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=1200&q=80',
+    alt: 'Solar panels installed on roof showing renewable energy integration',
+    credit: 'Unsplash',
   },
   solarInstall: {
     src: 'https://images.pexels.com/photos/9875419/pexels-photo-9875419.jpeg?w=1200',
@@ -128,9 +128,9 @@ export const stockImages = {
 
   // ROOF REPAIR / INSPECTION
   roofRepair: {
-    src: 'https://images.unsplash.com/photo-1697102293686-8b5c2e3e6212?w=1200&q=80',
-    alt: 'House with roof removed during major roof repair or replacement showing exposed structure',
-    credit: 'Ernie Journeys / Unsplash',
+    src: 'https://images.unsplash.com/photo-1607400201889-565b1ee75f8e?w=1200&q=80',
+    alt: 'House undergoing major roof repair or replacement showing construction work',
+    credit: 'Unsplash',
   },
   roofInspection: {
     src: 'https://images.pexels.com/photos/8293746/pexels-photo-8293746.jpeg?w=1200',
@@ -182,8 +182,8 @@ export const stockImages = {
     credit: 'Scott Graham / Unsplash',
   },
   guideMaintenance: {
-    src: 'https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=1200&q=80',
-    alt: 'Clean residential gutter system on a well-maintained home with landscaping',
+    src: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1200&q=80',
+    alt: 'Homeowner performing maintenance work on a well-maintained residential property',
     credit: 'Unsplash',
   },
   guideEnergy: {
@@ -199,13 +199,13 @@ export const stockImages = {
 
   // GUIDE BOOK — Charlotte Local Images
   guideCharlotteSkyline: {
-    src: 'https://images.unsplash.com/photo-1605087880595-8cc4db684797?w=1200&q=80',
-    alt: 'Charlotte NC skyline at dusk with illuminated Uptown buildings reflecting on water',
+    src: 'https://images.unsplash.com/photo-1533395427226-788cee25cc7b?w=1200&q=80',
+    alt: 'Charlotte NC skyline at dusk with illuminated Uptown buildings',
     credit: 'Unsplash',
   },
   guideCharlotteAerial: {
-    src: 'https://images.unsplash.com/photo-1695068044543-de8ab7a3d3fc?w=1200&q=80',
-    alt: 'Aerial view of Charlotte suburban neighborhoods with tree-lined streets and rooftops',
+    src: 'https://images.unsplash.com/photo-1515263487990-61b07816b324?w=1200&q=80',
+    alt: 'Aerial view of suburban neighborhoods with tree-lined streets and rooftops',
     credit: 'Unsplash',
   },
   guideSuburbanHomes: {
@@ -229,14 +229,14 @@ export const stockImages = {
     credit: 'Unsplash',
   },
   guideRooferWorking: {
-    src: 'https://images.pexels.com/photos/8961280/pexels-photo-8961280.jpeg?w=1200',
-    alt: 'Professional roofer installing shingles on residential roof with safety harness',
+    src: 'https://images.pexels.com/photos/585419/pexels-photo-585419.jpeg?w=1200',
+    alt: 'Professional construction worker on residential building site with safety equipment',
     credit: 'Pexels',
   },
   guideGutterCleaning: {
-    src: 'https://images.unsplash.com/photo-1585128903994-9788298932a4?w=1200&q=80',
-    alt: 'Homeowner cleaning gutters on residential home as part of roof maintenance routine',
-    credit: 'Unsplash',
+    src: 'https://images.pexels.com/photos/5691622/pexels-photo-5691622.jpeg?w=1200',
+    alt: 'Home maintenance professional performing exterior cleaning and upkeep',
+    credit: 'Pexels',
   },
   guideAtticVent: {
     src: 'https://images.unsplash.com/photo-1604079628040-94301bb21b91?w=1200&q=80',
@@ -267,5 +267,37 @@ export const stockImages = {
     src: 'https://images.unsplash.com/photo-1513584684374-8bab748fbf90?w=1200&q=80',
     alt: 'Elegant historic home with natural slate roof tiles and classic architecture',
     credit: 'Unsplash',
+  },
+
+  // BLOG POST THUMBNAILS
+  blogRoofCost: {
+    src: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&q=80',
+    alt: 'Modern home with well-maintained roof used for roofing cost article',
+    credit: 'Unsplash',
+  },
+  blogRoofSigns: {
+    src: 'https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?w=800&q=80',
+    alt: 'Residential home showing roof details relevant to warning signs article',
+    credit: 'Unsplash',
+  },
+  blogMetalVsShingles: {
+    src: 'https://images.unsplash.com/photo-1449844908441-8829872d2607?w=800&q=80',
+    alt: 'Home with roof materials comparison for metal vs shingles article',
+    credit: 'Unsplash',
+  },
+  blogChooseContractor: {
+    src: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80',
+    alt: 'Beautiful home exterior for choosing a roofing contractor article',
+    credit: 'Unsplash',
+  },
+  blogStormInsurance: {
+    src: 'https://images.pexels.com/photos/1162251/pexels-photo-1162251.jpeg?w=800',
+    alt: 'Storm clouds over buildings relevant to storm damage insurance article',
+    credit: 'Pexels',
+  },
+  blogMaintenance: {
+    src: 'https://images.pexels.com/photos/5691630/pexels-photo-5691630.jpeg?w=800',
+    alt: 'Home maintenance professional performing roof upkeep for maintenance article',
+    credit: 'Pexels',
   },
 } as const

@@ -171,7 +171,7 @@ export default function MaterialsPage() {
           <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">
             Quick Cost Overview (per square foot, installed)
           </h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
             <div className="text-center p-4 bg-gray-50 rounded-lg">
               <div className="text-2xl font-bold text-primary">$3.50-$7</div>
               <div className="text-sm text-gray-600">Asphalt Shingles</div>
@@ -189,7 +189,65 @@ export default function MaterialsPage() {
               <div className="text-sm text-gray-600">Slate</div>
             </div>
           </div>
-          <p className="text-center text-sm text-gray-500 mt-4">
+
+          {/* Visual Cost Comparison Chart */}
+          <div className="max-w-3xl mx-auto">
+            <h3 className="text-lg font-bold text-gray-900 mb-4 text-center">Cost per Sq Ft Comparison</h3>
+            <div className="space-y-3">
+              {[
+                { name: '3-Tab Shingles', min: 3.5, max: 5.5, color: 'bg-blue-400' },
+                { name: 'Architectural', min: 4.5, max: 7, color: 'bg-blue-500' },
+                { name: 'TPO/EPDM', min: 4, max: 8, color: 'bg-green-500' },
+                { name: 'Metal (Panels)', min: 7, max: 12, color: 'bg-amber-500' },
+                { name: 'Metal (Seam)', min: 9, max: 14, color: 'bg-amber-600' },
+                { name: 'Cedar Shake', min: 8, max: 15, color: 'bg-orange-500' },
+                { name: 'Slate', min: 15, max: 30, color: 'bg-red-500' },
+              ].map((item) => (
+                <div key={item.name} className="flex items-center gap-3">
+                  <div className="w-28 text-sm font-medium text-gray-700 text-right shrink-0">{item.name}</div>
+                  <div className="flex-1 bg-gray-100 rounded-full h-7 relative overflow-hidden">
+                    <div
+                      className={`${item.color} h-full rounded-full flex items-center justify-end pr-2`}
+                      style={{ width: `${(item.max / 30) * 100}%` }}
+                    >
+                      <span className="text-xs font-bold text-white">${item.min}-${item.max}</span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <p className="text-center text-xs text-gray-400 mt-3">Scale: $0 — $30 per sq ft installed</p>
+          </div>
+
+          {/* Lifespan Timeline */}
+          <div className="max-w-3xl mx-auto mt-10">
+            <h3 className="text-lg font-bold text-gray-900 mb-4 text-center">Expected Lifespan in Charlotte Climate</h3>
+            <div className="space-y-3">
+              {[
+                { name: '3-Tab Shingles', years: 20, color: 'bg-blue-400' },
+                { name: 'Architectural', years: 35, color: 'bg-blue-500' },
+                { name: 'TPO/EPDM', years: 30, color: 'bg-green-500' },
+                { name: 'Metal Roofing', years: 70, color: 'bg-amber-500' },
+                { name: 'Cedar Shake', years: 50, color: 'bg-orange-500' },
+                { name: 'Slate', years: 100, color: 'bg-red-500' },
+              ].map((item) => (
+                <div key={item.name} className="flex items-center gap-3">
+                  <div className="w-28 text-sm font-medium text-gray-700 text-right shrink-0">{item.name}</div>
+                  <div className="flex-1 bg-gray-100 rounded-full h-7 relative overflow-hidden">
+                    <div
+                      className={`${item.color} h-full rounded-full flex items-center justify-end pr-2`}
+                      style={{ width: `${(item.years / 100) * 100}%` }}
+                    >
+                      <span className="text-xs font-bold text-white">{item.years} yrs</span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <p className="text-center text-xs text-gray-400 mt-3">Scale: 0 — 100 years</p>
+          </div>
+
+          <p className="text-center text-sm text-gray-500 mt-6">
             *Prices include materials and installation. Actual costs vary by project complexity.
           </p>
         </div>

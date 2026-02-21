@@ -27,7 +27,8 @@ const blogPosts = [
     category: 'Pricing',
     readTime: '8 min read',
     date: 'January 5, 2025',
-    featured: true
+    featured: true,
+    image: 'blogRoofCost' as const
   },
   {
     id: '2',
@@ -37,7 +38,8 @@ const blogPosts = [
     category: 'Maintenance',
     readTime: '5 min read',
     date: 'January 2, 2025',
-    featured: false
+    featured: false,
+    image: 'blogRoofSigns' as const
   },
   {
     id: '3',
@@ -47,7 +49,8 @@ const blogPosts = [
     category: 'Materials',
     readTime: '7 min read',
     date: 'December 28, 2024',
-    featured: false
+    featured: false,
+    image: 'blogMetalVsShingles' as const
   },
   {
     id: '4',
@@ -57,7 +60,8 @@ const blogPosts = [
     category: 'Hiring',
     readTime: '6 min read',
     date: 'December 20, 2024',
-    featured: false
+    featured: false,
+    image: 'blogChooseContractor' as const
   },
   {
     id: '5',
@@ -67,7 +71,8 @@ const blogPosts = [
     category: 'Insurance',
     readTime: '9 min read',
     date: 'December 15, 2024',
-    featured: false
+    featured: false,
+    image: 'blogStormInsurance' as const
   },
   {
     id: '6',
@@ -77,7 +82,8 @@ const blogPosts = [
     category: 'Maintenance',
     readTime: '4 min read',
     date: 'December 10, 2024',
-    featured: false
+    featured: false,
+    image: 'blogMaintenance' as const
   }
 ]
 
@@ -99,17 +105,26 @@ export default function BlogPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="bg-primary text-white py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative text-white py-12 md:py-20 overflow-hidden">
+        <Image
+          src={stockImages.blogFeatured.src}
+          alt={stockImages.blogFeatured.alt}
+          fill
+          className="object-cover"
+          priority
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#1E3A5F]/90 to-[#1E3A5F]/70" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <div className="flex items-center gap-2 mb-4">
               <FileText className="w-6 h-6" />
               <span className="text-sm font-medium text-white/80">Charlotte Roofing Hub</span>
             </div>
-            <h1 className="text-3xl md:text-4xl font-bold mb-4">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
               Roofing Blog
             </h1>
-            <p className="text-lg text-white/90">
+            <p className="text-lg md:text-xl text-white/90">
               Expert tips, guides, and news about roofing in Charlotte, NC.
               Everything you need to know about caring for your roof.
             </p>
@@ -195,8 +210,14 @@ export default function BlogPage() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {regularPosts.map((post) => (
                   <article key={post.id} className="bg-white rounded-xl overflow-hidden shadow-sm card-hover">
-                    <div className="aspect-[16/9] bg-gray-100 flex items-center justify-center">
-                      <FileText className="w-10 h-10 text-gray-300" />
+                    <div className="relative aspect-[16/9]">
+                      <Image
+                        src={stockImages[post.image].src}
+                        alt={stockImages[post.image].alt}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, 400px"
+                      />
                     </div>
                     <div className="p-5">
                       <span className="inline-block px-2 py-1 bg-gray-100 text-gray-600 rounded text-xs font-medium mb-2">
