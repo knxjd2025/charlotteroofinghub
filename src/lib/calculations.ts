@@ -115,3 +115,74 @@ export function formatCurrency(amount: number): string {
 export function formatNumber(num: number): string {
   return new Intl.NumberFormat('en-US').format(num);
 }
+
+/**
+ * Calculate a roof complexity score based on segment count and pitch variance.
+ * Returns 'Simple' | 'Moderate' | 'Complex' with a numeric score 1-10.
+ */
+export function getRoofComplexity(solarData: SolarData): {
+  score: number;
+  label: 'Simple' | 'Moderate' | 'Complex';
+  segmentCount: number;
+} {
+  const segments = solarData.solarPotential.roofSegmentStats;
+  const segmentCount = segments.length;
+
+  if (segmentCount === 0) {
+    return { score: 1, label: 'Simple', segmentCount: 0 };
+  }
+
+  // Pitch variance contributes to complexity
+  const pitches = segments.map(s => s.pitchDegrees);
+  const avgPitch = pitches.reduce((a, b) => a + b, 0) / pitches.length;
+  const pitchVariance = pitches.reduce((sum, p) => sum + Math.pow(p - avgPitch, 2), 0) / pitches.length;
+  const pitchStdDev = Math.sqrt(pitchVariance);
+
+  // Score: segments (1-5 points) + pitch variance (1-5 points)
+  const segmentScore = Math.min(segmentCount, 5);
+  const varianceScore = Math.min(Math.round(pitchStdDev / 3), 5);
+  const score = Math.max(1, Math.min(10, segmentScore + varianceScore));
+
+  let label: 'Simple' | 'Moderate' | 'Complex';
+  if (score <= 3) label = 'Simple';
+  else if (score <= 6) label = 'Moderate';
+  else label = 'Complex';
+
+  return { score, label, segmentCount };
+}
+
+/**
+ * Generate a human-readable estimate summary string.
+ */
+export function getEstimateSummary(estimate: RoofEstimate): string {
+  const primary = estimate.materialEstimates[0];
+  if (!primary) return '';
+  return `${formatNumber(estimate.roofSqFt)} sq ft roof at ${estimate.pitchRatio} pitch — ${primary.name}: ${formatCurrency(primary.estimate.low)} to ${formatCurrency(primary.estimate.high)}`;
+}
+
+/**
+ * Get the recommended material based on budget preference.
+ */
+export function getRecommendedMaterial(
+  estimate: RoofEstimate,
+  budget: 'economy' | 'mid-range' | 'premium'
+): MaterialEstimate | null {
+  if (estimate.materialEstimates.length === 0) return null;
+
+  switch (budget) {
+    case 'economy':
+      // Cheapest = Roof Coatings (last in array)
+      return estimate.materialEstimates.reduce((cheapest, m) =>
+        m.estimate.mid < cheapest.estimate.mid ? m : cheapest
+      );
+    case 'premium':
+      // Most expensive
+      return estimate.materialEstimates.reduce((priciest, m) =>
+        m.estimate.mid > priciest.estimate.mid ? m : priciest
+      );
+    case 'mid-range':
+    default:
+      // Architectural Shingles (first)
+      return estimate.materialEstimates[0];
+  }
+}
