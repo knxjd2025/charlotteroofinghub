@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import { Building2, Search, Filter, MapPin } from 'lucide-react'
-import CompanyCard from '@/components/companies/CompanyCard'
+import ShuffledCompanyGrid from '@/components/companies/ShuffledCompanyGrid'
 import InstantEstimateCTA from '@/components/layout/InstantEstimateCTA'
 import { companies, getAllCompanies } from '@/data/companies'
 import { stockImages } from '@/data/stock-images'
@@ -145,11 +145,7 @@ export default function CompaniesPage() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {allCompanies.map((company, index) => (
-              <CompanyCard key={company.id} company={company} rank={index + 1} />
-            ))}
-          </div>
+          <ShuffledCompanyGrid companies={allCompanies} shuffleCount={6} />
 
           {/* Instant Estimate CTA */}
           <div className="mt-12">
