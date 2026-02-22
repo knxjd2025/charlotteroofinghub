@@ -10,6 +10,11 @@ export const metadata: Metadata = {
     'roofing content accuracy',
     'trusted roofing information charlotte'
   ],
+  openGraph: {
+    title: 'Editorial Guidelines | Charlotte Roofing Hub',
+    description: 'How Charlotte Roofing Hub researches, verifies, and publishes roofing content. Our editorial standards and commitment to accuracy.',
+    url: 'https://charlotteroofinghub.com/editorial-guidelines',
+  },
 }
 
 const editorialPrinciples = [

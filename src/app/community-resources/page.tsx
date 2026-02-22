@@ -3,7 +3,6 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Heart, Phone, ExternalLink, Shield, Users, Building2, AlertTriangle } from 'lucide-react'
 import FAQSection from '@/components/shared/FAQSection'
-import InstantEstimateCTA from '@/components/layout/InstantEstimateCTA'
 import { stockImages } from '@/data/stock-images'
 
 export const metadata: Metadata = {
@@ -17,6 +16,11 @@ export const metadata: Metadata = {
     'fema roof repair north carolina',
     'habitat for humanity charlotte roof'
   ],
+  openGraph: {
+    title: 'Charlotte Roofing Assistance Programs & Community Resources',
+    description: 'Free and low-cost roofing assistance programs in Charlotte, NC. Find help for seniors, veterans, and low-income homeowners.',
+    url: 'https://charlotteroofinghub.com/community-resources',
+  },
 }
 
 const assistancePrograms = [
@@ -280,11 +284,6 @@ export default function CommunityResourcesPage() {
           </div>
         </div>
       </section>
-
-      {/* CTA */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <InstantEstimateCTA variant="inline" />
-      </div>
 
       {/* FAQs */}
       <section className="py-12 bg-gray-50">

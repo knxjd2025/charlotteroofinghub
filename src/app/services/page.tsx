@@ -21,7 +21,12 @@ export const metadata: Metadata = {
     'emergency roof repair',
     'metal roofing charlotte',
     'shingle roofing'
-  ]
+  ],
+  openGraph: {
+    title: 'Roofing Services | Roof Repair, Replacement & More in Charlotte NC',
+    description: 'Complete roofing services in Charlotte: roof replacement, repair, emergency services, metal roofing, shingles, commercial roofing.',
+    url: 'https://charlotteroofinghub.com/services',
+  },
 }
 
 // Map icon names to components

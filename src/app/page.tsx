@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Building2, ArrowRight, Home as HomeIcon, Warehouse, DollarSign, FileText, Star, ShieldCheck, UserCheck, MapPin, Wrench, AlertTriangle, CloudLightning, BookOpen, HelpCircle, ClipboardList, Heart } from 'lucide-react'
@@ -8,6 +9,16 @@ import { companies, getRegularCompanies } from '@/data/companies'
 import { getFeaturedNeighborhoods } from '@/data/neighborhoods'
 import { blogPosts } from '@/data/blog-posts'
 import { stockImages } from '@/data/stock-images'
+
+export const metadata: Metadata = {
+  title: 'Charlotte Roofing Hub | Free Roofing Education by Local Roofers',
+  description: 'Your complete guide to roofing in Charlotte, NC. Free educational resources, verified contractor directory, materials guide, and instant roof estimates — created by local roofing companies.',
+  openGraph: {
+    title: 'Charlotte Roofing Hub | Free Roofing Education by Local Roofers',
+    description: 'Your complete guide to roofing in Charlotte, NC. Free educational resources, verified contractor directory, materials guide, and instant roof estimates.',
+    url: 'https://charlotteroofinghub.com',
+  },
+}
 
 // Homepage FAQs - Voice Search Optimized with Verification Messaging
 const homepageFAQs = [

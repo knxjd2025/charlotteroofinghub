@@ -12,6 +12,7 @@ export default function Hero() {
         fill
         className="object-cover"
         priority
+        fetchPriority="high"
         sizes="100vw"
       />
       <div className="absolute inset-0 bg-gradient-to-br from-[#1E3A5F]/90 to-[#1E3A5F]/70" />
@@ -115,9 +116,9 @@ export default function Hero() {
           </div>
 
           {/* Soft estimate link */}
-          <p className="mt-8 text-sm text-white/60">
+          <p className="mt-8 text-sm text-white/80">
             Need an estimate?{' '}
-            <Link href="/estimate" className="text-white/80 underline hover:text-white transition">
+            <Link href="/estimate" className="text-white underline hover:text-accent transition">
               Get a free instant estimate
             </Link>
           </p>

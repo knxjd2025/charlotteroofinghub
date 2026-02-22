@@ -463,7 +463,6 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
-        <InstantEstimateCTA variant="banner" />
         <InstantEstimateCTA variant="popup" />
       </body>
     </html>

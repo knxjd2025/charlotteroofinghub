@@ -12,7 +12,12 @@ export const metadata: Metadata = {
     'background checked roofers',
     'roofing education charlotte',
     'trusted roofers charlotte nc'
-  ]
+  ],
+  openGraph: {
+    title: 'About Charlotte Roofing Hub | Roofing Education by Local Roofers',
+    description: 'Charlotte Roofing Hub is a free roofing education resource founded by Best Roofing Now and supported by local Charlotte roofing companies.',
+    url: 'https://charlotteroofinghub.com/about',
+  },
 }
 
 const contributorCompanies = [
@@ -290,22 +295,31 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Get Started CTA */}
+      {/* Next Steps */}
       <section className="py-12 md:py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
-            Need a Roof Estimate?
+            Ready to Learn More?
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto mb-8">
-            Get an instant, accurate roof estimate for your Charlotte home — free and in under 60 seconds.
+            Explore our educational resources or browse verified Charlotte roofing companies.
           </p>
-          <Link
-            href="/estimate"
-            className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-secondary text-white font-semibold rounded-lg hover:bg-red-600 transition text-lg"
-          >
-            Get Instant Roof Estimate
-            <ArrowRight className="w-5 h-5" />
-          </Link>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Link
+              href="/companies"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary text-white font-semibold rounded-lg hover:bg-primary-light transition"
+            >
+              Browse Companies
+              <ArrowRight className="w-5 h-5" />
+            </Link>
+            <Link
+              href="/estimate"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gray-100 text-gray-700 font-semibold rounded-lg hover:bg-gray-200 transition"
+            >
+              Get Free Estimate
+              <ArrowRight className="w-5 h-5" />
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -338,10 +352,10 @@ export default function AboutPage() {
                 about roofing materials, costs, and what to expect.
               </p>
               <Link
-                href="/estimate"
-                className="inline-block px-4 py-2 bg-secondary text-white font-medium rounded-lg hover:bg-red-600 transition text-sm"
+                href="/roofing-guide"
+                className="inline-block px-4 py-2 bg-primary text-white font-medium rounded-lg hover:bg-primary-light transition text-sm"
               >
-                Get Free Estimate
+                Browse Resources
               </Link>
             </div>
           </div>

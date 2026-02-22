@@ -23,7 +23,12 @@ export const metadata: Metadata = {
     'south end charlotte roofers',
     'huntersville nc roofing',
     'matthews nc roofing contractors'
-  ]
+  ],
+  openGraph: {
+    title: 'Charlotte NC Roofing Service Areas | 40+ Neighborhoods & Cities',
+    description: 'Find verified roofing contractors in your Charlotte NC neighborhood. We serve Ballantyne, South End, Myers Park, Huntersville, Matthews, and 40+ communities.',
+    url: 'https://charlotteroofinghub.com/areas',
+  },
 }
 
 export default function AreasPage() {

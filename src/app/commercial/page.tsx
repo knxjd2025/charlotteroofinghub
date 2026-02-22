@@ -16,6 +16,11 @@ export const metadata: Metadata = {
     'commercial roofers near me',
     'business roofing charlotte nc'
   ],
+  openGraph: {
+    title: 'Commercial Roofing in Charlotte NC | Flat Roof & TPO Experts',
+    description: 'Commercial roofing services in Charlotte, NC. TPO, EPDM, modified bitumen, and flat roof specialists. Find licensed commercial roofing contractors.',
+    url: 'https://charlotteroofinghub.com/commercial',
+  },
 }
 
 const commercialFAQs = [

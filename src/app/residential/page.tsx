@@ -16,6 +16,11 @@ export const metadata: Metadata = {
     'house roofing charlotte',
     'residential roofers near me'
   ],
+  openGraph: {
+    title: 'Residential Roofing in Charlotte NC | Home Roof Services',
+    description: 'Complete guide to residential roofing in Charlotte, NC. Learn about roof replacement, repairs, materials, costs, and find top-rated home roofing contractors.',
+    url: 'https://charlotteroofinghub.com/residential',
+  },
 }
 
 const residentialFAQs = [

@@ -177,9 +177,6 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 ))}
               </div>
 
-              {/* Inline CTA */}
-              <InstantEstimateCTA variant="inline" />
-
               {/* FAQs */}
               {post.faqs.length > 0 && (
                 <div className="mt-12">

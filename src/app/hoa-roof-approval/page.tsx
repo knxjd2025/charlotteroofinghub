@@ -3,7 +3,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { FileText, CheckCircle, AlertTriangle, ClipboardList, Download } from 'lucide-react'
 import FAQSection from '@/components/shared/FAQSection'
-import InstantEstimateCTA from '@/components/layout/InstantEstimateCTA'
 import { stockImages } from '@/data/stock-images'
 
 export const metadata: Metadata = {
@@ -244,11 +243,6 @@ export default function HOARoofApprovalPage() {
           </div>
         </div>
       </section>
-
-      {/* CTA */}
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <InstantEstimateCTA variant="inline" />
-      </div>
 
       {/* FAQs */}
       <section className="py-12 bg-white">

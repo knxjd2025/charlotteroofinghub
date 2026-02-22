@@ -33,17 +33,6 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 bg-white shadow-md">
-      {/* Top CTA Bar - InstantRoofEstimate */}
-      <div className="bg-secondary text-white py-2 px-4 text-center">
-        <Link
-          href="/estimate"
-          className="text-sm md:text-base font-semibold hover:underline inline-flex items-center gap-2"
-        >
-          Get an Instant Roof Estimate Now - Free & Fast!
-          <span className="hidden sm:inline">→</span>
-        </Link>
-      </div>
-
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
@@ -100,7 +89,7 @@ export default function Header() {
           <div className="hidden lg:flex lg:items-center lg:gap-3">
             <Link
               href="/estimate"
-              className="px-4 py-2 text-sm font-medium text-white bg-secondary rounded-lg hover:bg-red-600 transition cta-pulse"
+              className="px-4 py-2 text-sm font-medium text-white bg-primary rounded-lg hover:bg-primary-light transition"
             >
               Free Estimate
             </Link>
@@ -111,6 +100,7 @@ export default function Header() {
             type="button"
             className="lg:hidden p-2 rounded-lg text-gray-700 hover:bg-gray-100"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle menu"
           >
             <span className="sr-only">Open menu</span>
             {mobileMenuOpen ? (

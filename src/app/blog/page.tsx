@@ -16,6 +16,11 @@ export const metadata: Metadata = {
     'roof repair advice',
     'roofing news nc'
   ],
+  openGraph: {
+    title: 'Roofing Blog | Tips & Guides for Charlotte Homeowners',
+    description: 'Expert roofing tips, guides, and news for Charlotte, NC homeowners. Learn about roof maintenance, repairs, materials, and finding the right contractor.',
+    url: 'https://charlotteroofinghub.com/blog',
+  },
 }
 
 const categories = [

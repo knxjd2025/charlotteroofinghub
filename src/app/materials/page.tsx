@@ -16,6 +16,11 @@ export const metadata: Metadata = {
     'metal roof price charlotte',
     'shingle roof cost nc'
   ],
+  openGraph: {
+    title: 'Roofing Materials & Prices in Charlotte NC | Cost Guide 2025',
+    description: 'Complete guide to roofing materials and prices in Charlotte, NC. Compare costs for asphalt shingles, metal roofing, TPO, and more.',
+    url: 'https://charlotteroofinghub.com/materials',
+  },
 }
 
 const materialsFAQs = [

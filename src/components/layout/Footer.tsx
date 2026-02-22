@@ -45,24 +45,6 @@ export default function Footer() {
 
   return (
     <footer className="bg-primary text-white">
-      {/* Main CTA Section */}
-      <div className="bg-secondary py-8 px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-2xl md:text-3xl font-bold mb-4">
-            Need a Roof Estimate? Get One Instantly!
-          </h2>
-          <p className="text-white/90 mb-6">
-            Use our AI-powered tool to get an instant, accurate roof estimate for your Charlotte home.
-          </p>
-          <Link
-            href="/estimate"
-            className="inline-block px-8 py-4 bg-white text-secondary font-bold rounded-lg hover:bg-gray-100 transition text-lg"
-          >
-            Get Your Free Instant Estimate
-          </Link>
-        </div>
-      </div>
-
       {/* Footer Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
