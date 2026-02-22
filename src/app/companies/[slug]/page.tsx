@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
-import { Phone, Globe, MapPin, Mail, Star, CheckCircle, ArrowLeft, ExternalLink, Building2, Clock, Shield, ArrowRight } from 'lucide-react'
+import { Phone, Globe, MapPin, Mail, Star, CheckCircle, ArrowLeft, ExternalLink, Building2, Clock, Shield, ShieldCheck, ArrowRight } from 'lucide-react'
 import StarRating from '@/components/shared/StarRating'
 import InstantEstimateCTA from '@/components/layout/InstantEstimateCTA'
 import CompanyCard from '@/components/companies/CompanyCard'
@@ -178,6 +178,23 @@ export default async function CompanyDetailPage({ params }: PageProps) {
                   reviewCount={company.reviewCount ?? undefined}
                   size="lg"
                 />
+                {company.bbbRating && (
+                  <a
+                    href={company.bbbUrl || '#'}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-sm font-medium hover:bg-blue-100 transition"
+                  >
+                    <ShieldCheck className="w-4 h-4" />
+                    BBB {company.bbbRating}{company.bbbAccredited ? ' Accredited' : ''}
+                  </a>
+                )}
+                {company.yearsInBusiness && company.yearsInBusiness > 1 && (
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium">
+                    <Clock className="w-4 h-4" />
+                    {company.yearsInBusiness}+ Years
+                  </span>
+                )}
                 <div className="flex items-center gap-1 text-gray-600">
                   <MapPin className="w-4 h-4" />
                   <span>{company.city}, {company.state} {company.zipCode}</span>

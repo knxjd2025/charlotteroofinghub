@@ -20,6 +20,10 @@ export interface Company {
   isContributor: boolean
   isVerified: boolean
   logoUrl?: string | null
+  bbbRating?: string | null
+  bbbAccredited?: boolean | null
+  bbbUrl?: string | null
+  yearsInBusiness?: number | null
   createdAt: Date
   updatedAt: Date
 }

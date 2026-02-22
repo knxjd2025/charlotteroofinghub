@@ -1,4 +1,4 @@
-import { MapPin, CheckCircle, Building2 } from 'lucide-react'
+import { MapPin, CheckCircle, Building2, ShieldCheck } from 'lucide-react'
 import Link from 'next/link'
 import StarRating from '@/components/shared/StarRating'
 import type { Company } from '@/types'
@@ -60,10 +60,18 @@ export default function CompanyCard({ company, rank }: CompanyCardProps) {
           </div>
         )}
 
-        {/* Location */}
-        <div className="flex items-center gap-2 text-gray-600 text-sm mb-4">
-          <MapPin className="w-4 h-4 flex-shrink-0" />
-          <span>{company.city}, {company.state} {company.zipCode}</span>
+        {/* Location & BBB */}
+        <div className="flex items-center justify-between text-sm mb-4">
+          <div className="flex items-center gap-2 text-gray-600">
+            <MapPin className="w-4 h-4 flex-shrink-0" />
+            <span>{company.city}, {company.state} {company.zipCode}</span>
+          </div>
+          {company.bbbRating && (
+            <div className="flex items-center gap-1 text-xs font-medium" title={`BBB ${company.bbbAccredited ? 'Accredited' : 'Rated'} - ${company.bbbRating}`}>
+              <ShieldCheck className="w-3.5 h-3.5 text-blue-600" />
+              <span className="text-blue-700">BBB {company.bbbRating}</span>
+            </div>
+          )}
         </div>
 
         {/* Services Tags */}
