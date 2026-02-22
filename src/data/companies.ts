@@ -40,7 +40,7 @@ export const companies: Company[] = [
     id: 'rise-roofing-restoration',
     name: 'Rise Roofing & Restoration',
     slug: 'rise-roofing-restoration',
-    description: 'With over 12 years of industry experience, Rise Roofing & Restoration has built a reputation for excellence in roofing project management, storm damage coordination, and customer service. As a GAF Master Elite Contractor (top 7% nationwide), they provide expert roof replacement, storm damage repairs, insurance claim guidance, and free drone-powered roof inspections.',
+    description: 'Rise Roofing & Restoration has built a reputation for excellence in roofing project management, storm damage coordination, and customer service. As a GAF Master Elite Contractor (top 7% nationwide), they provide expert roof replacement, storm damage repairs, insurance claim guidance, and free drone-powered roof inspections.',
     phone: '(704) 486-1348',
     email: null,
     website: 'https://riseroofingandrestoration.com',
@@ -59,7 +59,7 @@ export const companies: Company[] = [
     bbbRating: null,
     bbbAccredited: false,
     bbbUrl: null,
-    yearsInBusiness: 12,
+    yearsInBusiness: 4,
     createdAt: new Date(),
     updatedAt: new Date()
   },
@@ -113,7 +113,7 @@ export const companies: Company[] = [
     bbbRating: 'A+',
     bbbAccredited: false,
     bbbUrl: 'https://www.bbb.org/us/nc/charlotte/profile/roof-cleaning/roof-maxx-of-charlotte-nc-0473-810105',
-    yearsInBusiness: 7,
+    yearsInBusiness: 5,
     createdAt: new Date(),
     updatedAt: new Date()
   },
