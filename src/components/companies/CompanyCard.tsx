@@ -10,7 +10,7 @@ interface CompanyCardProps {
 
 export default function CompanyCard({ company, rank }: CompanyCardProps) {
   return (
-    <article className="bg-white rounded-xl shadow-md overflow-hidden card-hover border border-gray-100">
+    <article className="bg-white rounded-xl shadow-md overflow-hidden card-hover border border-gray-100 hover:border-primary/20 hover:shadow-xl transition-all duration-300">
       <div className="p-5 md:p-6">
         {/* Header */}
         <div className="flex items-start gap-4 mb-4">
@@ -112,7 +112,7 @@ export default function CompanyCard({ company, rank }: CompanyCardProps) {
         <div className="pt-2 border-t border-gray-100">
           <Link
             href={`/companies/${company.slug}`}
-            className="block w-full text-center py-2.5 bg-primary text-white font-medium rounded-lg hover:bg-primary-light transition text-sm"
+            className="block w-full text-center py-2.5 bg-primary text-white font-medium rounded-lg hover:bg-primary-light hover:shadow-md hover:shadow-primary/20 transition-all duration-200 text-sm"
           >
             View Profile
           </Link>

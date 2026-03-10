@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { ChevronDown, HelpCircle } from 'lucide-react'
+import { motion, AnimatePresence } from 'framer-motion'
 import type { FAQ } from '@/types'
 
 interface FAQSectionProps {
@@ -46,28 +47,43 @@ export default function FAQSection({ title = "Frequently Asked Questions", faqs,
 
         <div className="space-y-3">
           {faqs.map((faq, index) => (
-            <div
+            <motion.div
               key={index}
-              className="border border-gray-200 rounded-lg overflow-hidden"
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.05, duration: 0.3 }}
+              className="border border-gray-200 rounded-xl overflow-hidden hover:border-primary/30 transition-colors duration-200"
             >
               <button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                className="w-full flex items-center justify-between p-4 md:p-5 text-left bg-white hover:bg-gray-50 transition"
+                className="w-full flex items-center justify-between p-4 md:p-5 text-left bg-white hover:bg-gray-50/80 transition-colors duration-150"
               >
                 <span className="font-medium text-gray-900 pr-4">{faq.question}</span>
-                <ChevronDown
-                  className={`w-5 h-5 text-gray-500 flex-shrink-0 transition-transform duration-200 ${
-                    openIndex === index ? 'rotate-180' : ''
-                  }`}
-                />
+                <motion.div
+                  animate={{ rotate: openIndex === index ? 180 : 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <ChevronDown className="w-5 h-5 text-gray-500 flex-shrink-0" />
+                </motion.div>
               </button>
 
-              {openIndex === index && (
-                <div className="px-4 md:px-5 pb-4 md:pb-5 bg-gray-50">
-                  <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
-                </div>
-              )}
-            </div>
+              <AnimatePresence>
+                {openIndex === index && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: 'auto', opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.25, ease: 'easeInOut' }}
+                    className="overflow-hidden"
+                  >
+                    <div className="px-4 md:px-5 pb-4 md:pb-5 bg-gray-50/50">
+                      <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </motion.div>
           ))}
         </div>
       </div>

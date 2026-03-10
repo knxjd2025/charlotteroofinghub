@@ -1,5 +1,6 @@
 import Link from 'next/link'
-import { Home, Mail, Phone, MapPin, Facebook, Twitter, Linkedin } from 'lucide-react'
+import Image from 'next/image'
+import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin } from 'lucide-react'
 
 const footerLinks = {
   companies: [
@@ -50,9 +51,15 @@ export default function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
           {/* Brand Column */}
           <div className="col-span-2 md:col-span-3 lg:col-span-1">
-            <Link href="/" className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 rounded-lg bg-white flex items-center justify-center">
-                <Home className="w-6 h-6 text-primary" />
+            <Link href="/" className="flex items-center gap-2 mb-4 group">
+              <div className="relative w-10 h-10 rounded-lg overflow-hidden ring-2 ring-white/20 group-hover:ring-white/40 transition-all">
+                <Image
+                  src="/logo-header.png"
+                  alt="Charlotte Roofing Hub"
+                  width={80}
+                  height={80}
+                  className="object-cover"
+                />
               </div>
               <div>
                 <span className="text-lg font-bold">Charlotte</span>
