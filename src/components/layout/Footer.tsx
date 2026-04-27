@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Home, Mail, Phone, MapPin, Facebook, Twitter, Linkedin } from 'lucide-react'
+import { Home, Mail, MapPin } from 'lucide-react'
 
 const footerLinks = {
   companies: [
@@ -78,10 +78,29 @@ export default function Footer() {
             <p className="text-white/80 text-sm mb-4">
               Charlotte&apos;s only locally-verified roofing directory. A free community service — we don&apos;t make a profit and don&apos;t charge for services.
             </p>
-            <div className="flex items-center gap-2 text-sm text-white/70">
-              <MapPin className="w-4 h-4" />
-              <span>Charlotte, North Carolina</span>
-            </div>
+            {/* NAP block — consistent Name/Address/contact on every page is a
+                local SEO best practice. Wrap in microformat-friendly markup so
+                Google can pick the entity up alongside the JSON-LD. */}
+            <address className="not-italic space-y-2 text-sm text-white/70">
+              <div className="flex items-start gap-2">
+                <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0" />
+                <span>
+                  <span className="block text-white/90 font-semibold">Charlotte Roofing Hub</span>
+                  Charlotte, North Carolina
+                  <br />
+                  Serving the Charlotte metro &amp; surrounding areas
+                </span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Mail className="w-4 h-4 flex-shrink-0" />
+                <a
+                  href="mailto:info@charlotteroofinghub.com"
+                  className="hover:text-white transition"
+                >
+                  info@charlotteroofinghub.com
+                </a>
+              </div>
+            </address>
           </div>
 
           {/* Companies */}

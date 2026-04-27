@@ -34,11 +34,15 @@ export default function AboutPage() {
               <span className="text-sm font-medium">Free Community Resource for Charlotte Homeowners</span>
             </div>
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-              Protecting Charlotte Homeowners
+              About Charlotte Roofing Hub — A Free Verified Roofing Directory
             </h1>
-            <p className="text-lg md:text-xl text-white/90">
-              We personally verify every roofing company through face-to-face meetings
-              and background checks. It&apos;s the only way we&apos;d recommend a roofer to our own neighbors.
+            {/* AEO direct-answer paragraph (~55 words) for AI Overview extraction */}
+            <p className="text-lg md:text-xl text-white/90" data-speakable="true">
+              Charlotte Roofing Hub is a free community service for Charlotte and
+              surrounding-area homeowners. We personally vet every listed roofing
+              company through face-to-face owner meetings, background checks, NC
+              license verification, and a 4.8★ Google rating requirement. The
+              website does not make a profit and does not charge for services.
             </p>
           </div>
         </div>

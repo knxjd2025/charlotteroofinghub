@@ -184,31 +184,11 @@ function OrganizationSchema() {
   );
 }
 
-function LocalBusinessAggregateSchema() {
-  const schema = {
-    "@context": "https://schema.org",
-    "@type": "ItemList",
-    name: "Top Roofing Companies in Charlotte, NC",
-    description: "Curated list of 4.8+ star rated roofing companies serving Charlotte and surrounding areas",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        item: {
-          "@type": "RoofingContractor",
-          name: "Verified Charlotte Roofing Contractors",
-          description: "25+ personally vetted roofing contractors serving Charlotte, NC"
-        }
-      }
-    ]
-  };
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-    />
-  );
-}
+// LocalBusinessAggregateSchema removed: it was a thin placeholder one-item
+// ItemList repeated on every page. The canonical /companies route already
+// emits a complete ItemList of every RoofingContractor (CompanyListSchema
+// in src/app/companies/page.tsx). Repeating a stub globally dilutes the
+// real listing schema and risks Google selecting the weaker version.
 
 // AEO/GEO Optimized - Professional Service Schema
 // Linked to OrganizationSchema via @id so search engines treat them as
@@ -394,7 +374,6 @@ export default function RootLayout({
         {/* Core Schema Markup */}
         <WebsiteSchema />
         <OrganizationSchema />
-        <LocalBusinessAggregateSchema />
 
         {/* AEO/GEO Optimized Schema for AI & Voice Search */}
         <ProfessionalServiceSchema />
