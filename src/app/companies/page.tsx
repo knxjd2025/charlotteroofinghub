@@ -1,25 +1,68 @@
 import type { Metadata } from 'next'
-import { Building2, Search, Filter, MapPin } from 'lucide-react'
+import { Building2, Search, Filter, MapPin, ShieldCheck, Star, UserCheck } from 'lucide-react'
 import CompanyCard from '@/components/companies/CompanyCard'
 import InstantEstimateCTA from '@/components/layout/InstantEstimateCTA'
+import BreadcrumbsSchema from '@/components/shared/BreadcrumbsSchema'
+import FAQSection from '@/components/shared/FAQSection'
 import { companies, getFeaturedCompany, getRegularCompanies } from '@/data/companies'
 
 export const metadata: Metadata = {
-  title: 'Top Roofing Companies in Charlotte NC | 4.8+ Star Rated',
-  description: 'Browse 25+ top-rated roofing companies in Charlotte, NC. All companies have 4.8+ star Google ratings. Find the perfect roofer for your residential or commercial project.',
+  // Title targets primary keyword "roofing companies charlotte nc" (600 vol, KD 5)
+  // while staying under Google's 60-char visible limit.
+  title: 'Roofing Companies in Charlotte NC | 25+ Verified 4.8★ Roofers',
+  description: 'Browse 25+ verified roofing companies in Charlotte, NC. Every company is personally vetted with face-to-face owner meetings, background checks, and a 4.8+ star Google rating. Free service — we don\'t make a profit and don\'t charge for services.',
   keywords: [
     'roofing companies charlotte nc',
-    'best roofers charlotte',
+    'roofing companies in charlotte nc',
+    'best roofing company charlotte nc',
+    'charlotte roofing companies',
     'charlotte roofing contractors',
+    'best roofers charlotte',
     'top rated roofers charlotte',
     'local roofing companies charlotte'
   ],
+  alternates: {
+    canonical: 'https://charlotteroofinghub.com/companies',
+  },
   openGraph: {
-    title: 'Top Roofing Companies in Charlotte NC | 4.8+ Star Rated',
-    description: 'Browse 25+ top-rated roofing companies in Charlotte, NC. All companies have 4.8+ star Google ratings.',
+    title: 'Roofing Companies in Charlotte NC | 25+ Verified 4.8★ Roofers',
+    description: 'Browse 25+ verified roofing companies in Charlotte, NC. Every company personally vetted with background checks and 4.8+ star ratings.',
     url: 'https://charlotteroofinghub.com/companies',
   },
 }
+
+// Page-level FAQ schema. Targets "roofing companies charlotte nc" queries
+// and feeds Google's PAA box + AI Overviews citation pool.
+const companiesPageFAQs = [
+  {
+    question: 'How many roofing companies are listed in Charlotte NC?',
+    answer: `Charlotte Roofing Hub currently lists ${companies.length} verified roofing companies serving Charlotte, NC and surrounding areas. Every company has been personally vetted through face-to-face owner meetings, background checks, and a 4.8+ star Google rating requirement. New companies are added only after passing the same verification process.`,
+  },
+  {
+    question: 'How do I choose the best roofing company in Charlotte NC?',
+    answer: 'To choose the best roofing company in Charlotte NC: 1) Verify a 4.8+ star Google rating from real reviews, 2) Confirm current NC roofing license and liability insurance, 3) Look for manufacturer certifications such as GAF Master Elite or Owens Corning Platinum, 4) Get at least three written estimates, 5) Check for BBB accreditation. Every company on Charlotte Roofing Hub already meets these criteria.',
+  },
+  {
+    question: 'What does it cost to hire a roofing company in Charlotte?',
+    answer: 'In Charlotte NC, residential roof replacement typically costs $8,000–$25,000 depending on size and materials. Asphalt shingles run $3.50–$7.00 per square foot installed; metal roofing $7–$14 per square foot; premium materials like slate $20+ per square foot. Roof repairs typically range from $300 to $2,500. Estimates from any verified Charlotte Roofing Hub contractor are free.',
+  },
+  {
+    question: 'Are these Charlotte roofing companies licensed and insured?',
+    answer: 'Yes — every roofing company listed on Charlotte Roofing Hub is independently verified to hold an active North Carolina general contractor license (or roofing-specific license where required), general liability insurance, and workers\' compensation coverage. We confirm these credentials directly with the state and the company\'s insurer before listing.',
+  },
+  {
+    question: 'Do these Charlotte roofers handle insurance claims for storm damage?',
+    answer: 'Most listed Charlotte roofing companies handle insurance claims for hail, wind, and storm damage, including documentation, adjuster meetings, and supplement requests. Filter the directory by "Storm Damage" or contact a verified contractor directly to confirm their insurance-claim assistance process before scheduling an inspection.',
+  },
+  {
+    question: 'Which Charlotte neighborhoods do these roofing companies serve?',
+    answer: 'Charlotte Roofing Hub contractors collectively serve 40+ neighborhoods and surrounding cities including Ballantyne, Myers Park, South End, NoDa, Dilworth, Matthews, Mint Hill, Huntersville, Cornelius, Davidson, Mooresville, Concord, Indian Trail, Waxhaw, Pineville, Gastonia, Fort Mill, Rock Hill, and Kannapolis. Most companies serve the full Charlotte metro within a 30–50 mile radius.',
+  },
+]
+
+// Note: FAQSection (rendered below) already injects FAQPage JSON-LD via its
+// built-in `showSchema` prop, so we don't render a separate schema here —
+// duplicate FAQPage blocks on the same page can confuse Google's parser.
 
 // Schema for company list
 function CompanyListSchema() {
@@ -67,6 +110,12 @@ export default function CompaniesPage() {
   return (
     <>
       <CompanyListSchema />
+      <BreadcrumbsSchema
+        items={[
+          { name: 'Home', url: 'https://charlotteroofinghub.com' },
+          { name: 'Roofing Companies', url: 'https://charlotteroofinghub.com/companies' },
+        ]}
+      />
 
       {/* Hero Section */}
       <section className="bg-primary text-white py-12 md:py-16">
@@ -76,12 +125,17 @@ export default function CompaniesPage() {
               <Building2 className="w-6 h-6" />
               <span className="text-sm font-medium text-white/80">Charlotte Roofing Hub</span>
             </div>
+            {/* H1 carries the primary target keyword "roofing companies charlotte nc" */}
             <h1 className="text-3xl md:text-4xl font-bold mb-4">
-              Top-Rated Roofing Companies in Charlotte, NC
+              Roofing Companies in Charlotte, NC — {companies.length}+ Verified, 4.8★ Rated
             </h1>
-            <p className="text-lg text-white/90 mb-6">
-              Browse {companies.length}+ handpicked roofing companies with 4.8+ star Google ratings.
-              We feature quality local roofers who deserve more visibility.
+            {/* Lead paragraph is the AEO direct-answer block. ~55 words.
+                Designed for AI Overviews / ChatGPT extraction. */}
+            <p className="text-lg text-white/90 mb-6" data-speakable="true">
+              Charlotte Roofing Hub lists {companies.length}+ roofing companies serving Charlotte, NC and surrounding
+              areas. Every company is personally vetted through face-to-face owner meetings,
+              background checks, and a 4.8+ star Google rating requirement. This is a free
+              community service — we don&apos;t make a profit and don&apos;t charge for services.
             </p>
 
             {/* Search Bar */}
@@ -94,6 +148,35 @@ export default function CompaniesPage() {
                 className="w-full pl-12 pr-4 py-3 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-white/30"
               />
             </form>
+          </div>
+        </div>
+      </section>
+
+      {/* Trust signals strip — directly under fold for AEO and conversion */}
+      <section className="bg-white border-b">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-sm text-gray-700">
+            <div className="flex items-start gap-3">
+              <UserCheck className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+              <div>
+                <span className="block font-semibold text-gray-900">Face-to-Face Verified</span>
+                <span className="text-gray-600">We meet every company owner in person before listing.</span>
+              </div>
+            </div>
+            <div className="flex items-start gap-3">
+              <ShieldCheck className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+              <div>
+                <span className="block font-semibold text-gray-900">License &amp; Background Checked</span>
+                <span className="text-gray-600">NC contractor license, insurance, and clean background confirmed.</span>
+              </div>
+            </div>
+            <div className="flex items-start gap-3">
+              <Star className="w-5 h-5 text-amber-500 flex-shrink-0 mt-0.5" />
+              <div>
+                <span className="block font-semibold text-gray-900">4.8★ Rating Required</span>
+                <span className="text-gray-600">Verified Google reviews, no listings below 4.8 stars.</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -184,6 +267,14 @@ export default function CompaniesPage() {
             ))}
           </div>
         </div>
+      </section>
+
+      {/* FAQ — backed by FAQPage schema above for SERP rich results & AI citations */}
+      <section className="bg-gray-50">
+        <FAQSection
+          title="Roofing Companies in Charlotte NC — FAQ"
+          faqs={companiesPageFAQs}
+        />
       </section>
     </>
   )

@@ -5,6 +5,7 @@ import { Phone, Globe, MapPin, Mail, Star, CheckCircle, ArrowLeft, ExternalLink,
 import StarRating from '@/components/shared/StarRating'
 import InstantEstimateCTA from '@/components/layout/InstantEstimateCTA'
 import CompanyCard from '@/components/companies/CompanyCard'
+import BreadcrumbsSchema from '@/components/shared/BreadcrumbsSchema'
 import { companies, getCompanyBySlug, getRegularCompanies } from '@/data/companies'
 
 interface PageProps {
@@ -105,6 +106,13 @@ export default async function CompanyDetailPage({ params }: PageProps) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+      />
+      <BreadcrumbsSchema
+        items={[
+          { name: 'Home', url: 'https://charlotteroofinghub.com' },
+          { name: 'Companies', url: 'https://charlotteroofinghub.com/companies' },
+          { name: company.name, url: `https://charlotteroofinghub.com/companies/${company.slug}` },
+        ]}
       />
 
       {/* Breadcrumb */}

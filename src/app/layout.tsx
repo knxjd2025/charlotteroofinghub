@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     default: "Charlotte Roofing Hub | Find Top-Rated Roofers in Charlotte NC",
     template: "%s | Charlotte Roofing Hub"
   },
-  description: "Charlotte's only locally-verified roofing directory. Every company is personally vetted - we meet owners face-to-face and run background checks. Free, non-profit resource helping Charlotte homeowners find trusted roofers with 4.8+ stars.",
+  description: "Charlotte's only locally-verified roofing directory. A free community resource that vets roofing companies and provides information for Charlotte and surrounding-area homeowners. We don't make a profit and don't charge for services. Every company is personally vetted with face-to-face meetings, background checks, and a 4.8+ star rating requirement.",
   keywords: [
     // Primary Charlotte Keywords
     "roofing companies charlotte nc",
@@ -106,9 +106,14 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://charlotteroofinghub.com",
   },
-  verification: {
-    google: "your-google-verification-code",
-  },
+  // verification.google: add real Search Console TXT/HTML token here once verified.
+  // Leaving the placeholder in place outputs a meta tag with a bogus value.
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#1e3a5f",
 };
 
 // Structured Data for the website
@@ -137,15 +142,18 @@ function WebsiteSchema() {
 }
 
 function OrganizationSchema() {
+  // Generic Organization type. Site is a free community service — it does
+  // not earn revenue and does not charge for services — but it has not been
+  // registered as a 501(c)(3), so do not use NGO / nonprofitStatus markup.
   const schema = {
     "@context": "https://schema.org",
-    "@type": "NGO",
+    "@type": "Organization",
+    "@id": "https://charlotteroofinghub.com/#organization",
     name: "Charlotte Roofing Hub",
     url: "https://charlotteroofinghub.com",
     logo: "https://charlotteroofinghub.com/logo.png",
-    description: "A free, non-profit directory helping Charlotte homeowners find trusted roofing companies. Every listed contractor is personally verified through owner meetings and background checks.",
+    description: "A free community service that vets roofing companies and provides information for Charlotte and surrounding-area homeowners and roofers. The website does not make a profit and does not charge for services.",
     slogan: "Locally Verified. Background Checked. Trusted by Charlotte.",
-    nonprofitStatus: "Nonprofit501c3",
     areaServed: {
       "@type": "City",
       name: "Charlotte",
@@ -154,11 +162,12 @@ function OrganizationSchema() {
         name: "North Carolina"
       }
     },
-    sameAs: [],
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "customer service",
-      areaServed: "Charlotte, NC"
+      email: "info@charlotteroofinghub.com",
+      areaServed: "US-NC",
+      availableLanguage: "English"
     },
     knowsAbout: [
       "Roofing contractor verification",
@@ -166,6 +175,10 @@ function OrganizationSchema() {
       "Charlotte roofing companies",
       "Consumer protection"
     ]
+    // sameAs: [...]  // Add social profile URLs once accounts are live
+    //   "https://www.facebook.com/...",
+    //   "https://www.linkedin.com/company/...",
+    //   "https://www.instagram.com/..."
   };
   return (
     <script
@@ -202,15 +215,17 @@ function LocalBusinessAggregateSchema() {
 }
 
 // AEO/GEO Optimized - Professional Service Schema
+// Linked to OrganizationSchema via @id so search engines treat them as
+// the same entity rather than two competing brand records.
 function ProfessionalServiceSchema() {
   const schema = {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
+    "@id": "https://charlotteroofinghub.com/#organization",
     name: "Charlotte Roofing Hub",
     url: "https://charlotteroofinghub.com",
-    description: "Charlotte's only locally-verified roofing directory. A free, non-profit resource where every company is personally vetted - we meet owners face-to-face and run background checks to protect Charlotte homeowners.",
+    description: "Charlotte's locally-verified roofing directory. A free community service for Charlotte and surrounding-area homeowners — we vet every listed roofing company through face-to-face owner meetings and background checks. Does not make a profit and does not charge for services.",
     serviceType: "Verified Roofing Contractor Directory",
-    additionalType: "https://schema.org/NGO",
     slogan: "Locally Verified. Background Checked. Trusted by Charlotte.",
     areaServed: [
       {
@@ -267,7 +282,7 @@ function GlobalFAQSchema() {
         name: "How does Charlotte Roofing Hub verify roofing companies?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Charlotte Roofing Hub personally verifies every roofing company through a rigorous process: 1) We meet face-to-face with company owners, 2) We conduct thorough background checks, 3) We verify licensing, insurance, and certifications, 4) We confirm 4.8+ star Google ratings and customer reviews. As a free, non-profit organization, our only goal is protecting Charlotte homeowners."
+          text: "Charlotte Roofing Hub personally verifies every roofing company through a rigorous process: 1) We meet face-to-face with company owners, 2) We conduct thorough background checks, 3) We verify licensing, insurance, and certifications, 4) We confirm 4.8+ star Google ratings and customer reviews. We're a free community service for Charlotte and surrounding-area homeowners — we don't make a profit and don't charge for services."
         }
       },
       {
@@ -275,7 +290,7 @@ function GlobalFAQSchema() {
         name: "Is Charlotte Roofing Hub free to use?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Yes, Charlotte Roofing Hub is completely free for homeowners. We are a non-profit organization dedicated to helping Charlotte residents find trustworthy roofing contractors. We don't charge homeowners anything - our mission is simply to protect our community from bad contractors."
+          text: "Yes — Charlotte Roofing Hub is completely free for homeowners. This site was built to assist Charlotte and surrounding-area homeowners. The website does not make a profit and does not charge for services. It's a free service that vets roofing companies and provides information for homeowners and roofers."
         }
       },
       {
@@ -365,49 +380,12 @@ function SpeakableSchema() {
   );
 }
 
-// Local Business Markup for Google Maps/Local Pack
-function LocalBusinessSchema() {
-  const schema = {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "@id": "https://charlotteroofinghub.com/#business",
-    name: "Charlotte Roofing Hub",
-    description: "Charlotte's most trusted roofing company directory. Find 25+ verified roofing contractors with 4.8+ star ratings in Charlotte, NC and surrounding areas.",
-    url: "https://charlotteroofinghub.com",
-    telephone: "+1-704-555-ROOF",
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: "Charlotte",
-      addressRegion: "NC",
-      addressCountry: "US"
-    },
-    geo: {
-      "@type": "GeoCoordinates",
-      latitude: 35.2271,
-      longitude: -80.8431
-    },
-    openingHoursSpecification: {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-      opens: "00:00",
-      closes: "23:59"
-    },
-    priceRange: "Free",
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.9",
-      reviewCount: "25",
-      bestRating: "5",
-      worstRating: "1"
-    }
-  };
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-    />
-  );
-}
+// LocalBusiness schema intentionally omitted at the global level: the hub
+// does not operate a storefront, has no public phone, and the prior
+// aggregateRating (4.9 / 25 reviews) actually belonged to listed contractors
+// — applying it to the directory itself is rating manipulation under Google's
+// structured data guidelines. Each RoofingContractor on /companies/[slug]
+// carries its own legitimate aggregateRating; that's the correct place.
 
 export default function RootLayout({
   children,
@@ -426,12 +404,10 @@ export default function RootLayout({
         <ProfessionalServiceSchema />
         <GlobalFAQSchema />
         <SpeakableSchema />
-        <LocalBusinessSchema />
 
-        {/* Favicons & Theme */}
+        {/* Favicons (theme-color now set via the viewport export above) */}
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-        <meta name="theme-color" content="#1e3a5f" />
 
         {/* Geographic Targeting for Local SEO */}
         <meta name="geo.region" content="US-NC" />
@@ -444,8 +420,9 @@ export default function RootLayout({
         <meta name="googlebot" content="index, follow" />
         <meta name="bingbot" content="index, follow" />
 
-        {/* Mobile Optimization */}
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+        {/* Mobile Optimization — viewport is set via Next.js metadata API in
+            production; only static head bits live here. maximum-scale removed
+            because blocking pinch-zoom is an a11y violation (WCAG 1.4.4). */}
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />

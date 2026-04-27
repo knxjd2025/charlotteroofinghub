@@ -9,7 +9,7 @@ export default function Hero() {
           {/* Badge */}
           <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
             <ShieldCheck className="w-4 h-4 text-green-400" />
-            <span className="text-sm font-medium">Free Non-Profit | Every Company Personally Verified</span>
+            <span className="text-sm font-medium">Free Community Service | Every Company Personally Verified</span>
           </div>
 
           {/* Main Headline - Voice Search Optimized */}
@@ -20,7 +20,7 @@ export default function Hero() {
           {/* Subheadline - Trust Messaging */}
           <p className="hero-description text-lg md:text-xl text-white/90 mb-6 max-w-2xl mx-auto" data-speakable="true">
             We personally meet every roofing company owner and run background checks.
-            A free, non-profit resource protecting Charlotte homeowners since 2024.
+            A free community resource for Charlotte and surrounding-area homeowners since 2024 — we don&apos;t make a profit and don&apos;t charge for services.
           </p>
 
           {/* Trust Badges */}
@@ -35,7 +35,7 @@ export default function Hero() {
             </div>
             <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
               <Heart className="w-4 h-4 text-green-400" />
-              <span className="text-sm">100% Free Non-Profit</span>
+              <span className="text-sm">100% Free for Homeowners</span>
             </div>
           </div>
 

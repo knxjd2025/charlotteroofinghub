@@ -8,10 +8,12 @@ import {
   getBusinessParks,
   getFeaturedNeighborhoods
 } from '@/data/neighborhoods'
+import BreadcrumbsSchema from '@/components/shared/BreadcrumbsSchema'
+import FAQSection from '@/components/shared/FAQSection'
 
 export const metadata: Metadata = {
   title: 'Charlotte NC Roofing Service Areas | 40+ Neighborhoods & Cities',
-  description: 'Find verified roofing contractors in your Charlotte NC neighborhood. We serve Ballantyne, South End, Myers Park, Huntersville, Matthews, and 40+ Charlotte communities.',
+  description: 'Find verified roofing contractors in your Charlotte NC neighborhood. We serve Ballantyne, South End, Myers Park, Dilworth, NoDa, Huntersville, Matthews, Mooresville, Concord, Fort Mill and 40+ Charlotte-area communities.',
   keywords: [
     'charlotte nc roofing service areas',
     'charlotte neighborhoods roofing',
@@ -21,8 +23,32 @@ export const metadata: Metadata = {
     'south end charlotte roofers',
     'huntersville nc roofing',
     'matthews nc roofing contractors'
-  ]
+  ],
+  alternates: { canonical: 'https://charlotteroofinghub.com/areas' },
 }
+
+const areasPageFAQs = [
+  {
+    question: 'Which Charlotte neighborhoods do verified roofing contractors serve?',
+    answer: 'Verified Charlotte Roofing Hub contractors serve 40+ neighborhoods and surrounding cities, including Ballantyne, Myers Park, South End, NoDa, Dilworth, Plaza Midwood, Eastover, Cotswold, SouthPark, University City, Steele Creek, Matthews, Mint Hill, Huntersville, Cornelius, Davidson, Mooresville, Concord, Indian Trail, Waxhaw, Pineville, Gastonia, Fort Mill (SC), and Rock Hill (SC).',
+  },
+  {
+    question: 'How do I find a roofer near me in Charlotte?',
+    answer: 'To find a roofer near you in Charlotte: open the Service Areas page, click your neighborhood or ZIP code, and you\'ll see the verified contractors who routinely work in that area. Every contractor has been personally vetted with face-to-face owner meetings, background checks, NC license verification, and a 4.8+ star Google rating requirement.',
+  },
+  {
+    question: 'Do Charlotte roofers travel to surrounding cities and counties?',
+    answer: 'Yes — most verified Charlotte roofing contractors serve a 30–50 mile radius covering Mecklenburg, Union, Cabarrus, Iredell, Gaston, and Lincoln Counties in NC, plus York and Lancaster Counties in SC. This includes cities like Mooresville, Concord, Kannapolis, Gastonia, Belmont, Indian Trail, Waxhaw, Fort Mill, and Rock Hill.',
+  },
+  {
+    question: 'Are roof costs different in different Charlotte neighborhoods?',
+    answer: 'Roofing costs in Charlotte are largely uniform across neighborhoods because labor rates and material pricing don\'t change by ZIP code. What does vary is roof size, pitch, and historical-district restrictions: larger Myers Park or Eastover homes naturally cost more, and historic districts may require specific materials or HOA approvals that add time and design fees.',
+  },
+  {
+    question: 'Do HOA-governed Charlotte communities require special approvals for roof work?',
+    answer: 'Yes — many Charlotte HOA communities (Ballantyne, Cotswold, Eastover, Highland Creek, parts of South End and Myers Park) require pre-approval for roof color, material, and contractor before work begins. Verified Charlotte Roofing Hub contractors are familiar with the major Charlotte HOAs and can handle the approval paperwork as part of the project.',
+  },
+]
 
 export default function AreasPage() {
   const charlotteNeighborhoods = getCharlotteNeighborhoods()
@@ -32,6 +58,13 @@ export default function AreasPage() {
 
   return (
     <>
+      <BreadcrumbsSchema
+        items={[
+          { name: 'Home', url: 'https://charlotteroofinghub.com' },
+          { name: 'Service Areas', url: 'https://charlotteroofinghub.com/areas' },
+        ]}
+      />
+
       {/* Hero Section */}
       <section className="bg-primary text-white py-12 md:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -211,6 +244,14 @@ export default function AreasPage() {
             </Link>
           </div>
         </div>
+      </section>
+
+      {/* FAQ — feeds FAQPage schema for SERP rich results & AI citations */}
+      <section className="bg-gray-50">
+        <FAQSection
+          title="Charlotte NC Roofing Service Areas — FAQ"
+          faqs={areasPageFAQs}
+        />
       </section>
     </>
   )

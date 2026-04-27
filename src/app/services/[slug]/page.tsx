@@ -6,6 +6,7 @@ import { services, getServiceBySlug } from '@/data/services'
 import { companies } from '@/data/companies'
 import { getFeaturedNeighborhoods } from '@/data/neighborhoods'
 import FAQSection from '@/components/shared/FAQSection'
+import BreadcrumbsSchema from '@/components/shared/BreadcrumbsSchema'
 
 interface Props {
   params: Promise<{ slug: string }>
@@ -55,6 +56,14 @@ export default async function ServicePage({ params }: Props) {
 
   return (
     <>
+      <BreadcrumbsSchema
+        items={[
+          { name: 'Home', url: 'https://charlotteroofinghub.com' },
+          { name: 'Services', url: 'https://charlotteroofinghub.com/services' },
+          { name: service.name, url: `https://charlotteroofinghub.com/services/${service.slug}` },
+        ]}
+      />
+
       {/* Hero Section */}
       <section className={`${service.category === 'emergency' ? 'bg-red-700' : 'bg-primary'} text-white py-12 md:py-20`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

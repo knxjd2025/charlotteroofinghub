@@ -1,0 +1,38 @@
+# Google Disavow File for charlotteroofinghub.com
+# Generated: 2026-04-26
+# Source: Ahrefs site-explorer-referring-domains, filtered to is_spam=true
+#
+# HOW TO USE:
+#   1. Sign in to https://search.google.com/search-console/disavow-links-tool
+#   2. Select the property charlotteroofinghub.com
+#   3. Upload this file
+#   4. Re-export and re-upload monthly as new spam links appear
+#
+# These domains have been flagged by Ahrefs as spam link networks (paid backlink
+# farms, comment-spam injection sites, "boost your DR" services). They are
+# almost all nofollow, but Google's spam classifier may still penalize the
+# target domain for being associated with them.
+
+domain:za.com
+domain:itxoft.com
+domain:buybacklinks.agency
+domain:rank-your.site
+domain:rankyour.website
+domain:sparltech.com
+domain:best-seo-domains.com
+domain:socastsrm.com
+domain:prolinkbox.com
+domain:bye.fyi
+domain:creativeposts.top
+domain:analyticshaven.top
+domain:atomizelink.icu
+domain:screenshots.wiki
+domain:metamagic.top
+domain:byteshort.xyz
+domain:jake.eu
+domain:optimizeflow.top
+domain:dailymusings.top
+domain:thebestbacklinksavailable.click
+domain:seoflox.io
+domain:sport-life.club
+domain:seoagency.sale

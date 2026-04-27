@@ -7,20 +7,52 @@ import {
   getCommercialServices,
   getFeaturedServices
 } from '@/data/services'
+import BreadcrumbsSchema from '@/components/shared/BreadcrumbsSchema'
+import FAQSection from '@/components/shared/FAQSection'
 
 export const metadata: Metadata = {
-  title: 'Roofing Services | Roof Repair, Replacement & More in Charlotte NC',
-  description: 'Complete roofing services in Charlotte: roof replacement, repair, emergency services, metal roofing, shingles, commercial roofing. All contractors verified with background checks.',
+  title: 'Roofing Services in Charlotte NC | Repair, Replacement, Emergency',
+  description: 'Complete roofing services in Charlotte NC from verified contractors: roof replacement ($8K–$25K), repair ($300–$2,500), emergency 24/7 service, metal roofing, shingles, commercial TPO/EPDM. Background-checked, 4.8★ rated.',
   keywords: [
     'roofing services charlotte nc',
     'roof replacement charlotte',
     'roof repair charlotte',
+    'roof repair charlotte nc',
     'commercial roofing charlotte',
-    'emergency roof repair',
+    'commercial roofing charlotte nc',
+    'emergency roof repair charlotte',
     'metal roofing charlotte',
-    'shingle roofing'
-  ]
+    'shingle roofing charlotte'
+  ],
+  alternates: { canonical: 'https://charlotteroofinghub.com/services' },
 }
+
+const servicesPageFAQs = [
+  {
+    question: 'What roofing services are available in Charlotte NC?',
+    answer: 'Verified Charlotte contractors offer the full range of roofing services: complete roof replacement, repair (leak, flashing, shingle), emergency 24/7 response, storm and hail damage assessment with insurance claim assistance, roof inspections, gutter installation and repair, attic ventilation, skylight installation, metal roofing, asphalt shingles, TPO/EPDM commercial flat roofing, and roof coatings.',
+  },
+  {
+    question: 'How much does roof repair cost in Charlotte NC?',
+    answer: 'In Charlotte NC, most roof repairs cost between $300 and $2,500. Minor repairs (small leaks, a few missing shingles, flashing) typically run $300–$700. Mid-range repairs (larger sections, valley work, decking patches) run $700–$1,500. Major storm or structural repairs commonly run $1,500–$2,500+. Estimates from Charlotte Roofing Hub contractors are free.',
+  },
+  {
+    question: 'How much does a new roof cost in Charlotte NC?',
+    answer: 'A complete roof replacement in Charlotte NC typically costs between $8,000 and $25,000 for a residential home. Asphalt architectural shingles run $3.50–$7.00 per square foot installed, metal roofing $7–$14 per square foot, and premium materials like slate or tile $20+ per square foot. Total cost depends on roof size, pitch, complexity, and tear-off requirements.',
+  },
+  {
+    question: 'Who do I call for emergency roof repair in Charlotte?',
+    answer: 'For emergency roof repair in Charlotte (active leaks, storm damage, fallen trees), call any 24/7 contractor listed on Charlotte Roofing Hub\'s emergency-repair filter. They will tarp and stabilize within hours, document damage for insurance, and schedule permanent repair. After dark or in dangerous conditions, also notify your insurer\'s 24-hour claim line and Duke Energy if power lines are involved.',
+  },
+  {
+    question: 'Do Charlotte roofers handle insurance claims for storm damage?',
+    answer: 'Yes — most verified Charlotte Roofing Hub contractors handle full insurance claim support for hail, wind, and storm damage: free inspection with photo documentation, written damage report, meeting your adjuster on-site, supplement requests for missed line items, and direct billing to the insurer. This is included with the repair work at no extra cost to homeowners.',
+  },
+  {
+    question: 'How long does roof replacement take in Charlotte?',
+    answer: 'A typical Charlotte residential roof replacement takes 1–3 days for asphalt shingles depending on home size and weather. Larger or more complex roofs (multiple stories, steep pitch, many penetrations) take 3–5 days. Metal roofing installations typically take 2–4 days. Most companies can begin within 1–2 weeks of estimate approval; emergency replacements can start same-week.',
+  },
+]
 
 // Map icon names to components
 const iconMap: { [key: string]: React.ElementType } = {
@@ -48,6 +80,13 @@ export default function ServicesPage() {
 
   return (
     <>
+      <BreadcrumbsSchema
+        items={[
+          { name: 'Home', url: 'https://charlotteroofinghub.com' },
+          { name: 'Roofing Services', url: 'https://charlotteroofinghub.com/services' },
+        ]}
+      />
+
       {/* Hero Section */}
       <section className="bg-primary text-white py-12 md:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -338,6 +377,14 @@ export default function ServicesPage() {
             </a>
           </div>
         </div>
+      </section>
+
+      {/* FAQ — feeds FAQPage schema for SERP rich results & AI citations */}
+      <section className="bg-gray-50">
+        <FAQSection
+          title="Roofing Services in Charlotte NC — FAQ"
+          faqs={servicesPageFAQs}
+        />
       </section>
     </>
   )

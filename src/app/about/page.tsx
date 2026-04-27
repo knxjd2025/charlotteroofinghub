@@ -3,12 +3,12 @@ import Link from 'next/link'
 import { Building2, Star, Target, Heart, Shield, ArrowRight, FileText, UserCheck, ShieldCheck, CheckCircle, Users } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'About Charlotte Roofing Hub | Free Non-Profit Verified Roofing Directory',
-  description: 'Charlotte Roofing Hub is a free, non-profit roofing directory. We personally meet every company owner and run background checks to protect Charlotte homeowners.',
+  title: 'About Charlotte Roofing Hub | Free Verified Roofing Directory',
+  description: 'Charlotte Roofing Hub is a free community service that vets roofing companies for Charlotte and surrounding-area homeowners. We don\'t make a profit and don\'t charge for services. Every listed company is personally verified through owner meetings and background checks.',
   keywords: [
     'verified roofing companies charlotte',
     'background checked roofers',
-    'non-profit roofing directory',
+    'free roofing directory charlotte',
     'trusted roofers charlotte nc'
   ]
 }
@@ -22,7 +22,7 @@ export default function AboutPage() {
           <div className="max-w-3xl mx-auto text-center">
             <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
               <Heart className="w-4 h-4 text-red-400" />
-              <span className="text-sm font-medium">Free Non-Profit Organization</span>
+              <span className="text-sm font-medium">Free Community Resource for Charlotte Homeowners</span>
             </div>
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
               Protecting Charlotte Homeowners
@@ -49,17 +49,20 @@ export default function AboutPage() {
               by fly-by-night roofers, and we decided to do something about it.
             </p>
             <p className="text-lg text-gray-600 text-center mb-8">
-              <strong>We are 100% free and non-profit.</strong> We don&apos;t charge homeowners anything,
-              and we don&apos;t accept paid listings. Our only goal is helping you find a roofer you can trust.
+              <strong>This site was built to assist Charlotte and surrounding-area homeowners.</strong>{' '}
+              The website does not make a profit and does not charge for services. It&apos;s a free service
+              that vets roofing companies and provides information for both homeowners and roofers — and
+              we don&apos;t accept paid listings.
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="bg-gray-50 rounded-xl p-6">
                 <Heart className="w-8 h-8 text-red-500 mb-4" />
-                <h3 className="font-bold text-gray-900 mb-2">Non-Profit, Community First</h3>
+                <h3 className="font-bold text-gray-900 mb-2">Community First, No Profit Motive</h3>
                 <p className="text-gray-600 text-sm">
-                  We&apos;re not a corporation selling leads. We&apos;re Charlotte neighbors who want to help
-                  our community find honest, quality roofers. No hidden agendas.
+                  We&apos;re not a corporation selling leads. The website doesn&apos;t make a profit and
+                  doesn&apos;t charge for services. We&apos;re Charlotte neighbors helping our community
+                  find honest, quality roofers.
                 </p>
               </div>
 

@@ -6,6 +6,7 @@ import { neighborhoods, getNeighborhoodBySlug } from '@/data/neighborhoods'
 import { companies } from '@/data/companies'
 import { services } from '@/data/services'
 import FAQSection from '@/components/shared/FAQSection'
+import BreadcrumbsSchema from '@/components/shared/BreadcrumbsSchema'
 
 interface Props {
   params: Promise<{ slug: string }>
@@ -91,6 +92,14 @@ export default async function AreaPage({ params }: Props) {
 
   return (
     <>
+      <BreadcrumbsSchema
+        items={[
+          { name: 'Home', url: 'https://charlotteroofinghub.com' },
+          { name: 'Service Areas', url: 'https://charlotteroofinghub.com/areas' },
+          { name: area.name, url: `https://charlotteroofinghub.com/areas/${area.slug}` },
+        ]}
+      />
+
       {/* Hero Section */}
       <section className="bg-primary text-white py-12 md:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -76,7 +76,7 @@ export default function Footer() {
               </div>
             </Link>
             <p className="text-white/80 text-sm mb-4">
-              Charlotte&apos;s only locally-verified roofing directory. Free, non-profit.
+              Charlotte&apos;s only locally-verified roofing directory. A free community service — we don&apos;t make a profit and don&apos;t charge for services.
             </p>
             <div className="flex items-center gap-2 text-sm text-white/70">
               <MapPin className="w-4 h-4" />

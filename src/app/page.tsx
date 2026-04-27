@@ -12,11 +12,11 @@ import { getFeaturedNeighborhoods } from '@/data/neighborhoods'
 const homepageFAQs = [
   {
     question: "How does Charlotte Roofing Hub verify roofing companies?",
-    answer: "We personally verify every roofing company through a rigorous local process: 1) We meet face-to-face with company owners, 2) We conduct thorough background checks, 3) We verify licensing, insurance, and certifications, 4) We confirm 4.8+ star Google ratings. As a free, non-profit organization, our only goal is protecting Charlotte homeowners from bad contractors."
+    answer: "We personally verify every roofing company through a rigorous local process: 1) We meet face-to-face with company owners, 2) We conduct thorough background checks, 3) We verify licensing, insurance, and certifications, 4) We confirm 4.8+ star Google ratings. We're a free community service for Charlotte and surrounding-area homeowners — we don't make a profit and don't charge for services."
   },
   {
     question: "Is Charlotte Roofing Hub free to use?",
-    answer: "Yes! Charlotte Roofing Hub is 100% free for homeowners. We are a local non-profit organization dedicated to helping Charlotte residents find trustworthy roofing contractors. We don't charge homeowners anything - our mission is simply to protect our community."
+    answer: "Yes — Charlotte Roofing Hub is 100% free for homeowners. This site was built to assist Charlotte and surrounding-area homeowners. The website does not make a profit and does not charge for services. It's a free service that vets roofing companies and provides information for homeowners and roofers."
   },
   {
     question: "Who is the best roofing company in Charlotte NC?",
@@ -28,7 +28,7 @@ const homepageFAQs = [
   },
   {
     question: "Why should I trust Charlotte Roofing Hub over other directories?",
-    answer: "Unlike other directories that accept paid listings, we're a free non-profit that personally vets every company. We meet owners face-to-face, run background checks, and only list companies with 4.8+ star ratings. We're Charlotte locals protecting our neighbors - not a corporation selling leads."
+    answer: "Unlike other directories that accept paid listings, we're a free community service that personally vets every company. We meet owners face-to-face, run background checks, and only list companies with 4.8+ star ratings. The website doesn't make a profit and doesn't charge for services — we're Charlotte locals helping our neighbors, not a corporation selling leads."
   },
   {
     question: "How long does a roof replacement take in Charlotte?",
@@ -293,9 +293,9 @@ export default function HomePage() {
               <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Heart className="w-8 h-8 text-red-500" />
               </div>
-              <h3 className="font-bold text-lg mb-2">100% Free Non-Profit</h3>
+              <h3 className="font-bold text-lg mb-2">100% Free for Homeowners</h3>
               <p className="text-gray-600 text-sm">
-                We&apos;re a non-profit with one mission: help Charlotte homeowners find trustworthy roofers. No paid listings. Ever.
+                The website doesn&apos;t make a profit and doesn&apos;t charge for services. One mission: help Charlotte homeowners find trustworthy roofers. No paid listings. Ever.
               </p>
             </div>
           </div>
