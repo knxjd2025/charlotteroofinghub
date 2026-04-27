@@ -85,12 +85,19 @@ function CompanyListSchema() {
           addressRegion: company.state,
           postalCode: company.zipCode
         },
-        aggregateRating: company.googleRating ? {
-          "@type": "AggregateRating",
-          ratingValue: company.googleRating,
-          reviewCount: company.reviewCount || 1,
-          bestRating: 5
-        } : undefined,
+        // Only emit aggregateRating when both rating AND reviewCount are real.
+        // The previous `|| 1` fallback fabricated a "1 review" rich snippet
+        // for any company missing a count and risked deceptive-markup flags.
+        aggregateRating:
+          company.googleRating && company.reviewCount
+            ? {
+                "@type": "AggregateRating",
+                ratingValue: company.googleRating,
+                reviewCount: company.reviewCount,
+                bestRating: 5,
+                worstRating: 1,
+              }
+            : undefined,
         url: `https://charlotteroofinghub.com/companies/${company.slug}`
       }
     }))

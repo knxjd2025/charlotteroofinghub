@@ -370,10 +370,10 @@ export default function RootLayout({
         <meta name="geo.position" content="35.2271;-80.8431" />
         <meta name="ICBM" content="35.2271, -80.8431" />
 
-        {/* AEO/GEO Meta Tags for AI Crawlers */}
-        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-        <meta name="googlebot" content="index, follow" />
-        <meta name="bingbot" content="index, follow" />
+        {/* Robot directives are emitted by the metadata.robots object above —
+            don't duplicate them here. Bingbot doesn't honor a separate
+            <meta name="bingbot"> the way Googlebot does, so the standard
+            "robots" tag (set via metadata.robots) is enough. */}
 
         {/* Mobile Optimization — viewport is set via Next.js metadata API in
             production; only static head bits live here. maximum-scale removed

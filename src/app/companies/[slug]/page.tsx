@@ -73,12 +73,20 @@ export default async function CompanyDetailPage({ params }: PageProps) {
       latitude: 35.2271,
       longitude: -80.8431
     },
-    aggregateRating: company.googleRating ? {
-      "@type": "AggregateRating",
-      ratingValue: company.googleRating,
-      reviewCount: company.reviewCount || 1,
-      bestRating: 5
-    } : undefined,
+    // Only emit aggregateRating when BOTH a real rating AND a real review
+    // count exist. Falling back to reviewCount: 1 produced a fake rich
+    // snippet for any company missing a count and risked Google flagging
+    // the markup as deceptive.
+    aggregateRating:
+      company.googleRating && company.reviewCount
+        ? {
+            "@type": "AggregateRating",
+            ratingValue: company.googleRating,
+            reviewCount: company.reviewCount,
+            bestRating: 5,
+            worstRating: 1,
+          }
+        : undefined,
     priceRange: "$$",
     areaServed: {
       "@type": "City",
