@@ -7,40 +7,43 @@ import { getFeaturedNeighborhoods } from '@/data/neighborhoods'
 import { blogPosts } from '@/data/blog-posts'
 
 export const metadata: Metadata = {
-  title: 'Charlotte Roofing Hub | Free Roofing Education by Local Roofers',
-  description: 'Your complete guide to roofing in Charlotte, NC. Free educational resources, verified contractor directory, materials guide, and instant roof estimates — created by local roofing companies.',
+  title: 'Charlotte Roofing Hub | Free Charlotte Roofing Information & Local Companies',
+  description: 'Free Charlotte roofing site with information, materials and pricing guides, instant roof estimates, and a curated list of suggested local roofing companies — many of whom contribute content to the site. We don\'t sell leads.',
+  alternates: { canonical: 'https://charlotteroofinghub.com' },
   openGraph: {
-    title: 'Charlotte Roofing Hub | Free Roofing Education by Local Roofers',
-    description: 'Your complete guide to roofing in Charlotte, NC. Free educational resources, verified contractor directory, materials guide, and instant roof estimates.',
+    title: 'Charlotte Roofing Hub | Free Information & Local Roofing Companies',
+    description: 'Free Charlotte roofing information, materials guides, and a curated list of suggested local roofing companies. We don\'t sell leads.',
     url: 'https://charlotteroofinghub.com',
   },
 }
 
-// Homepage FAQs - Voice Search Optimized with Verification Messaging
+// Homepage FAQs — voice-search optimized, aligned with the site's actual
+// positioning: free site, no lead selling, curated list of local companies
+// (many of whom contribute content).
 const homepageFAQs = [
   {
-    question: "How does Charlotte Roofing Hub verify roofing companies?",
-    answer: "Charlotte Roofing Hub was created by local roofing companies to help homeowners find trustworthy contractors. We verify every listed company through a rigorous process: 1) Face-to-face meetings with company owners, 2) Thorough background checks, 3) Verification of licensing, insurance, and certifications, 4) Confirmation of 4.8+ star Google ratings."
+    question: "How does Charlotte Roofing Hub vet roofing companies?",
+    answer: "Charlotte Roofing Hub vets every suggested roofing company through a rigorous process: 1) Face-to-face meetings with company owners, 2) Thorough background checks, 3) Verification of NC licensing, insurance, and manufacturer certifications, 4) Confirmation of a 4.8+ star Google rating from authentic reviews. The same process applies to every company suggested on the site, including the contributors."
   },
   {
     question: "Is Charlotte Roofing Hub free to use?",
-    answer: "Yes, Charlotte Roofing Hub is 100% free for homeowners. It was founded by James at Best Roofing Now LLC and is supported by five local contributor companies — Rise Roofing & Restoration, A Roofing Treat, Roofing Solar and More, We Coat, and Weather Roofing. Our goal is to educate homeowners about roofing. No company receives special treatment or promotion."
+    answer: "Yes — Charlotte Roofing Hub is 100% free for Charlotte homeowners. We don't sell leads. The site offers free roofing guides, materials and pricing comparisons, and a curated list of suggested local Charlotte roofing companies. Many of those companies contribute content to the site."
   },
   {
     question: "Who is the best roofing company in Charlotte NC?",
-    answer: "Based on our personal verification and background checks, Charlotte has many excellent roofing companies with 4.8+ star ratings. All 25+ companies on our site have been personally vetted - we meet owners face-to-face and run background checks. Browse our directory to find the perfect match for your specific roofing needs."
+    answer: "Charlotte has many excellent roofing companies with 4.8+ star ratings. Every roofing company suggested on Charlotte Roofing Hub has been personally vetted — face-to-face owner meetings, background checks, NC license verification, and a 4.8+ star Google rating requirement. Browse the list to find a fit for your specific roofing needs."
   },
   {
     question: "How much does a new roof cost in Charlotte NC?",
-    answer: "The average cost for a new roof in Charlotte ranges from $8,000 to $25,000 for residential homes, depending on size, materials, and complexity. Asphalt shingles cost $3.50-$7.00 per square foot, while metal roofing ranges from $7-$14 per square foot. Visit our materials and pricing page for detailed cost comparisons."
+    answer: "The average cost for a new roof in Charlotte ranges from $8,000 to $25,000 for residential homes, depending on size, materials, and complexity. Asphalt shingles cost $3.50–$7.00 per square foot installed; metal roofing $7–$14 per square foot; premium materials like slate $20+ per square foot. Visit the materials and pricing page for detailed cost comparisons."
   },
   {
-    question: "Why should I trust Charlotte Roofing Hub over other directories?",
-    answer: "Charlotte Roofing Hub was founded by James at Best Roofing Now and is supported by five local contributor companies who believe in transparency and education. We personally vet every company, run background checks, and only list companies with 4.8+ star ratings. The founder and all contributors are held to the same standards as every other listed company — no exceptions."
+    question: "Does Charlotte Roofing Hub sell my information to roofing companies?",
+    answer: "No. Charlotte Roofing Hub does not sell leads, pay-per-lead, or pay-per-introduction. There is no paid placement and no promotional treatment for any company on the site. The site is funded by local Charlotte roofing companies that contribute content — they earn their listing through the same vetting as every other suggested company."
   },
   {
     question: "How long does a roof replacement take in Charlotte?",
-    answer: "Most residential roof replacements in Charlotte take 1-3 days, depending on the size of your home, weather conditions, and material complexity. All our verified contractors provide clear timelines upfront. Simple asphalt shingle replacements typically complete in one day."
+    answer: "Most residential roof replacements in Charlotte take 1–3 days, depending on the size of the home, weather conditions, and material complexity. Larger or more complex roofs (multiple stories, steep pitch, many penetrations) take 3–5 days. Metal roofing installations typically take 2–4 days. Simple asphalt shingle replacements can complete in a single day."
   }
 ]
 

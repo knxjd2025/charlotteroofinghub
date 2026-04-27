@@ -5,6 +5,7 @@ import { FileText, ArrowRight, Calendar, Clock } from 'lucide-react'
 import InstantEstimateCTA from '@/components/layout/InstantEstimateCTA'
 import { stockImages } from '@/data/stock-images'
 import { blogPosts } from '@/data/blog-posts'
+import BreadcrumbsSchema from '@/components/shared/BreadcrumbsSchema'
 
 export const metadata: Metadata = {
   title: 'Roofing Blog | Tips & Guides for Charlotte Homeowners',
@@ -40,6 +41,12 @@ export default function BlogPage() {
 
   return (
     <>
+      <BreadcrumbsSchema
+        items={[
+          { name: 'Home', url: 'https://charlotteroofinghub.com' },
+          { name: 'Blog', url: 'https://charlotteroofinghub.com/blog' },
+        ]}
+      />
       {/* Hero Section */}
       <section className="relative text-white py-12 md:py-20 overflow-hidden">
         <Image

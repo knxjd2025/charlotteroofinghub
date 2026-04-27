@@ -4,6 +4,7 @@ import { HelpCircle, CheckCircle } from 'lucide-react'
 import RepairReplaceQuiz from '@/components/quiz/RepairReplaceQuiz'
 import FAQSection from '@/components/shared/FAQSection'
 import { stockImages } from '@/data/stock-images'
+import BreadcrumbsSchema from '@/components/shared/BreadcrumbsSchema'
 
 export const metadata: Metadata = {
   title: 'Should I Repair or Replace My Roof? | Free Charlotte Quiz',
@@ -44,6 +45,12 @@ const quizFAQs = [
 export default function RepairOrReplacePage() {
   return (
     <>
+      <BreadcrumbsSchema
+        items={[
+          { name: 'Home', url: 'https://charlotteroofinghub.com' },
+          { name: 'Repair or Replace', url: 'https://charlotteroofinghub.com/repair-or-replace' },
+        ]}
+      />
       {/* Hero Section */}
       <section className="relative text-white py-12 md:py-16 overflow-hidden">
         <Image

@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin } from 'lucide-react'
+import { Mail, MapPin } from 'lucide-react'
 
 const footerLinks = {
   companies: [
@@ -67,12 +67,31 @@ export default function Footer() {
               </div>
             </Link>
             <p className="text-white/80 text-sm mb-4">
-              A roofing education resource created by local Charlotte roofers.
+              A free Charlotte roofing site. We don&apos;t sell leads. Curated list of suggested local roofers — many contribute content.
             </p>
-            <div className="flex items-center gap-2 text-sm text-white/70">
-              <MapPin className="w-4 h-4" />
-              <span>Charlotte, North Carolina</span>
-            </div>
+            {/* NAP block — consistent Name/Address/contact on every page is a
+                local SEO best practice. Wrap in microformat-friendly markup
+                so Google can pick the entity up alongside the JSON-LD. */}
+            <address className="not-italic space-y-2 text-sm text-white/70">
+              <div className="flex items-start gap-2">
+                <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0" />
+                <span>
+                  <span className="block text-white/90 font-semibold">Charlotte Roofing Hub</span>
+                  Charlotte, North Carolina
+                  <br />
+                  Serving the Charlotte metro &amp; surrounding areas
+                </span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Mail className="w-4 h-4 flex-shrink-0" />
+                <a
+                  href="mailto:info@charlotteroofinghub.com"
+                  className="hover:text-white transition"
+                >
+                  info@charlotteroofinghub.com
+                </a>
+              </div>
+            </address>
           </div>
 
           {/* Companies */}
@@ -168,7 +187,7 @@ export default function Footer() {
               &copy; {currentYear} Charlotte Roofing Hub. All rights reserved.
             </p>
             <div className="flex items-center gap-4">
-              <span className="text-sm text-white/70">A roofing education resource created by local Charlotte roofing companies</span>
+              <span className="text-sm text-white/70">Free Charlotte roofing information — we don&apos;t sell leads</span>
             </div>
           </div>
         </div>

@@ -5,6 +5,7 @@ import { BookOpen, Home, Layers, Cloud, AlertTriangle, Wrench, Search, DollarSig
 import { stockImages } from '@/data/stock-images'
 import GuideDownloadModal, { GuideDownloadBanner } from '@/components/guide/GuideDownloadModal'
 import GuideDownloadForm from '@/components/guide/GuideDownloadForm'
+import BreadcrumbsSchema from '@/components/shared/BreadcrumbsSchema'
 
 export const metadata: Metadata = {
   title: 'The Complete Charlotte Roofing Guide for Homeowners | Free Book',
@@ -45,6 +46,12 @@ const chapters = [
 export default function RoofingGuidePage() {
   return (
     <>
+      <BreadcrumbsSchema
+        items={[
+          { name: 'Home', url: 'https://charlotteroofinghub.com' },
+          { name: 'Roofing Guide', url: 'https://charlotteroofinghub.com/roofing-guide' },
+        ]}
+      />
       {/* Hero Section */}
       <section className="relative text-white py-16 md:py-24 overflow-hidden">
         <Image

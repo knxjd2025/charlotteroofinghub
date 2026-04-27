@@ -50,26 +50,27 @@ export default function Hero() {
           {/* Badge */}
           <motion.div variants={fadeUp} custom={0} className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-6 border border-white/10">
             <ShieldCheck className="w-4 h-4 text-green-400" />
-            <span className="text-sm font-medium">Free Roofing Education | Built by Charlotte Roofers</span>
+            <span className="text-sm font-medium">Free Charlotte Roofing Information | We Don&apos;t Sell Leads</span>
           </motion.div>
 
-          {/* Main Headline */}
+          {/* Main Headline. Naturally carries the primary easy-win term
+              "Charlotte roofing" (KD 1, 250 vol) plus the differentiator. */}
           <motion.h1 variants={fadeUp} custom={1} className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-6 leading-tight">
-            Your Complete Guide to <span className="text-accent">Roofing in Charlotte</span>
+            Charlotte Roofing — <span className="text-accent">Free Information</span> &amp; Local Companies
           </motion.h1>
 
           {/* Subheadline */}
           <motion.p variants={fadeUp} custom={2} className="hero-description text-lg md:text-xl text-white/90 mb-6 max-w-2xl mx-auto" data-speakable="true">
-            Free guides, cost comparisons, and expert advice — created by local Charlotte roofers
-            to help homeowners make informed decisions.
+            Free roofing guides, cost comparisons, and a curated list of suggested local Charlotte roofing
+            companies — many of whom contribute content to the site. We don&apos;t sell leads.
           </motion.p>
 
           {/* Trust Badges */}
           <motion.div variants={fadeUp} custom={3} className="flex flex-wrap justify-center gap-3 mb-8">
             {[
-              { icon: UserCheck, text: 'Expert-Reviewed Content' },
-              { icon: ShieldCheck, text: 'Charlotte-Specific Data' },
-              { icon: Building2, text: 'Founded by Local Roofers' },
+              { icon: UserCheck, text: 'Free Information' },
+              { icon: ShieldCheck, text: 'No Lead Selling' },
+              { icon: Building2, text: 'Local Charlotte Roofers' },
             ].map(({ icon: Icon, text }) => (
               <div key={text} className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 border border-white/10 hover:bg-white/15 transition-colors duration-200">
                 <Icon className="w-4 h-4 text-green-400" />

@@ -5,22 +5,86 @@ import { DollarSign, ArrowRight, CheckCircle, AlertCircle, Clock, Shield, Thermo
 import FAQSection from '@/components/shared/FAQSection'
 import InstantEstimateCTA from '@/components/layout/InstantEstimateCTA'
 import { stockImages } from '@/data/stock-images'
+import BreadcrumbsSchema from '@/components/shared/BreadcrumbsSchema'
 
 export const metadata: Metadata = {
-  title: 'Roofing Materials & Prices in Charlotte NC | Cost Guide 2025',
-  description: 'Complete guide to roofing materials and prices in Charlotte, NC. Compare costs for asphalt shingles, metal roofing, TPO, and more. Updated pricing for 2025.',
+  title: 'Roofing Materials & Prices in Charlotte NC | 2026 Cost Guide',
+  description: 'Roofing materials and prices in Charlotte NC: asphalt shingles $3.50–$7/sq ft, metal $7–$14/sq ft, TPO/EPDM $5–$10/sq ft, slate $15–$30/sq ft installed. Side-by-side material comparison, lifespan, warranty, and Charlotte-specific climate guidance.',
   keywords: [
     'roofing materials charlotte nc',
     'roof replacement cost charlotte',
     'how much does a new roof cost charlotte',
     'metal roof price charlotte',
-    'shingle roof cost nc'
+    'shingle roof cost nc',
+    'asphalt shingle prices charlotte',
+    'tpo roofing cost charlotte',
+    'roofing cost per square foot charlotte'
   ],
+  alternates: { canonical: 'https://charlotteroofinghub.com/materials' },
   openGraph: {
-    title: 'Roofing Materials & Prices in Charlotte NC | Cost Guide 2025',
-    description: 'Complete guide to roofing materials and prices in Charlotte, NC. Compare costs for asphalt shingles, metal roofing, TPO, and more.',
+    title: 'Roofing Materials & Prices in Charlotte NC | 2026 Cost Guide',
+    description: 'Roofing materials and prices in Charlotte NC. Side-by-side comparison of cost, lifespan, warranty, and Charlotte climate fit.',
     url: 'https://charlotteroofinghub.com/materials',
   },
+}
+
+// Build-time date stamp. Next renders pages at build, so this updates on
+// every redeploy and gives both AI engines and human visitors a fresh
+// "Last updated" signal — pricing data decays fast and freshness is a
+// strong AEO ranking factor for cost/comparison content.
+const LAST_UPDATED = new Date().toISOString().slice(0, 10) // YYYY-MM-DD
+
+// HowTo JSON-LD: turns the materials guide into structured "how to choose
+// a roofing material in Charlotte" content that Google + AI engines can
+// extract step-by-step.
+const howToChooseMaterial = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: 'How to Choose the Right Roofing Material in Charlotte, NC',
+  description:
+    'A 5-step process for selecting roofing material that fits your Charlotte home, budget, HOA, and the local humid-subtropical climate.',
+  totalTime: 'PT30M',
+  estimatedCost: { '@type': 'MonetaryAmount', currency: 'USD', value: '0' },
+  datePublished: '2024-01-01',
+  dateModified: LAST_UPDATED,
+  step: [
+    {
+      '@type': 'HowToStep',
+      position: 1,
+      name: 'Set your budget range',
+      text: 'Decide your installed cost-per-square-foot ceiling. In Charlotte: 3-tab asphalt $3.50–$5.50, architectural shingles $4.50–$7, metal $7–$14, slate $15–$30+. For a typical 2,000 sq ft home expect roughly $9,000–$35,000 depending on material.',
+      url: 'https://charlotteroofinghub.com/materials',
+    },
+    {
+      '@type': 'HowToStep',
+      position: 2,
+      name: 'Match material to expected lifespan',
+      text: 'Architectural shingles last 25–35 years in Charlotte\'s climate, metal 40–70 years, slate 75–100+ years. Owners staying long-term often save money over the long run by paying more upfront.',
+      url: 'https://charlotteroofinghub.com/materials',
+    },
+    {
+      '@type': 'HowToStep',
+      position: 3,
+      name: 'Check Charlotte climate fit',
+      text: 'Charlotte has a humid-subtropical climate with hot summers, occasional severe storms, and hail risk. Favor materials with 130 mph wind ratings (architectural shingles) or impact-resistant grades (Class 4). Light or reflective colors reduce summer cooling load.',
+      url: 'https://charlotteroofinghub.com/materials',
+    },
+    {
+      '@type': 'HowToStep',
+      position: 4,
+      name: 'Verify HOA and historic-district restrictions',
+      text: 'Many Charlotte HOAs (Ballantyne, Cotswold, Eastover, Highland Creek, parts of Myers Park) require pre-approval of color and material. Historic districts may mandate specific shingle profiles or slate. Check before signing a contract.',
+      url: 'https://charlotteroofinghub.com/hoa-roof-approval',
+    },
+    {
+      '@type': 'HowToStep',
+      position: 5,
+      name: 'Get three estimates from local Charlotte roofers',
+      text: 'Compare written estimates from at least three NC-licensed, insured contractors. Charlotte Roofing Hub maintains a curated list of suggested local roofing companies — many of whom contribute content to the site.',
+      url: 'https://charlotteroofinghub.com/companies',
+    },
+  ],
+  inLanguage: 'en-US',
 }
 
 const materialsFAQs = [
@@ -135,6 +199,16 @@ const commercialMaterials = [
 export default function MaterialsPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToChooseMaterial) }}
+      />
+      <BreadcrumbsSchema
+        items={[
+          { name: 'Home', url: 'https://charlotteroofinghub.com' },
+          { name: 'Roofing Materials & Prices', url: 'https://charlotteroofinghub.com/materials' },
+        ]}
+      />
       {/* Hero Section */}
       <section className="relative text-white py-12 md:py-20 overflow-hidden">
         <Image

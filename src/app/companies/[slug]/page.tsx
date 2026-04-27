@@ -8,6 +8,7 @@ import InstantEstimateCTA from '@/components/layout/InstantEstimateCTA'
 import CompanyCard from '@/components/companies/CompanyCard'
 import { companies, getCompanyBySlug, getAllCompanies } from '@/data/companies'
 import { stockImages } from '@/data/stock-images'
+import BreadcrumbsSchema from '@/components/shared/BreadcrumbsSchema'
 
 interface PageProps {
   params: Promise<{ slug: string }>
@@ -74,12 +75,20 @@ export default async function CompanyDetailPage({ params }: PageProps) {
       latitude: 35.2271,
       longitude: -80.8431
     },
-    aggregateRating: company.googleRating ? {
-      "@type": "AggregateRating",
-      ratingValue: company.googleRating,
-      reviewCount: company.reviewCount || 1,
-      bestRating: 5
-    } : undefined,
+    // Only emit aggregateRating when BOTH rating AND review count are real.
+    // The previous `|| 1` fallback fabricated a "1 review" rich snippet for
+    // any company missing a count and risked Google flagging the markup as
+    // deceptive.
+    aggregateRating:
+      company.googleRating && company.reviewCount
+        ? {
+            "@type": "AggregateRating",
+            ratingValue: company.googleRating,
+            reviewCount: company.reviewCount,
+            bestRating: 5,
+            worstRating: 1,
+          }
+        : undefined,
     priceRange: "$$",
     areaServed: {
       "@type": "City",
@@ -104,6 +113,13 @@ export default async function CompanyDetailPage({ params }: PageProps) {
 
   return (
     <>
+      <BreadcrumbsSchema
+        items={[
+          { name: 'Home', url: 'https://charlotteroofinghub.com' },
+          { name: 'Companies', url: 'https://charlotteroofinghub.com/companies' },
+          { name: company.name, url: `https://charlotteroofinghub.com/companies/${company.slug}` },
+        ]}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}

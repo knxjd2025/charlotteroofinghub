@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { FileText, CheckCircle, AlertTriangle, ClipboardList, Download } from 'lucide-react'
 import FAQSection from '@/components/shared/FAQSection'
 import { stockImages } from '@/data/stock-images'
+import BreadcrumbsSchema from '@/components/shared/BreadcrumbsSchema'
 
 export const metadata: Metadata = {
   title: 'HOA Roof Approval Guide for Charlotte Homeowners | Free Template',
@@ -99,6 +100,12 @@ const hoaFAQs = [
 export default function HOARoofApprovalPage() {
   return (
     <>
+      <BreadcrumbsSchema
+        items={[
+          { name: 'Home', url: 'https://charlotteroofinghub.com' },
+          { name: 'HOA Roof Approval', url: 'https://charlotteroofinghub.com/hoa-roof-approval' },
+        ]}
+      />
       {/* Hero Section */}
       <section className="relative text-white py-12 md:py-16 overflow-hidden">
         <Image

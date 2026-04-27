@@ -5,6 +5,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Mail, Phone, MapPin, Send, CheckCircle } from 'lucide-react'
 import { stockImages } from '@/data/stock-images'
+import BreadcrumbsSchema from '@/components/shared/BreadcrumbsSchema'
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false)
@@ -16,6 +17,12 @@ export default function ContactPage() {
 
   return (
     <>
+      <BreadcrumbsSchema
+        items={[
+          { name: 'Home', url: 'https://charlotteroofinghub.com' },
+          { name: 'Contact', url: 'https://charlotteroofinghub.com/contact' },
+        ]}
+      />
       {/* Hero Section */}
       <section className="relative text-white py-12 overflow-hidden">
         <Image

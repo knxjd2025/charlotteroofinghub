@@ -5,6 +5,7 @@ import { Building2, CheckCircle, ArrowRight, Shield, Warehouse, Clock, DollarSig
 import FAQSection from '@/components/shared/FAQSection'
 import InstantEstimateCTA from '@/components/layout/InstantEstimateCTA'
 import { stockImages } from '@/data/stock-images'
+import BreadcrumbsSchema from '@/components/shared/BreadcrumbsSchema'
 
 export const metadata: Metadata = {
   title: 'Commercial Roofing in Charlotte NC | Flat Roof & TPO Experts',
@@ -60,6 +61,12 @@ const commercialServicesList = [
 export default function CommercialPage() {
   return (
     <>
+      <BreadcrumbsSchema
+        items={[
+          { name: 'Home', url: 'https://charlotteroofinghub.com' },
+          { name: 'Commercial Roofing', url: 'https://charlotteroofinghub.com/commercial' },
+        ]}
+      />
       {/* Hero Section */}
       <section className="relative text-white py-12 md:py-20 overflow-hidden">
         <Image

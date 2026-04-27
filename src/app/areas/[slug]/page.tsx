@@ -8,6 +8,7 @@ import { companies } from '@/data/companies'
 import { services } from '@/data/services'
 import FAQSection from '@/components/shared/FAQSection'
 import { stockImages } from '@/data/stock-images'
+import BreadcrumbsSchema from '@/components/shared/BreadcrumbsSchema'
 
 interface Props {
   params: Promise<{ slug: string }>
@@ -93,6 +94,13 @@ export default async function AreaPage({ params }: Props) {
 
   return (
     <>
+      <BreadcrumbsSchema
+        items={[
+          { name: 'Home', url: 'https://charlotteroofinghub.com' },
+          { name: 'Service Areas', url: 'https://charlotteroofinghub.com/areas' },
+          { name: area.name, url: `https://charlotteroofinghub.com/areas/${area.slug}` },
+        ]}
+      />
       {/* Hero Section */}
       <section className="relative text-white py-12 md:py-20 overflow-hidden">
         <Image
