@@ -150,7 +150,9 @@ export default function BlogPage() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Main Content */}
             <div className="lg:col-span-2 space-y-8">
-              {/* Featured Post */}
+              {/* Featured Post — marked "Coming soon" until the /blog/[slug]
+                  route exists. Previously linked to a 404 which crawlers
+                  followed and counted against the site's quality signals. */}
               {featuredPost && (
                 <article className="bg-white rounded-xl overflow-hidden shadow-sm">
                   <div className="aspect-video bg-gradient-to-br from-primary to-primary-light flex items-center justify-center">
@@ -162,11 +164,12 @@ export default function BlogPage() {
                         {featuredPost.category}
                       </span>
                       <span className="text-sm text-gray-500">Featured</span>
+                      <span className="text-xs px-2 py-1 bg-amber-100 text-amber-800 rounded-full font-medium">
+                        Coming soon
+                      </span>
                     </div>
                     <h2 className="text-2xl font-bold text-gray-900 mb-3">
-                      <Link href={`/blog/${featuredPost.slug}`} className="hover:text-primary">
-                        {featuredPost.title}
-                      </Link>
+                      {featuredPost.title}
                     </h2>
                     <p className="text-gray-600 mb-4">{featuredPost.excerpt}</p>
                     <div className="flex items-center justify-between">
@@ -180,13 +183,6 @@ export default function BlogPage() {
                           {featuredPost.readTime}
                         </span>
                       </div>
-                      <Link
-                        href={`/blog/${featuredPost.slug}`}
-                        className="inline-flex items-center gap-1 text-primary font-medium hover:underline"
-                      >
-                        Read More
-                        <ArrowRight className="w-4 h-4" />
-                      </Link>
                     </div>
                   </div>
                 </article>
@@ -200,13 +196,16 @@ export default function BlogPage() {
                       <FileText className="w-10 h-10 text-gray-300" />
                     </div>
                     <div className="p-5">
-                      <span className="inline-block px-2 py-1 bg-gray-100 text-gray-600 rounded text-xs font-medium mb-2">
-                        {post.category}
-                      </span>
+                      <div className="flex items-center gap-2 mb-2">
+                        <span className="inline-block px-2 py-1 bg-gray-100 text-gray-600 rounded text-xs font-medium">
+                          {post.category}
+                        </span>
+                        <span className="text-xs px-2 py-1 bg-amber-100 text-amber-800 rounded-full font-medium">
+                          Coming soon
+                        </span>
+                      </div>
                       <h3 className="font-bold text-gray-900 mb-2 line-clamp-2">
-                        <Link href={`/blog/${post.slug}`} className="hover:text-primary">
-                          {post.title}
-                        </Link>
+                        {post.title}
                       </h3>
                       <p className="text-sm text-gray-600 mb-3 line-clamp-2">{post.excerpt}</p>
                       <div className="flex items-center gap-3 text-xs text-gray-500">
