@@ -12,9 +12,10 @@ export default function Hero() {
             <span className="text-sm font-medium">Free Community Service | Every Company Personally Verified</span>
           </div>
 
-          {/* Main Headline - Voice Search Optimized */}
+          {/* Main Headline. Naturally carries the primary easy-win term
+              "Charlotte roofing" (KD 1, 250 vol) plus the differentiator. */}
           <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-6 leading-tight">
-            Charlotte&apos;s Only <span className="text-accent">Locally-Verified</span> Roofing Directory
+            Charlotte Roofing — <span className="text-accent">Locally-Verified</span> Companies, Free Directory
           </h1>
 
           {/* Subheadline - Trust Messaging */}

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Building2, Star, Target, Heart, Shield, ArrowRight, FileText, UserCheck, ShieldCheck, CheckCircle, Users } from 'lucide-react'
+import BreadcrumbsSchema from '@/components/shared/BreadcrumbsSchema'
 
 export const metadata: Metadata = {
   title: 'About Charlotte Roofing Hub | Free Verified Roofing Directory',
@@ -10,12 +11,20 @@ export const metadata: Metadata = {
     'background checked roofers',
     'free roofing directory charlotte',
     'trusted roofers charlotte nc'
-  ]
+  ],
+  alternates: { canonical: 'https://charlotteroofinghub.com/about' },
 }
 
 export default function AboutPage() {
   return (
     <>
+      <BreadcrumbsSchema
+        items={[
+          { name: 'Home', url: 'https://charlotteroofinghub.com' },
+          { name: 'About', url: 'https://charlotteroofinghub.com/about' },
+        ]}
+      />
+
       {/* Hero Section */}
       <section className="bg-primary text-white py-12 md:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -3,17 +3,21 @@ import Link from 'next/link'
 import { Home, CheckCircle, ArrowRight, Shield, Clock, DollarSign, Award } from 'lucide-react'
 import FAQSection from '@/components/shared/FAQSection'
 import InstantEstimateCTA from '@/components/layout/InstantEstimateCTA'
+import BreadcrumbsSchema from '@/components/shared/BreadcrumbsSchema'
 
 export const metadata: Metadata = {
-  title: 'Residential Roofing in Charlotte NC | Home Roof Services',
-  description: 'Complete guide to residential roofing in Charlotte, NC. Learn about roof replacement, repairs, materials, costs, and find top-rated home roofing contractors.',
+  title: 'Residential Roofing in Charlotte NC | Home Roofing Cost & Guide',
+  description: 'Residential roofing in Charlotte NC: average replacement runs $8,000–$25,000, asphalt shingles last 25–35 years, metal lasts 40–70 years. Verified Charlotte roofing companies, free estimates, 4.8★ rated contractors only.',
   keywords: [
     'residential roofing charlotte nc',
+    'residential roofing charlotte',
     'home roof replacement charlotte',
     'roof repair charlotte nc',
     'house roofing charlotte',
-    'residential roofers near me'
+    'residential roofers near me',
+    'home roofing cost charlotte'
   ],
+  alternates: { canonical: 'https://charlotteroofinghub.com/residential' },
 }
 
 const residentialFAQs = [
@@ -53,6 +57,13 @@ const residentialServices = [
 export default function ResidentialPage() {
   return (
     <>
+      <BreadcrumbsSchema
+        items={[
+          { name: 'Home', url: 'https://charlotteroofinghub.com' },
+          { name: 'Residential Roofing', url: 'https://charlotteroofinghub.com/residential' },
+        ]}
+      />
+
       {/* Hero Section */}
       <section className="bg-primary text-white py-12 md:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -64,9 +75,12 @@ export default function ResidentialPage() {
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
               Residential Roofing in Charlotte, NC
             </h1>
-            <p className="text-lg md:text-xl text-white/90 mb-8">
-              Your complete guide to home roofing services in Charlotte. From repairs to full replacements,
-              learn what to expect and find trusted contractors with 4.8+ star ratings.
+            {/* AEO direct-answer paragraph (~55 words) for AI Overviews extraction */}
+            <p className="text-lg md:text-xl text-white/90 mb-8" data-speakable="true">
+              Residential roofing in Charlotte NC typically costs $8,000–$25,000 for a full replacement,
+              with asphalt shingles lasting 25–35 years and metal roofing 40–70 years in the local
+              humid-subtropical climate. Every roofing company in our directory is personally vetted
+              with face-to-face owner meetings, background checks, and a 4.8★ Google rating requirement.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link

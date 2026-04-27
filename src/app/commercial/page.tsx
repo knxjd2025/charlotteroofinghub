@@ -3,17 +3,23 @@ import Link from 'next/link'
 import { Building2, CheckCircle, ArrowRight, Shield, Warehouse, Clock, DollarSign } from 'lucide-react'
 import FAQSection from '@/components/shared/FAQSection'
 import InstantEstimateCTA from '@/components/layout/InstantEstimateCTA'
+import BreadcrumbsSchema from '@/components/shared/BreadcrumbsSchema'
 
 export const metadata: Metadata = {
-  title: 'Commercial Roofing in Charlotte NC | Flat Roof & TPO Experts',
-  description: 'Commercial roofing services in Charlotte, NC. TPO, EPDM, modified bitumen, and flat roof specialists. Find licensed commercial roofing contractors.',
+  title: 'Commercial Roofing in Charlotte NC | TPO, EPDM, Flat Roof Pros',
+  description: 'Commercial roofing in Charlotte NC: TPO, EPDM, PVC, modified bitumen and flat-roof systems from $5–$12 per sq ft installed. Verified commercial roofing contractors with NC licensing, insurance, and a 4.8★ rating requirement.',
   keywords: [
     'commercial roofing charlotte nc',
+    'commercial roofing charlotte',
+    'commercial roofing contractors charlotte nc',
+    'commercial roofing companies charlotte nc',
     'flat roof repair charlotte',
     'TPO roofing charlotte',
+    'EPDM roofing charlotte',
     'commercial roofers near me',
     'business roofing charlotte nc'
   ],
+  alternates: { canonical: 'https://charlotteroofinghub.com/commercial' },
 }
 
 const commercialFAQs = [
@@ -53,6 +59,13 @@ const commercialServicesList = [
 export default function CommercialPage() {
   return (
     <>
+      <BreadcrumbsSchema
+        items={[
+          { name: 'Home', url: 'https://charlotteroofinghub.com' },
+          { name: 'Commercial Roofing', url: 'https://charlotteroofinghub.com/commercial' },
+        ]}
+      />
+
       {/* Hero Section */}
       <section className="bg-primary text-white py-12 md:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -64,9 +77,12 @@ export default function CommercialPage() {
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
               Commercial Roofing in Charlotte, NC
             </h1>
-            <p className="text-lg md:text-xl text-white/90 mb-8">
-              Expert commercial roofing services for Charlotte businesses. TPO, EPDM, flat roof repair,
-              and preventive maintenance from licensed commercial contractors.
+            {/* AEO direct-answer paragraph (~55 words) for AI Overviews extraction */}
+            <p className="text-lg md:text-xl text-white/90 mb-8" data-speakable="true">
+              Commercial roofing in Charlotte NC typically costs $5–$12 per square foot installed —
+              about $50,000–$120,000 for a 10,000 sq ft flat roof. TPO is the most popular system for
+              its heat reflection and 20–30 year lifespan; EPDM, PVC, and modified bitumen are also
+              widely used. Every contractor we list holds active NC licensing and a 4.8★ rating.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link

@@ -3,17 +3,22 @@ import Link from 'next/link'
 import { DollarSign, ArrowRight, CheckCircle, AlertCircle, Clock, Shield, ThermometerSun } from 'lucide-react'
 import FAQSection from '@/components/shared/FAQSection'
 import InstantEstimateCTA from '@/components/layout/InstantEstimateCTA'
+import BreadcrumbsSchema from '@/components/shared/BreadcrumbsSchema'
 
 export const metadata: Metadata = {
-  title: 'Roofing Materials & Prices in Charlotte NC | Cost Guide 2025',
-  description: 'Complete guide to roofing materials and prices in Charlotte, NC. Compare costs for asphalt shingles, metal roofing, TPO, and more. Updated pricing for 2025.',
+  title: 'Roofing Materials & Prices in Charlotte NC | 2026 Cost Guide',
+  description: 'Roofing materials and prices in Charlotte NC: asphalt shingles $3.50–$7/sq ft, metal $7–$14/sq ft, TPO/EPDM $5–$10/sq ft, slate $15–$30/sq ft installed. Side-by-side material comparison, lifespan, warranty, and Charlotte-specific climate guidance.',
   keywords: [
     'roofing materials charlotte nc',
     'roof replacement cost charlotte',
     'how much does a new roof cost charlotte',
     'metal roof price charlotte',
-    'shingle roof cost nc'
+    'shingle roof cost nc',
+    'asphalt shingle prices charlotte',
+    'tpo roofing cost charlotte',
+    'roofing cost per square foot charlotte'
   ],
+  alternates: { canonical: 'https://charlotteroofinghub.com/materials' },
 }
 
 const materialsFAQs = [
@@ -128,6 +133,13 @@ const commercialMaterials = [
 export default function MaterialsPage() {
   return (
     <>
+      <BreadcrumbsSchema
+        items={[
+          { name: 'Home', url: 'https://charlotteroofinghub.com' },
+          { name: 'Roofing Materials & Prices', url: 'https://charlotteroofinghub.com/materials' },
+        ]}
+      />
+
       {/* Hero Section */}
       <section className="bg-primary text-white py-12 md:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -139,9 +151,13 @@ export default function MaterialsPage() {
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
               Roofing Materials & Prices in Charlotte, NC
             </h1>
-            <p className="text-lg md:text-xl text-white/90 mb-8">
-              Compare roofing materials, costs, lifespans, and find the best option for your Charlotte property.
-              Updated pricing for 2025.
+            {/* AEO direct-answer paragraph (~55 words) for AI Overviews extraction */}
+            <p className="text-lg md:text-xl text-white/90 mb-8" data-speakable="true">
+              Roofing materials in Charlotte NC range from asphalt shingles at $3.50–$7 per square
+              foot installed (15–35 year lifespan) to metal roofing at $7–$14 per square foot
+              (40–70 years), commercial TPO/EPDM/PVC at $5–$10, and slate at $15–$30+. The right
+              choice depends on budget, home style, HOA rules, and Charlotte&apos;s humid-subtropical
+              climate.
             </p>
             <a
               href="https://instantroofestimate.ai"

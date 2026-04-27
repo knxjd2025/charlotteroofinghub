@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { FileText, ArrowRight, Calendar, Clock } from 'lucide-react'
 import InstantEstimateCTA from '@/components/layout/InstantEstimateCTA'
+import BreadcrumbsSchema from '@/components/shared/BreadcrumbsSchema'
 
 export const metadata: Metadata = {
   title: 'Roofing Blog | Tips & Guides for Charlotte Homeowners',
@@ -13,6 +14,7 @@ export const metadata: Metadata = {
     'roof repair advice',
     'roofing news nc'
   ],
+  alternates: { canonical: 'https://charlotteroofinghub.com/blog' },
 }
 
 // Sample blog posts (would come from database/CMS in production)
@@ -96,6 +98,13 @@ export default function BlogPage() {
 
   return (
     <>
+      <BreadcrumbsSchema
+        items={[
+          { name: 'Home', url: 'https://charlotteroofinghub.com' },
+          { name: 'Blog', url: 'https://charlotteroofinghub.com/blog' },
+        ]}
+      />
+
       {/* Hero Section */}
       <section className="bg-primary text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

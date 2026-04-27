@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { Mail, Phone, MapPin, Send, CheckCircle } from 'lucide-react'
+import BreadcrumbsSchema from '@/components/shared/BreadcrumbsSchema'
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false)
@@ -13,6 +14,13 @@ export default function ContactPage() {
 
   return (
     <>
+      <BreadcrumbsSchema
+        items={[
+          { name: 'Home', url: 'https://charlotteroofinghub.com' },
+          { name: 'Contact', url: 'https://charlotteroofinghub.com/contact' },
+        ]}
+      />
+
       {/* Hero Section */}
       <section className="bg-primary text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
