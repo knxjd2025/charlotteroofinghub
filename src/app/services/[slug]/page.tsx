@@ -54,8 +54,48 @@ export default async function ServicePage({ params }: Props) {
     specialty: 'bg-green-100 text-green-800'
   }
 
+  // Service JSON-LD: tells Google + AI engines exactly what's being offered,
+  // by whom, where, and at roughly what price. Pairs with BreadcrumbList +
+  // FAQPage already on this page for full rich-result coverage.
+  const serviceSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    '@id': `https://charlotteroofinghub.com/services/${service.slug}#service`,
+    name: `${service.name} in Charlotte, NC`,
+    description: service.longDescription,
+    serviceType: service.name,
+    category: service.category,
+    url: `https://charlotteroofinghub.com/services/${service.slug}`,
+    provider: { '@id': 'https://charlotteroofinghub.com/#organization' },
+    areaServed: {
+      '@type': 'City',
+      name: 'Charlotte',
+      containedInPlace: { '@type': 'State', name: 'North Carolina' },
+    },
+    offers: {
+      '@type': 'AggregateOffer',
+      priceCurrency: 'USD',
+      // Best-effort price extraction from the human-readable priceRange string.
+      // Falls back gracefully if the format is unexpected.
+      ...(() => {
+        const match = service.priceRange.match(/\$([\d,]+)\s*-\s*\$([\d,]+)/)
+        if (!match) return {}
+        return {
+          lowPrice: match[1].replace(/,/g, ''),
+          highPrice: match[2].replace(/,/g, ''),
+        }
+      })(),
+      availability: 'https://schema.org/InStock',
+    },
+    inLanguage: 'en-US',
+  }
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
       <BreadcrumbsSchema
         items={[
           { name: 'Home', url: 'https://charlotteroofinghub.com' },
